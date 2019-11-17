@@ -7,7 +7,6 @@ import 'semantic-ui-css/semantic.min.css';
 import './features/_shared/css/main.css';
 import './features/_shared/css/grid.css';
 // import 'rheostat/initialize';
-import {} from './features/Start';
 import {} from './features/_shared/components';
 import { Root } from './features/Root';
 
