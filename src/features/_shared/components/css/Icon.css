@@ -1,0 +1,116 @@
+/**
+ * @Author: Joshua Asare <joshuaasare>
+ * @Date:   2019-08-21 21:59:30
+ * @Last modified by:   joshuaasare
+ * @Last modified time: 2019-09-06 14:56:08
+ */
+
+.icomoon-icon {
+  cursor: pointer;
+}
+
+.icomoon-icon-checkmark {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: green;
+}
+
+.icomoon-icon-checkmark-video {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: green;
+}
+
+.icomoon-icon-success {
+  width: 2.6rem;
+  height: 2.6rem;
+  fill: green;
+}
+
+.icomoon-icon-error {
+  width: 2.4rem;
+  height: 2.4rem;
+  fill: red;
+}
+
+.icomoon-icon-checkmark-active {
+}
+
+.icomoon-icon-arrows {
+  width: 2rem;
+  height: 2rem;
+  fill: #000;
+}
+
+.icomoon-icon-arrows-small {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: #000;
+}
+
+.icomoon-icon-down {
+  width: 2rem;
+  height: 2rem;
+  fill: #000;
+}
+
+.icomoon-icon-footer-social {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #fff;
+}
+
+.icomoon-icon-minimize {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #000;
+}
+
+.icomoon-icon-filter {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #000;
+}
+
+.icomoon-icon-filter-fixed {
+  width: 20px;
+  height: 20px;
+  fill: #000;
+}
+
+.icomoon-icon-button-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: #ffd25a;
+}
+/*.icomoon-icon-type{}*/
+
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .icomoon-icon-heart-outline {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .icomoon-icon-checkmark {
+    width: 2rem;
+    height: 2rem;
+    fill: green;
+  }
+
+  .icomoon-icon-checkmark-video {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: green;
+  }
+}

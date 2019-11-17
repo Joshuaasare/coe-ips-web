@@ -1,0 +1,12 @@
+.main-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 4.3rem);
+  background-color: #fff;
+}
+.main-container .main-child {
+  overflow: hidden;
+  flex: 1;
+  position: relative;
+}

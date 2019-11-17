@@ -1,0 +1,53 @@
+/**
+ * @Author: Joshua Asare <joshuaasare>
+ * @Date:   2019-08-21 21:59:49
+ * @Last modified by:   joshuaasare
+ * @Last modified time: 2019-09-05 15:49:29
+ */
+
+.form-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.form-button > span {
+  text-align: center;
+  display: inline-block;
+}
+
+.form-button:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+.form-button:active {
+  cursor: pointer;
+  transform: translateY(0);
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .form-button:hover {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  .form-button:active {
+    cursor: pointer;
+    transform: translateY(0);
+  }
+}

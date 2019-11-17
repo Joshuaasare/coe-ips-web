@@ -1,0 +1,16 @@
+/**
+ * @Author: Joshua Asare <joshuaasare>
+ * @Date:   2019-08-21 22:00:00
+ * @Last modified by:   joshuaasare
+ * @Last modified time: 2019-08-30 19:43:27
+ */
+.circular-button {
+  cursor: pointer;
+  border-radius: 10rem;
+
+  transition: all 0.3s;
+}
+
+.circular-button:active {
+  border: 1px solid #565656;
+}
