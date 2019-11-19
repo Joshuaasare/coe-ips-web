@@ -17,7 +17,7 @@
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
 
-  --color-transluscent: rgb(31, 42, 57, 0.85);
+  --color-transluscent: rgba(31, 42, 57, 0.85);
 
   --color-orange: #c25427;
 
@@ -32,6 +32,9 @@
   --color-pink-coral-reef-medium: rgba(245, 224, 210, 0.9);
   --color-pink-coral-reef-light: rgba(245, 224, 210, 0.25);
   --default-font-size: 1.6rem;
+
+  --color-coe-primary: #ffd25a;
+  --color-coe-secondary: #1f2a39;
 
   /*GRID*/
   --grid-width: 114rem;

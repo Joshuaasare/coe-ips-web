@@ -10,10 +10,18 @@ import PropTypes from 'prop-types';
 import { Icon } from '.';
 import './css/CircularButton.css';
 
-const CircularButton = (props) => {
+const CircularButton = props => {
   const {
- size, backgroundColor, iconName, iconType, shadowed, fixed 
-} = props;
+    size,
+    backgroundColor,
+    iconName,
+    shadowed,
+    fixed,
+    children,
+    iconClassName,
+    iconActiveClassName,
+    iconActive,
+  } = props;
 
   function renderSize(size, fixed) {
     if (fixed) {
@@ -39,7 +47,13 @@ const CircularButton = (props) => {
       className="circular-button"
       onClick={props.onClick}
     >
-      <Icon name={iconName} type={iconType} />
+      <Icon
+        name={iconName}
+        className={iconClassName}
+        activeClassName={iconActiveClassName}
+        active={iconActive}
+      />
+      {children}
     </div>
   );
 };
@@ -48,17 +62,23 @@ CircularButton.propTypes = {
   size: PropTypes.number.isRequired,
   backgroundColor: PropTypes.string,
   iconName: PropTypes.string.isRequired,
-  iconType: PropTypes.string.isRequired,
   shadowed: PropTypes.bool,
   onClick: PropTypes.func,
   fixed: PropTypes.bool,
+  children: PropTypes.element,
+  iconClassName: PropTypes.string.isRequired,
+  iconActiveClassName: PropTypes.string,
+  iconActive: PropTypes.bool,
 };
 
 CircularButton.defaultProps = {
   backgroundColor: '#fff',
-  shadowed: true,
+  shadowed: false,
   onClick: () => {},
   fixed: false,
+  children: null,
+  iconActiveClassName: '',
+  iconActive: false,
 };
 
 const styles = {
