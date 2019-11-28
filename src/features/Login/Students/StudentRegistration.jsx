@@ -2,32 +2,53 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-19 21:21:30
+ * @Last Modified time: 2019-11-28 14:03:57
  */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import { MainContent, CircularButton, Icon } from '../../_shared/components';
 import './css/studentRegistration.css';
 import form from '../../_shared/assets/svg/list.svg';
 import coeLogo from '../../_shared/assets/images/coe-logo.png';
-import { PersonalInfoForm, AcademicForm } from '.';
+import { PersonalInfoForm, AcademicForm, LocationSelection } from '.';
 import CredentialsForm from './CredentialsForm';
+import { getPlacesFromSearchKey, getLocationDetails } from '../_helpers';
+import { constants } from '../../_shared/constants';
+import { registerStudents } from './_helpers';
+import { routes } from '../routes';
 
 const StudentRegistration = props => {
-  const {} = props;
+  const { pushRoute } = props;
+  const [loading, setLoading] = useState(false);
+  const [searchKey, setSearchKey] = useState('');
+  const [locationDetails, setLocationDetails] = useState({});
+  const [places, setPlaces] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [studentData, setStudentData] = useState({
     surname: '',
     otherNames: '',
-    indexNumber: '',
+    indexNumber: null,
     department: '',
     programme: '',
-    haveCompany: '',
+    haveCompany: null,
+    acadYear: null,
+    foreignStudent: null,
+    yearOfStudy: '',
     email: '',
     phone: '',
     password: '',
     confirmPassword: '',
+    locationId: null,
   });
+
+  useEffect(() => {
+    fetchPlaces();
+  }, [searchKey]);
+
+  async function fetchPlaces() {
+    const resp = await getPlacesFromSearchKey(searchKey);
+    setPlaces(resp);
+  }
 
   function renderToolbar() {
     return (
@@ -61,36 +82,58 @@ const StudentRegistration = props => {
     return (
       <div className="stud-reg__next-prev">
         <div>
-          {activeIndex === -1 ? null : (
+          {activeIndex === -1 || activeIndex === 3 ? null : (
             <Button
               float="left"
               size="large"
               onClick={() => onPreviousClick()}
               className="stud-reg__buttons"
+              disabled={loading}
             >
               <span>Previous</span>
             </Button>
           )}
         </div>
 
-        <Button
-          color="teal"
-          float="right"
-          size="large"
-          className="stud-reg__buttons"
-          onClick={
-            !(activeIndex === 3) ? () => onClickNext() : () => onFinish()
-          }
-          disabled={dataIsDirty()}
-        >
-          <span>{activeIndex === 3 ? 'Done' : 'Next'}</span>
-        </Button>
+        {activeIndex === 3 ? (
+          <Button color="teal" onClick={() => pushRoute(routes.LANDING.path)}>
+            Done
+          </Button>
+        ) : (
+          <Button
+            color="teal"
+            float="right"
+            size="large"
+            className="stud-reg__buttons"
+            onClick={
+              !(activeIndex === 2) ? () => onClickNext() : () => onSave()
+            }
+            disabled={dataIsDirty()}
+            loading={loading}
+          >
+            <span>{activeIndex === 2 ? 'Save' : 'Next'}</span>
+          </Button>
+        )}
       </div>
     );
   }
 
   const onChange = (e: any, { name, value }): void => {
+    if (name === 'phone') {
+      setStudentData({ ...studentData, [name]: value.trim() });
+    } else {
+      setStudentData({ ...studentData, [name]: value });
+    }
+  };
+
+  const onLocationChange = async (e: any, { name, value }): void => {
     setStudentData({ ...studentData, [name]: value });
+    const locationDetails = await getLocationDetails(value);
+    setLocationDetails(locationDetails);
+  };
+
+  const onSearchChange = (e: any, { searchQuery }): void => {
+    setSearchKey(searchQuery);
   };
 
   function renderForm(activeIndex: ?number = -1): any {
@@ -105,6 +148,9 @@ const StudentRegistration = props => {
       password,
       confirmPassword,
       phone,
+      foreignStudent,
+      yearOfStudy,
+      locationId,
     } = studentData;
 
     switch (activeIndex) {
@@ -133,11 +179,50 @@ const StudentRegistration = props => {
             department={department}
             programme={programme}
             haveCompany={haveCompany}
+            foreignStudent={foreignStudent}
             onChange={onChange}
+            yearOfStudy={yearOfStudy}
           />
         );
+      case 2:
+        return (
+          <>
+            <Form.Select
+              size="large"
+              label="Enter your Residence"
+              search
+              // type="text"
+              name="locationId"
+              placeholder="Search residence"
+              width={16}
+              className="stud-reg__select"
+              onChange={onLocationChange}
+              value={locationId}
+              onSearchChange={onSearchChange}
+              loading={!places && places !== []}
+              options={places}
+            />
+            <LocationSelection
+              isMarkerShown
+              googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${constants.maps.API_KEY}`}
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div style={{ height: `400px` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+              locationId={locationId}
+              onChange={onChange}
+              locationDetails={locationDetails}
+            />
+          </>
+        );
       default:
-        return <PersonalInfoForm />;
+        return (
+          <div className="stud-reg__complete">
+            <Icon name="thumb-up" className="stud-reg__complete--icon" />
+            <span className="stud-reg__complete--text">
+              Congrats! You're done.
+            </span>
+          </div>
+        );
     }
   }
 
@@ -152,18 +237,33 @@ const StudentRegistration = props => {
       programme,
       haveCompany,
       email,
+      foreignStudent,
       password,
       confirmPassword,
       phone,
+      yearOfStudy,
     } = studentData;
 
     switch (activeIndex) {
       case -1:
         return !(surname && otherNames && indexNumber);
       case 0:
-        return !(email && phone && password && confirmPassword);
+        return !(
+          email &&
+          phone &&
+          phone.trim().length === 10 &&
+          password &&
+          confirmPassword &&
+          password === confirmPassword
+        );
       case 1:
-        return !(department && programme && haveCompany);
+        return !(
+          department &&
+          programme &&
+          (haveCompany === 0 || haveCompany === 1) &&
+          (foreignStudent === 0 || foreignStudent === 1) &&
+          yearOfStudy
+        );
       default:
         return null;
     }
@@ -182,7 +282,14 @@ const StudentRegistration = props => {
     }
   };
 
-  const onFinish = () => {};
+  const onSave = async () => {
+    console.log(studentData);
+    setLoading(true);
+    const resp = await registerStudents(studentData);
+    if (!resp.error && resp.status === 200) {
+      setActiveIndex(activeIndex + 1);
+    }
+  };
 
   return (
     <MainContent toolbar={renderToolbar()}>

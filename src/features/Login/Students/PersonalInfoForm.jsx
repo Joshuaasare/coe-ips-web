@@ -51,7 +51,7 @@ const PersonalInfoForm = (props: Props) => {
         <Form.Input
           size="large"
           label="Enter Index Number"
-          type="text"
+          type="number"
           name="indexNumber"
           placeholder="Index Number"
           width={16}

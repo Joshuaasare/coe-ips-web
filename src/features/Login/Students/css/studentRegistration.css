@@ -19,6 +19,10 @@
   display: inline-block;
 }
 
+.stud-reg__yesno-container:not(:last-child) {
+  margin-bottom: 3em;
+}
+
 .stud-reg__radio {
   font-weight: 700 !important;
   font-size: 1.2rem !important;
@@ -74,7 +78,7 @@
 }
 
 .stud-reg__forms {
-  padding: 2rem 40rem 0 40rem;
+  padding: 2rem 35rem 0 35rem;
 }
 
 .per-info {
@@ -83,6 +87,18 @@
 .cred-info {
 }
 
+.loc-info {
+  position: absolute;
+  padding: 2rem 0 0 0;
+}
+
+.loc-map {
+  height: 40rem;
+}
+
+.loc-select {
+  position: relative;
+}
 .per-info > span {
   display: inline-block;
 }
@@ -92,8 +108,29 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
+  z-index: 100;
 }
 
+.stud-reg__complete {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stud-reg__complete--icon {
+  height: 12rem;
+  width: 12rem;
+  fill: var(--color-coe-secondary);
+}
+
+.stud-reg__complete--text {
+  font-size: 2rem;
+  padding: 2rem 0 0 0;
+  display: inline-block;
+  color: var(--color-coe-secondary);
+}
 .acad-form {
 }
 
@@ -113,7 +150,7 @@
 }
 
 .field.stud-reg__select > div {
-  height: 3.5rem !important;
+  min-height: 3.5rem !important;
   margin-bottom: 2rem !important;
 }
 
