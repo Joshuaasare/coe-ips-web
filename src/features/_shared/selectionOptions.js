@@ -1,0 +1,51 @@
+import { getRandomInt } from './services/utilities';
+
+export const selectionOptions = {
+  PROGRAMMES: [
+    { text: 'Aerospace Engineering', value: 17 },
+    { text: 'Agricultural and Biosystems Engineering', value: 18 },
+    { text: 'Automobile Engineering', value: 18 },
+    { text: 'Geomatic Engineering', value: 14 },
+    { text: 'Biomedical Engineering', value: 4 },
+    { text: 'Chemical Engineering', value: 2 },
+    { text: 'Civil Engineering', value: getRandomInt(6, 10) },
+    { text: 'Computer Engineering', value: 5 },
+    { text: 'Electrical/Electronic Eng', value: 11 },
+    { text: 'Geological Engineering', value: 13 },
+    { text: 'Industrial Engineering', value: 18 },
+    { text: 'Materials Engineering', value: 15 },
+    { text: 'Marine Engineering', value: 9 },
+    { text: 'Metallurgical Engineering', value: 16 },
+    { text: 'Petroleum Engineering', value: 19 },
+    { text: 'Petrochemical Engineering', value: 3 },
+    { text: 'Telecommunications Engineering', value: 12 },
+  ],
+  DEPARTMENTS: [
+    { text: 'Agricultural And Biosystems Engineering Department.', value: 1 },
+    { text: 'Chemical Engineering Dept.', value: 2 },
+    { text: 'Computer Engineering Department', value: 3 },
+    { text: 'Civil Engineering Department', value: 4 },
+    {
+      text: 'Electrical/Electronic Engineering Department',
+      value: 5,
+    },
+    { text: 'Geological Engineering Department', value: 6 },
+    { text: 'Geomatic Engineering Department', value: 7 },
+    { text: 'Materials Engineering Department', value: 8 },
+    { text: 'Mechanical Engineering Department', value: 9 },
+    { text: 'Petroleum Engineering Department', value: 10 },
+  ],
+  YESORNO: [
+    { text: 'Yes', value: 1 },
+    { text: 'No', value: 0 },
+  ],
+  YEAR_OF_STUDY: [
+    { text: '1st Year', value: '1' },
+    { text: '2nd Year', value: '2' },
+    { text: '3rd Year', value: '3' },
+    { text: '4th Year', value: '4' },
+    { text: '5th Year', value: '5' },
+    { text: '6th Year', value: '6' },
+    { text: 'Post Graduate', value: 'pg' },
+  ],
+};

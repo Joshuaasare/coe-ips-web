@@ -37,16 +37,32 @@ const GenericButton = (props) => {
     };
   }
 
-  function renderIcon(icon) {
+  function renderIcon(icon, iconActive, iconClassName, iconActiveClassName) {
     if (icon) {
-      return <Icon name={icon} type="button-icon" />;
+      return (
+        <Icon
+          name={icon}
+          active={iconActive}
+          className={iconClassName}
+          iconActiveClassName={iconActiveClassName}
+        />
+      );
     }
     return null;
   }
 
   const {
- text, width, height, textColor, onClick, fluid, icon 
-} = props;
+    text,
+    width,
+    height,
+    textColor,
+    onClick,
+    fluid,
+    icon,
+    iconActive,
+    iconClassName,
+    iconActiveClassName,
+  } = props;
   return (
     <div
       style={{
@@ -66,7 +82,7 @@ const GenericButton = (props) => {
       >
         {text}
       </span>
-      {renderIcon(icon)}
+      {renderIcon(icon, iconActive, iconClassName, iconActiveClassName)}
     </div>
   );
 };
@@ -81,6 +97,9 @@ GenericButton.propTypes = {
   onClick: PropTypes.func,
   fluid: PropTypes.bool,
   icon: PropTypes.string,
+  iconActive: PropTypes.bool,
+  iconClassName: PropTypes.string,
+  iconActiveClassName: PropTypes.string,
 };
 
 GenericButton.defaultProps = {
@@ -92,6 +111,9 @@ GenericButton.defaultProps = {
   fluid: false,
   onClick: () => {},
   icon: null,
+  iconClassName: '',
+  iconActiveClassName: '',
+  iconActive: null,
 };
 
 const styles = {

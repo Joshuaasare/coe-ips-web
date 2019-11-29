@@ -9,26 +9,22 @@ import PropTypes from 'prop-types';
 import Icons from '../assets/svg/symbol-defs.svg';
 import './css/Icon.css';
 
-const Icon = ({ name, type, active }) => (
-  <svg
-    className={
-      active
-        ? `icomoon-icon icomoon-icon-${type}-active`
-        : `icomoon-icon icomoon-icon-${type}`
-    }
-  >
+const Icon = ({ name, active, activeClassName, className }) => (
+  <svg className={active ? activeClassName : className}>
     <use xlinkHref={`${Icons}#icon-${name}`} />
   </svg>
 );
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  activeClassName: PropTypes.string,
   active: PropTypes.bool,
 };
 
 Icon.defaultProps = {
   active: false,
+  activeClassName: '',
 };
 
 export { Icon };
