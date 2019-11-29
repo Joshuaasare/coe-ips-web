@@ -13,6 +13,7 @@ export const selectionOptions = {
     { text: 'Electrical/Electronic Eng', value: 11 },
     { text: 'Geological Engineering', value: 13 },
     { text: 'Industrial Engineering', value: 18 },
+    { text: 'Mechanical Engineering', value: 18 },
     { text: 'Materials Engineering', value: 15 },
     { text: 'Marine Engineering', value: 9 },
     { text: 'Metallurgical Engineering', value: 16 },
