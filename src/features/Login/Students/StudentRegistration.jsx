@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-29 16:51:38
+ * @Last Modified time: 2019-11-29 16:52:31
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -24,7 +24,7 @@ const StudentRegistration = props => {
   const [searchKey, setSearchKey] = useState('');
   const [locationDetails, setLocationDetails] = useState({});
   const [places, setPlaces] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const [studentData, setStudentData] = useState({
     surname: '',
     otherNames: '',
