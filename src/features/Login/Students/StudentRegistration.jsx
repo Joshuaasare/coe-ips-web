@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-29 16:52:31
+ * @Last Modified time: 2019-11-29 16:57:13
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -17,6 +17,7 @@ import { constants } from '../../_shared/constants';
 import { registerStudents } from './_helpers';
 import { routes } from '../routes';
 
+type Props = {};
 const StudentRegistration = props => {
   const { pushRoute } = props;
   const [loading, setLoading] = useState(false);

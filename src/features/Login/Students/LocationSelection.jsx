@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-27 14:17:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-28 07:17:55
+ * @Last Modified time: 2019-11-29 16:56:38
  */
 import React from 'react';
 import {
@@ -27,7 +27,7 @@ const LocationSelection = (props: Props) => {
       <div className="loc-map">
         <GoogleMap
           key={new Date().getTime()}
-          defaultZoom={8}
+          defaultZoom={12}
           defaultCenter={
             props.locationDetails.coords || { lat: -34.397, lng: 150.644 }
           }
