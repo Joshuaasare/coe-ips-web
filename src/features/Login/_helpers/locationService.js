@@ -3,13 +3,14 @@ import { constants } from '../../_shared/constants';
 
 export async function getPlacesFromSearchKey(searchKey: string): Array<Object> {
   try {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${searchKey}&key=${constants.maps.API_KEY}&components=country:gh`;
-    const resp = await axios.get(url);
+    const resp = await axios.get(`${proxyUrl}${url}`);
     const options = await convertPlacesToOptionsForUi(resp.data.predictions);
     return options;
   } catch (error) {
     console.log(error);
-    return { error: { msg: 'A problem occured'}};
+    return { error: { msg: 'A problem occured' } };
   }
 }
 
@@ -21,8 +22,9 @@ export async function convertPlacesToOptionsForUi(data: Array) {
 
 export async function getLocationDetails(locationId) {
   try {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${locationId}&key=${constants.maps.API_KEY}`;
-    const resp = await axios.get(url);
+    const resp = await axios.get(`${proxyUrl}${url}`);
     const result = resp.data.result;
     return {
       name: `${result.name}`,
