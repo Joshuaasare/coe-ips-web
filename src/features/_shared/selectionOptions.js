@@ -3,8 +3,8 @@ import { getRandomInt } from './services/utilities';
 export const selectionOptions = {
   PROGRAMMES: [
     { text: 'Aerospace Engineering', value: 17, key: 0 },
-    { text: 'Agricultural and Biosystems Engineering', value: 18, key: 1 },
-    { text: 'Automobile Engineering', value: 18, key: 2 },
+    { text: 'Agricultural and Biosystems Engineering', value: 20, key: 1 },
+    { text: 'Automobile Engineering', value: 21, key: 2 },
     { text: 'Geomatic Engineering', value: 14, key: 3 },
     { text: 'Biomedical Engineering', value: 4, key: 4 },
     { text: 'Chemical Engineering', value: 2 },
@@ -12,7 +12,7 @@ export const selectionOptions = {
     { text: 'Computer Engineering', value: 5, key: 6 },
     { text: 'Electrical/Electronic Eng', value: 11, key: 7 },
     { text: 'Geological Engineering', value: 13, key: 8 },
-    { text: 'Industrial Engineering', value: 18, key: 9 },
+    { text: 'Industrial Engineering', value: 22, key: 9 },
     { text: 'Mechanical Engineering', value: 18, key: 10 },
     { text: 'Materials Engineering', value: 15, key: 11 },
     { text: 'Marine Engineering', value: 9, key: 12 },

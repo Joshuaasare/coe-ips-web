@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-29 15:11:52
+ * @Last Modified time: 2019-11-29 15:26:48
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -108,7 +108,11 @@ const StudentRegistration = props => {
           </div>
 
           {activeIndex === 3 ? (
-            <Button color="teal" size="large" onClick={() => pushRoute(routes.LANDING.path)}>
+            <Button
+              color="teal"
+              size="large"
+              onClick={() => pushRoute(routes.LANDING.path)}
+            >
               Done
             </Button>
           ) : (
@@ -134,6 +138,8 @@ const StudentRegistration = props => {
   const onChange = (e: any, { name, value }): void => {
     if (name === 'phone') {
       setStudentData({ ...studentData, [name]: value.trim() });
+    } else if (value === 18 || value === 20 || value === 21 || value === 22) {
+      setStudentData({ ...studentData, [name]: 18 });
     } else {
       setStudentData({ ...studentData, [name]: value });
     }
