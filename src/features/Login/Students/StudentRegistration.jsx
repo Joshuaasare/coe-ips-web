@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-28 17:29:05
+ * @Last Modified time: 2019-11-29 14:35:10
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -108,7 +108,7 @@ const StudentRegistration = props => {
           </div>
 
           {activeIndex === 3 ? (
-            <Button color="teal" onClick={() => pushRoute(routes.LANDING.path)}>
+            <Button color="teal" size="large" onClick={() => pushRoute(routes.LANDING.path)}>
               Done
             </Button>
           ) : (
