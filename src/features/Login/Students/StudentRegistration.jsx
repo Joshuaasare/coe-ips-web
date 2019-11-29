@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-29 15:26:48
+ * @Last Modified time: 2019-11-29 16:51:38
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -24,7 +24,7 @@ const StudentRegistration = props => {
   const [searchKey, setSearchKey] = useState('');
   const [locationDetails, setLocationDetails] = useState({});
   const [places, setPlaces] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(-1);
+  const [activeIndex, setActiveIndex] = useState(1);
   const [studentData, setStudentData] = useState({
     surname: '',
     otherNames: '',
@@ -40,6 +40,7 @@ const StudentRegistration = props => {
     password: '',
     confirmPassword: '',
     locationId: null,
+    controlledProgramme: '',
   });
 
   useEffect(() => {
@@ -138,8 +139,15 @@ const StudentRegistration = props => {
   const onChange = (e: any, { name, value }): void => {
     if (name === 'phone') {
       setStudentData({ ...studentData, [name]: value.trim() });
-    } else if (value === 18 || value === 20 || value === 21 || value === 22) {
-      setStudentData({ ...studentData, [name]: 18 });
+    } else if (
+      (value === 18 || value === 20 || value === 21 || value === 22) &&
+      name === 'programme'
+    ) {
+      setStudentData({
+        ...studentData,
+        [name]: 18,
+        controlledProgramme: value,
+      });
     } else {
       setStudentData({ ...studentData, [name]: value });
     }
@@ -170,6 +178,7 @@ const StudentRegistration = props => {
       foreignStudent,
       yearOfStudy,
       locationId,
+      controlledProgramme,
     } = studentData;
 
     switch (activeIndex) {
@@ -197,6 +206,7 @@ const StudentRegistration = props => {
           <AcademicForm
             department={department}
             programme={programme}
+            controlledProgramme={controlledProgramme}
             haveCompany={haveCompany}
             foreignStudent={foreignStudent}
             onChange={onChange}
@@ -262,6 +272,7 @@ const StudentRegistration = props => {
       phone,
       yearOfStudy,
       locationId,
+      controlledProgramme,
     } = studentData;
 
     switch (activeIndex) {
