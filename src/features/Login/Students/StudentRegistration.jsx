@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-29 18:07:44
+ * @Last Modified time: 2019-11-29 20:09:24
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -150,7 +150,7 @@ const StudentRegistration = props => {
         controlledProgramme: value,
       });
     } else {
-      setStudentData({ ...studentData, [name]: value });
+      setStudentData({ ...studentData, [name]: value, controlledProgramme: value });
     }
   };
 
