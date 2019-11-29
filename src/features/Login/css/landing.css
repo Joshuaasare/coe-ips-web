@@ -34,6 +34,12 @@
   align-items: center;
 }
 
+.landing__body-buttons-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: #ffd25a;
+}
+
 .landing__text-container {
   height: 90vh;
   display: flex;

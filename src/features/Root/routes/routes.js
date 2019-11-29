@@ -1,17 +1,9 @@
-import { Students } from '../../Login/Students';
-import { Landing } from '../../Login';
+import { Login } from '../../Login';
 
 export const routes = {
   LANDING: {
-    routeName: 'Landing',
-    isExact: true,
+    routeName: 'Login',
     path: '/',
-    component: Landing,
-  },
-  STUDENT_REGISTRATION: {
-    routeName: 'Students',
-    isExact: true,
-    path: '/start/students',
-    component: Students,
+    component: Login,
   },
 };
