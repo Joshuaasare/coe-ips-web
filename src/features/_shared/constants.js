@@ -9,7 +9,7 @@ export const constants = {
   },
   app: {
     API_TOKEN: 'api_token',
-    BASE_API_URL: 'http://127.0.0.1:3001',
+    BASE_API_URL: 'https://coe-ips-backend.herokuapp.com/'
   },
   maps: {
     API_KEY: 'AIzaSyBwPi_GleOr-Jc1U_kf5RKom2Yk-W8_bIs',
