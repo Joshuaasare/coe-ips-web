@@ -13,6 +13,10 @@ export async function registerStudents(studentData) {
     );
     return resp;
   } catch (error) {
-    return { error, msg: '' };
+    console.log(error.response);
+    if (error.response.status === 409) {
+      return { error: { msg: 'User has already been registered' } };
+    }
+    return { error: { msg: 'An error occured! Please try again' } };
   }
 }

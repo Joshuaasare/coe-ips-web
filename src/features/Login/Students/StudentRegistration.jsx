@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-28 14:03:57
+ * @Last Modified time: 2019-11-28 17:29:05
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -20,6 +20,7 @@ import { routes } from '../routes';
 const StudentRegistration = props => {
   const { pushRoute } = props;
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [searchKey, setSearchKey] = useState('');
   const [locationDetails, setLocationDetails] = useState({});
   const [places, setPlaces] = useState([]);
@@ -47,7 +48,11 @@ const StudentRegistration = props => {
 
   async function fetchPlaces() {
     const resp = await getPlacesFromSearchKey(searchKey);
-    setPlaces(resp);
+    if (!resp.error) {
+      setPlaces(resp);
+    } else {
+      // setPlaces([]);
+    }
   }
 
   function renderToolbar() {
@@ -80,40 +85,48 @@ const StudentRegistration = props => {
 
   function renderNextAndPrevious(): any {
     return (
-      <div className="stud-reg__next-prev">
-        <div>
-          {activeIndex === -1 || activeIndex === 3 ? null : (
+      <div>
+        {error && !loading ? (
+          <div className="stud-reg__error">
+            <span>{error}</span>
+            <Icon name="warning" className="stud-reg__error-icon" />
+          </div>
+        ) : null}
+        <div className="stud-reg__next-prev">
+          <div>
+            {activeIndex === -1 || activeIndex === 3 ? null : (
+              <Button
+                float="left"
+                size="large"
+                onClick={() => onPreviousClick()}
+                className="stud-reg__buttons"
+                disabled={loading}
+              >
+                <span>Previous</span>
+              </Button>
+            )}
+          </div>
+
+          {activeIndex === 3 ? (
+            <Button color="teal" onClick={() => pushRoute(routes.LANDING.path)}>
+              Done
+            </Button>
+          ) : (
             <Button
-              float="left"
+              color="teal"
+              float="right"
               size="large"
-              onClick={() => onPreviousClick()}
               className="stud-reg__buttons"
-              disabled={loading}
+              onClick={
+                !(activeIndex === 2) ? () => onClickNext() : () => onSave()
+              }
+              disabled={dataIsDirty()}
+              loading={loading}
             >
-              <span>Previous</span>
+              <span>{activeIndex === 2 ? 'Save' : 'Next'}</span>
             </Button>
           )}
         </div>
-
-        {activeIndex === 3 ? (
-          <Button color="teal" onClick={() => pushRoute(routes.LANDING.path)}>
-            Done
-          </Button>
-        ) : (
-          <Button
-            color="teal"
-            float="right"
-            size="large"
-            className="stud-reg__buttons"
-            onClick={
-              !(activeIndex === 2) ? () => onClickNext() : () => onSave()
-            }
-            disabled={dataIsDirty()}
-            loading={loading}
-          >
-            <span>{activeIndex === 2 ? 'Save' : 'Next'}</span>
-          </Button>
-        )}
       </div>
     );
   }
@@ -242,6 +255,7 @@ const StudentRegistration = props => {
       confirmPassword,
       phone,
       yearOfStudy,
+      locationId,
     } = studentData;
 
     switch (activeIndex) {
@@ -264,6 +278,9 @@ const StudentRegistration = props => {
           (foreignStudent === 0 || foreignStudent === 1) &&
           yearOfStudy
         );
+
+      case 2:
+        return !locationId;
       default:
         return null;
     }
@@ -283,11 +300,15 @@ const StudentRegistration = props => {
   };
 
   const onSave = async () => {
-    console.log(studentData);
     setLoading(true);
+    setError(null);
     const resp = await registerStudents(studentData);
     if (!resp.error && resp.status === 200) {
       setActiveIndex(activeIndex + 1);
+    } else {
+      console.log('some error bi');
+      setLoading(false);
+      setError(resp.error.msg);
     }
   };
 
