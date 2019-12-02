@@ -41,12 +41,12 @@ export const selectionOptions = {
     { text: 'No', value: 0 },
   ],
   YEAR_OF_STUDY: [
-    { text: '1st Year', value: '1' },
-    { text: '2nd Year', value: '2' },
+    // { text: '1st Year', value: '1' },
+    // { text: '2nd Year', value: '2' },
     { text: '3rd Year', value: '3' },
-    { text: '4th Year', value: '4' },
-    { text: '5th Year', value: '5' },
-    { text: '6th Year', value: '6' },
+    // { text: '4th Year', value: '4' },
+    // { text: '5th Year', value: '5' },
+    // { text: '6th Year', value: '6' },
     { text: 'Post Graduate', value: 'pg' },
   ],
 };
