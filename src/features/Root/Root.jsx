@@ -36,7 +36,7 @@ const Root = () => {
 };
 
 const styles = {
-  container: {},
+  container: {}
 };
 
 export default Root;

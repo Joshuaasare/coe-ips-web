@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './css/mainContent.css';
 
-export const MainContent = (props) => (
+export const MainContent = props => (
   <div className={`main-content ${props.wrapperClass}`}>
     {props.toolbar || null}
     <div className="main-child" style={props.style}>
@@ -19,7 +19,7 @@ MainContent.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
     .isRequired,
   style: PropTypes.objectOf(PropTypes.any),
-  centerContent: PropTypes.bool,
+  centerContent: PropTypes.bool
 };
 
 MainContent.defaultProps = {
@@ -27,5 +27,5 @@ MainContent.defaultProps = {
   footer: null,
   centerContent: false,
   style: null,
-  wrapperClass: null,
+  wrapperClass: null
 };

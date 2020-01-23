@@ -2,23 +2,35 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-30 10:58:47
+ * @Last Modified time: 2020-01-23 17:33:48
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
-import { MainContent, CircularButton, Icon } from '../../_shared/components';
-import './css/studentRegistration.css';
+import {
+  MainContent,
+  CircularButton,
+  Icon,
+  CustomMessage
+} from '../../_shared/components';
 import form from '../../_shared/assets/svg/list.svg';
 import coeLogo from '../../_shared/assets/images/coe-logo.png';
 import { PersonalInfoForm, AcademicForm, LocationSelection } from '.';
 import CredentialsForm from './CredentialsForm';
-import { getPlacesFromSearchKey, getLocationDetails } from '../_helpers';
+import {
+  getPlacesFromSearchKey,
+  getLocationDetails
+} from '../../_shared/services';
 import { constants } from '../../_shared/constants';
 import { registerStudents } from './_helpers';
 import { routes } from '../routes';
+import { getErrorMessages } from '../../_shared/errorMessages';
+import './css/studentRegistration.css';
 
-type Props = {};
-const StudentRegistration = props => {
+type Props = {
+  pushRoute: () => {}
+};
+
+const StudentRegistration = (props: Props) => {
   const { pushRoute } = props;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -41,7 +53,7 @@ const StudentRegistration = props => {
     password: '',
     confirmPassword: '',
     locationId: null,
-    controlledProgramme: '',
+    controlledProgramme: ''
   });
 
   useEffect(() => {
@@ -59,7 +71,10 @@ const StudentRegistration = props => {
 
   function renderToolbar() {
     return (
-      <div className="student-registration__toolbar">
+      <div
+        className="student-registration__toolbar"
+        onClick={() => props.pushRoute(routes.LANDING.path)}
+      >
         <img src={coeLogo} alt="" className="toolbar-logo" />
       </div>
     );
@@ -73,6 +88,7 @@ const StudentRegistration = props => {
           backgroundColor={active ? 'teal' : '#eee'}
           iconName="checkmark3"
           iconClassName="stud-reg__icon"
+          iconColor="#fff"
         />
         {!last ? (
           <div className="stud-reg__line-container">
@@ -85,15 +101,26 @@ const StudentRegistration = props => {
     );
   }
 
+  const renderErrors = () => {
+    if (error && !loading) {
+      return (
+        <div className="stud-reg__error">
+          <CustomMessage
+            content={error}
+            showClose
+            header="Registration Failed"
+            negative
+          />
+        </div>
+      );
+    }
+    return null;
+  };
+
   function renderNextAndPrevious(): any {
     return (
       <div>
-        {error && !loading ? (
-          <div className="stud-reg__error">
-            <span>{error}</span>
-            <Icon name="warning" className="stud-reg__error-icon" />
-          </div>
-        ) : null}
+        {renderErrors()}
         <div className="stud-reg__next-prev">
           <div>
             {activeIndex === -1 || activeIndex === 3 ? null : (
@@ -112,7 +139,7 @@ const StudentRegistration = props => {
           {activeIndex === 3 ? (
             <Button
               color="teal"
-              size="large"
+              size="massive"
               onClick={() => pushRoute(routes.LANDING.path)}
             >
               Done
@@ -147,13 +174,13 @@ const StudentRegistration = props => {
       setStudentData({
         ...studentData,
         [name]: 18,
-        controlledProgramme: value,
+        controlledProgramme: value
       });
     } else if (name === 'programme') {
       setStudentData({
         ...studentData,
         [name]: value,
-        controlledProgramme: value,
+        controlledProgramme: value
       });
     } else {
       setStudentData({ ...studentData, [name]: value });
@@ -185,7 +212,7 @@ const StudentRegistration = props => {
       foreignStudent,
       yearOfStudy,
       locationId,
-      controlledProgramme,
+      controlledProgramme
     } = studentData;
 
     switch (activeIndex) {
@@ -255,7 +282,7 @@ const StudentRegistration = props => {
           <div className="stud-reg__complete">
             <Icon name="thumb-up" className="stud-reg__complete--icon" />
             <span className="stud-reg__complete--text">
-              Congrats! You're done.
+              {`Congrats! You're done.`}
             </span>
           </div>
         );
@@ -278,8 +305,7 @@ const StudentRegistration = props => {
       confirmPassword,
       phone,
       yearOfStudy,
-      locationId,
-      controlledProgramme,
+      locationId
     } = studentData;
 
     switch (activeIndex) {
@@ -323,17 +349,26 @@ const StudentRegistration = props => {
     }
   };
 
+  const handleErrors = error => {
+    if (error === constants.errors.USER_EXISTS) {
+      console.log(error);
+      setError(getErrorMessages()[constants.errors.USER_EXISTS]);
+    } else {
+      setError(getErrorMessages()[constants.errors.GENERIC_ERROR]);
+    }
+  };
+
   const onSave = async () => {
     setLoading(true);
     setError(null);
     const resp = await registerStudents(studentData);
-    if (!resp.error && resp.status === 200) {
-      setActiveIndex(activeIndex + 1);
-    } else {
-      console.log('some error bi');
+    if (!resp.error) {
       setLoading(false);
-      setError(resp.error.msg);
+      return setActiveIndex(activeIndex + 1);
     }
+
+    setLoading(false);
+    return handleErrors(resp.error);
   };
 
   return (

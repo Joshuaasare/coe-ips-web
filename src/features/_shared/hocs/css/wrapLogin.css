@@ -1,0 +1,147 @@
+.wrapLogin {
+  padding: -4rem 8rem 3rem 8rem;
+}
+
+.wrapLogin__svg-container {
+  height: 16rem;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapLogin__svg {
+  height: 15rem;
+}
+
+.wrapLogin__svg-container2 {
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.wrapLogin__svg2 {
+  height: 11rem;
+}
+
+.wrapLogin__forms {
+  padding: 2rem 35rem 0 35rem;
+}
+
+.wrapLogin__input input {
+  height: 3.5rem !important;
+  font-size: 1.3rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.wrapLogin__input > label,
+.wrapLogin__select > label {
+  font-size: 1.2rem !important;
+  height: 3rem;
+  color: var(--color-coe-secondary) !important;
+}
+
+.wrapLogin__toolbar {
+  padding: 2rem 5rem 0 5rem;
+}
+
+.wrapLogin__toolbar > div {
+  display: inline-block;
+  cursor: pointer;
+}
+.wrapLogin__toolbar-logo {
+  height: 3.5rem;
+}
+
+.wrapLogin__reg {
+  padding: 1rem 0 3rem 0;
+}
+
+.wrapLogin__reg-left {
+  float: left;
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 0.5rem 0 0.5rem 0;
+  cursor: pointer;
+}
+
+.wrapLogin__reg-right {
+  float: right;
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 0.5rem 0 0.5rem 0;
+  cursor: pointer;
+  color: maroon;
+}
+
+.wrapLogin__error-container {
+  padding: 1rem 0 1rem 0;
+}
+
+.wrapLogin__password {
+  min-width: 40rem !important;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .wrapLogin {
+    padding: -1rem 5rem 0 5rem;
+  }
+  .wrapLogin__forms {
+    padding: 2rem 25rem 0 25rem;
+  }
+
+  .wrapLogin__input > label,
+  .wrapLogin__select > label {
+    font-size: 1.5rem !important;
+    height: 4rem;
+    color: var(--color-coe-secondary) !important;
+  }
+
+  .wrapLogin__input input {
+    height: 5rem !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .wrapLogin__svg-container {
+    height: 22rem;
+  }
+
+  .wrapLogin__svg {
+    height: 18rem;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .wrapLogin__forms {
+    padding: 2rem 10rem 0 10rem;
+  }
+
+  .wrapLogin__buttons {
+    width: 14rem !important;
+    height: 5rem !important;
+  }
+
+  .wrapLogin__buttons > * {
+    font-size: 1.4rem !important;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+  .wrapLogin__forms {
+    padding: 2rem 4rem 0 4rem;
+  }
+
+  .wrapLogin__password {
+    padding: 0 1rem 0 1rem;
+  }
+}

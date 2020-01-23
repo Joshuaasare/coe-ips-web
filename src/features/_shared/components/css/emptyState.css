@@ -1,0 +1,59 @@
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.empty-state__svg {
+  width: 20rem;
+  height: 20rem;
+}
+
+.empty-state > span {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem;
+}
+
+.empty-state__button-container {
+  padding: 2rem 45rem 0 45rem;
+  width: 100%;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .empty-state__svg {
+    height: 30rem;
+    width: 30rem;
+  }
+
+  .empty-state__button-container {
+    padding: 2rem 20rem 0 20rem;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .empty-state__svg {
+    height: 35rem;
+    width: 35rem;
+  }
+
+  .empty-state__button-container {
+    padding: 2rem 10rem 0 10rem;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+}

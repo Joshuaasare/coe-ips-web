@@ -6,47 +6,40 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '.';
+import { Ikon } from '.';
 import './css/GenericButton.css';
 
-const GenericButton = (props) => {
+const GenericButton = props => {
   function renderSize(width, height, fluid) {
     if (fluid) {
       return {
         width: '100%',
         height: `${height}rem`,
-        borderRadius: '2px',
+        borderRadius: '2px'
       };
     }
     return {
       width: `${width}rem`,
       height: `${height}rem`,
-      borderRadius: '2px',
+      borderRadius: '2px'
     };
   }
 
   function renderColor() {
     if (props.borderColor) {
       return {
-        border: `1px solid ${props.borderColor}`,
+        border: `1px solid ${props.borderColor}`
       };
     }
 
     return {
-      backgroundColor: props.backgroundColor,
+      backgroundColor: props.backgroundColor
     };
   }
 
-  function renderIcon(icon, iconActive, iconClassName, iconActiveClassName) {
-    if (icon) {
-      return (
-        <Icon
-          name={icon}
-          active={iconActive}
-          className={iconClassName}
-          iconActiveClassName={iconActiveClassName}
-        />
-      );
+  function renderIcon(iconName) {
+    if (iconName) {
+      return <Ikon name={iconName} className={iconClassName} />;
     }
     return null;
   }
@@ -59,30 +52,29 @@ const GenericButton = (props) => {
     onClick,
     fluid,
     icon,
-    iconActive,
     iconClassName,
-    iconActiveClassName,
+    className
   } = props;
   return (
     <div
       style={{
         ...renderSize(width, height, fluid),
         ...renderColor(),
-        ...styles.buttonContainer,
+        ...styles.buttonContainer
       }}
-      className="generic-button"
+      className={`generic-button ${className}`}
       onClick={onClick}
     >
       <span
         style={{
           ...styles.textStyle,
           color: textColor,
-          marginRight: icon ? '5px' : null,
+          marginRight: icon ? '5px' : null
         }}
       >
         {text}
       </span>
-      {renderIcon(icon, iconActive, iconClassName, iconActiveClassName)}
+      {renderIcon(icon, iconClassName)}
     </div>
   );
 };
@@ -97,9 +89,8 @@ GenericButton.propTypes = {
   onClick: PropTypes.func,
   fluid: PropTypes.bool,
   icon: PropTypes.string,
-  iconActive: PropTypes.bool,
   iconClassName: PropTypes.string,
-  iconActiveClassName: PropTypes.string,
+  className: PropTypes.string
 };
 
 GenericButton.defaultProps = {
@@ -112,21 +103,20 @@ GenericButton.defaultProps = {
   onClick: () => {},
   icon: null,
   iconClassName: '',
-  iconActiveClassName: '',
-  iconActive: null,
+  className: ''
 };
 
 const styles = {
   buttonContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 
   textStyle: {
     fontWeight: '800',
-    fontSize: '1.5rem',
-  },
+    fontSize: '1.5rem'
+  }
 };
 
 export { GenericButton };

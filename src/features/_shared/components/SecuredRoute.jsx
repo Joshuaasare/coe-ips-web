@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /**
  * @Author: Joshua Asare <joshuaasare>
  * @Date:   2019-08-03 00:57:07
@@ -10,21 +11,22 @@ import { Route, Redirect } from 'react-router-dom';
 const isAuthenticated = false;
 
 type Props = {
-  component: React.Component,
+  component: React.Component
 };
 
 const SecuredRoute = ({ component: Component, ...rest }: Props) => (
   <Route
     {...rest}
-    render={props => (isAuthenticated ? (
-      <Component {...props} />
-    ) : (
-      <Redirect
-        to={{
-          pathname: '/login',
-        }}
-      />
-    ))
+    render={props =>
+      isAuthenticated ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: '/login'
+          }}
+        />
+      )
     }
   />
 );

@@ -32,13 +32,13 @@
   box-shadow: #abc4e8 0 0 1px 1px;
 }
 .DefaultHandle_handle:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   background-color: #dadfe8;
 }
 .DefaultHandle_handle:before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   background-color: #dadfe8;

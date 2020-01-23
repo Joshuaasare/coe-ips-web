@@ -10,7 +10,7 @@ import Icons from '../assets/svg/symbol-defs.svg';
 import './css/Icon.css';
 
 const Icon = ({ name, active, activeClassName, className }) => (
-  <svg className={active ? activeClassName : className}>
+  <svg className={active && activeClassName ? activeClassName : className}>
     <use xlinkHref={`${Icons}#icon-${name}`} />
   </svg>
 );
@@ -19,12 +19,12 @@ Icon.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
   activeClassName: PropTypes.string,
-  active: PropTypes.bool,
+  active: PropTypes.bool
 };
 
 Icon.defaultProps = {
   active: false,
-  activeClassName: '',
+  activeClassName: ''
 };
 
 export { Icon };

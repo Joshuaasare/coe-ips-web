@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '.';
+import { Ikon } from '.';
 import './css/CircularButton.css';
 
 const CircularButton = props => {
@@ -19,21 +19,22 @@ const CircularButton = props => {
     fixed,
     children,
     iconClassName,
-    iconActiveClassName,
-    iconActive,
+    border,
+    iconSize,
+    iconColor
   } = props;
 
   function renderSize(size, fixed) {
     if (fixed) {
       return {
         width: `${size}px`,
-        height: `${size}px`,
+        height: `${size}px`
       };
     }
     return {
       width: `${size}rem`,
       height: `${size}rem`,
-      borderRadius: `${size}rem`,
+      borderRadius: `${size}rem`
     };
   }
   return (
@@ -43,15 +44,16 @@ const CircularButton = props => {
         backgroundColor,
         ...styles.buttonContainer,
         boxShadow: shadowed ? '1px 3px 5px rgba(0, 0, 0, 0.3)' : null,
+        border: border || null
       }}
       className="circular-button"
       onClick={props.onClick}
     >
-      <Icon
+      <Ikon
         name={iconName}
         className={iconClassName}
-        activeClassName={iconActiveClassName}
-        active={iconActive}
+        size={iconSize}
+        color={iconColor}
       />
       {children}
     </div>
@@ -66,9 +68,10 @@ CircularButton.propTypes = {
   onClick: PropTypes.func,
   fixed: PropTypes.bool,
   children: PropTypes.element,
-  iconClassName: PropTypes.string.isRequired,
-  iconActiveClassName: PropTypes.string,
-  iconActive: PropTypes.bool,
+  border: PropTypes.string,
+  iconSize: PropTypes.number.isRequired,
+  iconColor: PropTypes.string,
+  iconClassName: PropTypes.string
 };
 
 CircularButton.defaultProps = {
@@ -77,15 +80,16 @@ CircularButton.defaultProps = {
   onClick: () => {},
   fixed: false,
   children: null,
-  iconActiveClassName: '',
-  iconActive: false,
+  border: '',
+  iconColor: '#000',
+  iconClassName: ''
 };
 
 const styles = {
   buttonContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 };
 export default CircularButton;

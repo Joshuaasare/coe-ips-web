@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-19 05:54:15
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-29 16:06:17
+ * @Last Modified time: 2020-01-07 16:42:59
  */
 import React from 'react';
 import { Form, Radio } from 'semantic-ui-react';
@@ -16,7 +16,7 @@ type Props = {
   onChange: () => void,
   yearOfStudy: string,
   foreignStudent: number,
-  controlledProgramme: number,
+  controlledProgramme: number
 };
 
 const AcademicForm = (props: Props) => {
@@ -26,7 +26,7 @@ const AcademicForm = (props: Props) => {
     onChange,
     yearOfStudy,
     foreignStudent,
-    controlledProgramme,
+    controlledProgramme
   } = props;
   return (
     <MainContent>

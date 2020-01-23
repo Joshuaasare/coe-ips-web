@@ -1,0 +1,231 @@
+.placement {
+  padding: 5rem 0 0 0;
+}
+
+.placement__map {
+  width: 100%;
+}
+
+.placement__info {
+  width: 100%;
+  z-index: -1;
+}
+
+.placement-done > .row > .col-1-of-2 {
+  margin-right: 0;
+  width: calc((100%) / 2);
+}
+
+.placement__intro {
+}
+
+.placement__info-buttons {
+  padding: 3rem 0 0 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.placement__info-letters {
+  opacity: 0;
+  position: absolute;
+  z-index: -500;
+}
+
+.placement-done {
+  /* height: calc(100vh - var(--toolbar-height-standard)); */
+  position: relative;
+}
+
+.placement-details {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0.5rem 0.5rem 5rem rgba(0, 0, 0, 0.15);
+  height: calc(100vh - var(--toolbar-height-standard));
+}
+
+.placement-details__container {
+  height: 100%;
+  padding: 0.5rem 3rem 0 3rem;
+  position: relative;
+  width: 100%;
+}
+
+.placement-details__svg-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.placement-details__svg {
+  height: 3rem;
+  width: 3rem;
+}
+
+.placement-details__box {
+  padding: 2rem 2rem 2rem 2rem;
+  margin: 2rem 2rem 2rem 2rem;
+  height: 90%;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0.5rem 0.5rem 5rem rgba(0, 0, 0, 0.15);
+}
+
+.placement-details__header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0 0 0;
+}
+
+.placement-details__header > span {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+}
+.placement-details__company {
+}
+
+.placement-details__company-item {
+  display: flex;
+  padding: 1rem 0 0.5rem 0;
+  align-items: center;
+}
+
+.placement-details__company-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5rem;
+}
+
+.placement-details__message-container {
+  padding: 2rem 0 1rem 0;
+}
+
+.placement-details__buttons {
+  display: flex;
+}
+
+.item__header {
+  display: inline-block;
+  color: teal;
+  font-size: 1.1rem;
+  padding: 1rem 0 0 0;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.item__content {
+  display: inline-block;
+  padding: 0.3rem 0 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .placement-details__company-item {
+    display: flex;
+    padding: 1rem 0 1rem 0;
+    align-items: center;
+  }
+
+  .placement-details__message-container {
+    padding: 1.5rem 0 2rem 0;
+  }
+
+  .item__header {
+    display: inline-block;
+    color: teal;
+    font-size: 1.4rem;
+    padding: 0.5rem 0 0 0;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .item__content {
+    display: inline-block;
+    padding: 0.2rem 0 0 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  .placement-details__container {
+    height: 100%;
+    padding: 1rem 1rem 0 1rem;
+    position: relative;
+    width: 100%;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .placement-details__company-item {
+    display: flex;
+    padding: 0.5rem 0 1.5rem 0;
+    align-items: center;
+  }
+
+  .placement-details__message-container {
+    padding: 2rem 0 4rem 0;
+  }
+
+  .item__header {
+    display: inline-block;
+    color: teal;
+    font-size: 1.4rem;
+    padding: 0.5rem 0 0 0;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .item__content {
+    display: inline-block;
+    padding: 0.2rem 0 0 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .placement-details__container {
+    height: 100%;
+    padding: 5rem 3rem 5rem 3rem;
+    position: relative;
+    width: 100%;
+  }
+
+  .placement-done {
+    height: 100% !important;
+    /* height: calc(100vh - var(--toolbar-height-standard)); */
+  }
+
+  .placement-details {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0.5rem 0.5rem 5rem rgba(0, 0, 0, 0.15);
+    height: 100% !important;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+  .placement-details__container {
+    height: 100%;
+    padding: 5rem 1.5rem 5rem 1.5rem;
+    position: relative;
+    width: 100%;
+  }
+}

@@ -1,0 +1,99 @@
+.toolbar {
+  height: var(--toolbar-height-standard);
+  border: 1.5px solid #eee;
+  padding: 0 2rem 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar__left {
+  display: flex;
+}
+
+.toolbar__right {
+}
+
+.toolbar__menu-icon {
+  height: 2rem;
+  width: 2rem;
+  fill: var(--color-coe-secondary);
+}
+
+.toolbar__menu-icon-container {
+  padding: 0.5rem;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-left: 2rem;
+}
+
+.toolbar__menu-icon-container > span {
+  margin-right: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-coe-secondary);
+}
+
+.logo__image {
+  height: 3rem;
+  width: 3rem;
+}
+
+.notif__inactive {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: black;
+}
+
+.notif__active {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: black;
+}
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .toolbar {
+    padding: 0 1rem 0 1rem;
+  }
+
+  .logo__image {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .toolbar__menu-icon {
+    height: 3rem;
+    width: 3rem;
+    fill: var(--color-coe-secondary);
+  }
+
+  .toolbar__menu-icon-container {
+    padding: 0.5rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: 2rem;
+  }
+
+  .toolbar__menu-icon-container > span {
+    font-size: 1.7rem;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+}

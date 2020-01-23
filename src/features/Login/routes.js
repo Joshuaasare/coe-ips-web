@@ -1,24 +1,60 @@
-import { Students, StudentRegistration } from './Students';
-import Landing from './Landing';
+import {
+  Students as StudentsLogin,
+  StudentRegistration,
+  StudentInstructions
+} from './Students';
+import { Landing } from '../Start';
+import { Coordinator as CoordinatorLogin } from './Coordinator';
+import { Company as CompanyLogin } from './Company';
+// import { StudentDashboard } from '../Students/Dashboard';
+
+import { StudentWrapper } from '../Students';
 
 export const routes = {
   LANDING: {
     routeName: 'Landing',
     isExact: true,
     path: '/',
-    component: Landing,
+    component: Landing
+  },
+
+  STUDENT_LOGIN: {
+    routeName: 'Student Login',
+    isExact: true,
+    path: '/start/students/login',
+    component: StudentsLogin
   },
   STUDENT_REGISTRATION_INSTRUCTIONS: {
     routeName: 'Instructions',
     isExact: true,
     path: '/start/students/instructions',
-    component: Students,
+    component: StudentInstructions
   },
 
   STUDENT_REGISTRATION_FORM: {
-    routeName: 'Form',
+    routeName: 'Student Registation',
     isExact: true,
-    path: '/start/students/form',
-    component: StudentRegistration,
+    path: '/start/students/register',
+    component: StudentRegistration
   },
+
+  COORDINATOR_LOGIN: {
+    routeName: 'Coordinator Login',
+    isExact: true,
+    path: '/start/coordinator/login',
+    component: CoordinatorLogin
+  },
+
+  COMPANY_LOGIN: {
+    routeName: 'Company',
+    isExact: true,
+    path: '/start/company/login',
+    component: CompanyLogin
+  },
+
+  STUDENT: {
+    routeName: 'Undecided',
+    path: '/student',
+    component: StudentWrapper
+  }
 };

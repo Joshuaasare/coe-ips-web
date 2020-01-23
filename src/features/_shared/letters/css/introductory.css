@@ -1,0 +1,149 @@
+.introductory {
+  padding: 5rem 0 5rem 0;
+}
+
+.introductory__download-btn {
+  padding: -12rem 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  display: block;
+  margin-top: -25px;
+  margin: 0 auto;
+}
+
+#introductory-letter {
+  margin-left: auto;
+  margin-right: auto;
+  height: 980px;
+  width: 595px;
+}
+
+.coe-heading {
+  color: red;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.coe-heading__text {
+  text-align: center;
+  display: inline-block;
+}
+
+p.letter-intro__header {
+  border-bottom: 1px solid black;
+  display: inline-block;
+  text-align: center;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+h4 {
+  color: black;
+}
+
+h5 {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.provost__office {
+  display: flex;
+}
+
+.knust-heading {
+  text-align: center;
+}
+
+.knust-logo {
+  width: 60px;
+  height: 80px;
+  float: left;
+  /* margin-left:130px; */
+  /* margin-top:20px; */
+}
+
+.coe-logo {
+  width: 60px;
+  height: 80px;
+  float: right;
+  /* margin-left:130px; */
+  /* margin-top:20px; */
+}
+
+.knust-in-full {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid red;
+  /* margin-top: -20px; */
+}
+
+hr.address__hr {
+  margin: 3px 0 3px 0;
+}
+
+.our-reference p {
+  float: left;
+  margin-top: -20px;
+}
+.letter-date p {
+  float: right;
+  margin-top: -20px;
+}
+.letter-intro p {
+  text-align: center;
+}
+
+.letter-content {
+  text-align: justify;
+  font-family: 'Times New Roman';
+}
+
+.closing-coordinator {
+  float: left;
+  font-family: 'Times New Roman';
+}
+.closing-provost {
+  float: right;
+  font-family: 'Times New Roman';
+}
+
+.closing-provost .closing-provost img {
+  width: 25px;
+  height: 25px;
+}
+
+.letter-footer {
+  /* margin-top: -20px; */
+
+  font-size: 10px;
+  color: green;
+  text-align: center;
+}
+.energy-centres {
+  text-align: center;
+}
+
+/* .shift-down-one-break-for-firefox{ */
+/*     padding-bottom:0.3px; */
+
+/* } */
+@-moz-document url-prefix() {
+  .shift-down-one-break-for-firefox {
+    padding-bottom: 15px;
+  }
+  #introductory {
+    padding-left: 20px;
+  }
+}

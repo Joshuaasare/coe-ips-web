@@ -9,42 +9,40 @@ import PropTypes from 'prop-types';
 import './css/FormButton.css';
 import { Loader } from 'semantic-ui-react';
 
-const FormButton = (props) => {
+const FormButton = props => {
   function renderSize(width, height, fluid) {
     if (fluid) {
       return {
         width: '100%',
         height: `${height}rem`,
-        borderRadius: '2px',
+        borderRadius: '2px'
       };
     }
     return {
       width: `${width}rem`,
       height: `${height}rem`,
-      borderRadius: '2px',
+      borderRadius: '2px'
     };
   }
 
   function renderColor() {
     if (props.borderColor) {
       return {
-        border: `1px solid ${props.borderColor}`,
+        border: `1px solid ${props.borderColor}`
       };
     }
 
     return {
-      backgroundColor: props.backgroundColor,
+      backgroundColor: props.backgroundColor
     };
   }
-  const {
- text, width, height, textColor, fluid, loading 
-} = props;
+  const { text, width, height, textColor, fluid, loading } = props;
   return (
     <button
       style={{
         ...renderSize(width, height, fluid),
         ...renderColor(),
-        ...styles.buttonContainer,
+        ...styles.buttonContainer
       }}
       className="form-button"
       type="submit"
@@ -67,7 +65,7 @@ FormButton.propTypes = {
   textColor: PropTypes.string,
   borderColor: PropTypes.string,
   fluid: PropTypes.bool,
-  loading: PropTypes.bool,
+  loading: PropTypes.bool
 };
 
 FormButton.defaultProps = {
@@ -77,20 +75,20 @@ FormButton.defaultProps = {
   textColor: '#000',
   borderColor: null,
   fluid: false,
-  loading: false,
+  loading: false
 };
 
 const styles = {
   buttonContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 
   textStyle: {
     fontWeight: '800',
-    fontSize: '1.5rem',
-  },
+    fontSize: '1.5rem'
+  }
 };
 
 export { FormButton };

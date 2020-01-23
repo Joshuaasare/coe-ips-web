@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
  * @Author: Joshua Asare <joshuaasare>
  * @Date:   2019-09-08 19:04:27

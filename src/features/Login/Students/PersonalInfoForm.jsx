@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-18 23:42:29
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-19 21:18:38
+ * @Last Modified time: 2020-01-22 18:37:40
  *
  * @flow
  */
@@ -14,7 +14,7 @@ type Props = {
   surname: string,
   otherNames: string,
   indexNumber: number,
-  onChange: () => void,
+  onChange: () => void
 };
 
 const PersonalInfoForm = (props: Props) => {

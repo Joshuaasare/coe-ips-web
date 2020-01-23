@@ -15,4 +15,3 @@ export default combineReducers({
   refs: RefReducer,
   form: formReducer,
 });
-

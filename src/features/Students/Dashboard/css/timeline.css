@@ -1,0 +1,135 @@
+.timeline {
+  padding: 5rem 4rem 0 4rem;
+}
+.timeline__box {
+  height: 8.5rem;
+  position: relative;
+}
+
+.timeline__inner {
+  position: absolute;
+  height: 10.5rem;
+  border-left: var(--color-coe-primary) solid 2px;
+  left: 1.5rem;
+  z-index: -1;
+}
+
+.timeline__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeline__icon-title > span {
+  margin-left: 2rem;
+  display: inline-block;
+  font-weight: 600;
+  color: #333;
+}
+
+.timeline__icon-title {
+  display: flex;
+  align-items: center;
+}
+
+.timeline__icon-active {
+  width: 2rem;
+  height: 2rem;
+}
+
+.timeline__icon-inactive {
+  width: 2rem;
+  height: 2rem;
+}
+
+.timeline__time {
+  display: inline-block;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 1.1rem;
+}
+
+.timeline__info {
+  margin-left: 5rem;
+  width: 50%;
+}
+
+.timeline__full {
+  margin-left: 5rem;
+  width: 50%;
+}
+
+.timeline__info > span,
+.timeline__full > span {
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.8px;
+  line-height: 2rem;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .timeline__box {
+    height: 12rem;
+  }
+
+  .timeline__inner {
+    height: 14rem;
+  }
+
+  .timeline__info > span,
+  .timeline__full > span {
+    color: green;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
+  .timeline__full {
+    width: 80%;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .timeline__box {
+    height: 14rem;
+  }
+  .timeline {
+    padding: 5rem 2rem 0 2rem;
+  }
+  .timeline__inner {
+    height: 16;
+  }
+
+  .timeline__time {
+    font-size: 1.4rem;
+  }
+
+  .timeline__icon-title > span {
+  }
+
+  .timeline__info > span,
+  .timeline__full > span {
+    color: green;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  .timeline__full {
+    width: 60%;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+  .timeline__full {
+    width: 80%;
+  }
+}

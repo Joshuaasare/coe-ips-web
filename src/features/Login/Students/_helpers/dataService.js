@@ -1,22 +1,18 @@
 import axios from 'axios';
-import { getLocationDetails } from '../../_helpers';
+import { getLocationDetails } from '../../../_shared/services';
 import { constants } from '../../../_shared/constants';
+import { processErrorResponse } from '../../../_shared/services/errorService';
 
 export async function registerStudents(studentData) {
   try {
     const locationDetails = await getLocationDetails(studentData.locationId);
     const data = { ...studentData, locationDetails };
-    console.log(data);
     const resp = await axios.post(
-      `${constants.app.BASE_API_URL}/register/student`,
-      data,
+      `${constants.app.BASE_API_URL}/student/register`,
+      { data }
     );
-    return resp;
+    return resp.data.data;
   } catch (error) {
-    console.log(error.response);
-    if (error.response.status === 409) {
-      return { error: { msg: 'User has already been registered' } };
-    }
-    return { error: { msg: 'An error occured! Please try again' } };
+    return processErrorResponse(error, 'registration error');
   }
 }

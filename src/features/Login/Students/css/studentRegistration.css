@@ -8,28 +8,8 @@
   align-items: center;
 }
 
-.stud-reg__icon__active {
-}
-
 .stud-reg__error {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   padding: 3rem 0 0 0;
-}
-
-.stud-reg__error > span {
-  font-size: 1.8rem;
-  margin-right: 1rem;
-  color: maroon;
-  display: inline-block;
-}
-
-.stud-reg__error-icon {
-  height: 1.8rem;
-  width: 1.8rem;
-  fill: maroon;
 }
 
 .stud-reg__yesno {
@@ -102,12 +82,6 @@
   padding: 2rem 35rem 0 35rem;
 }
 
-.per-info {
-}
-
-.cred-info {
-}
-
 .loc-info {
   position: absolute;
   padding: 2rem 0 0 0;
@@ -152,11 +126,7 @@
   display: inline-block;
   color: var(--color-coe-secondary);
 }
-.acad-form {
-}
 
-.stud-reg__input {
-}
 .stud-reg__input > label,
 .stud-reg__select > label {
   font-size: 1.2rem !important;
@@ -194,11 +164,14 @@
 
 /*TAB LANDSCAPE*/
 @media (max-width: 75em) {
+  .stud-reg__forms {
+    padding: 2rem 25rem 0 25rem !important;
+  }
 }
 /*TAB PORTRAIT*/
 @media (max-width: 56.25em) {
   .stud-reg__forms {
-    padding: 2rem 30rem 0 30rem;
+    padding: 2rem 15rem 0 15rem !important;
   }
 
   .stud-reg__input > label,
@@ -247,7 +220,7 @@
 /*PHONE*/
 @media (max-width: 37.5em) {
   .stud-reg__forms {
-    padding: 2rem 15rem 0 15rem;
+    padding: 2rem 4rem 0 4rem !important;
   }
 
   .stud-reg__buttons {
@@ -263,6 +236,6 @@
 /*EXTRA PHONE OPTIMIZATION*/
 @media (max-width: 25em) {
   .stud-reg__forms {
-    padding: 2rem 3rem 0 3rem;
+    padding: 2rem 3rem 0 3rem !important;
   }
 }

@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-18 10:09:09
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-11-18 14:37:22
+ * @Last Modified time: 2020-01-06 04:39:48
  *
  * @flow
  */
@@ -21,12 +21,12 @@ const Login = (props: Props) => {
   let unlisten;
 
   useEffect(() => {
-    unlisten = history.listen((location) => {
+    unlisten = history.listen(location => {
       const { pathname: path } = location;
 
       const pathSplit: Array<string> = path
         .split('/')
-        .filter((elem) => elem.trim() !== '');
+        .filter(elem => elem.trim() !== '');
       if (pathSplit.length === 0 || pathSplit[0] === 'start') {
         setLocationPath(path);
       }
@@ -56,6 +56,10 @@ const Login = (props: Props) => {
     history.goBack();
   };
 
+  const replaceRoute = (nextPath?: string = '') => {
+    history.replace(nextPath);
+  };
+
   function renderRoutes() {
     const routes: Array<any> = Object.keys(Routes).map(
       (key: string, id: number) => {
@@ -68,8 +72,10 @@ const Login = (props: Props) => {
           <RenderedComponent
             pushRoute={pushRoute}
             popRoute={popRoute}
+            replaceRoute={replaceRoute}
             title={route.routeName}
             path={path}
+            history={history}
           />
         );
 
@@ -81,7 +87,7 @@ const Login = (props: Props) => {
             exact={exact}
           />
         );
-      },
+      }
     );
 
     return <Switch location={history.location}>{routes}</Switch>;

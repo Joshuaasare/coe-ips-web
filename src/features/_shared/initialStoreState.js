@@ -5,13 +5,30 @@
  * @Last modified time: 2019-09-08 21:01:22
  */
 
+export const studentData = {
+  indexNumber: null,
+  yearOfStudy: '',
+  acadYear: null,
+  address: '',
+  mainDepartment: '',
+  subDepartment: ''
+};
+
 export default {
   user: {
-    currentUser: null,
-    isLoading: false,
+    currentUser: {
+      lastName: '',
+      otherNames: '',
+      userId: 0,
+      userTypeId: null,
+      userTypeName: '',
+      ...studentData
+    }
   },
 
   refs: {
-    qualityRef: null,
-  },
+    qualityRef: null
+  }
 };
+
+export const coordinatorData = {};

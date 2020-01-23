@@ -9,10 +9,8 @@ import './css/CustomRheostat.css';
 import PropTypes from 'prop-types';
 import Rheostat from 'rheostat';
 
-const CustomRheostat = (props) => {
-  const {
-    max, min, values, headerText, onChange, onValuesUpdated,
-  } = props;
+const CustomRheostat = props => {
+  const { max, min, values, headerText, onChange, onValuesUpdated } = props;
   return (
     <div className="custom-rheostat">
       <div className="custom-rheostat__header">

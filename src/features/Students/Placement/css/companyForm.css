@@ -1,0 +1,278 @@
+.stud-reg {
+  padding: -4rem 8rem 0 8rem;
+}
+
+.company-form {
+  position: relative;
+}
+
+.company-form__back {
+  position: fixed;
+  top: 6rem;
+  left: 5rem;
+  cursor: pointer;
+}
+
+.company-form__back > span {
+  font-size: 1.7rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.stud-reg__form-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stud-reg__error {
+  padding: 3rem 0 0 0;
+}
+
+.stud-reg__yesno {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-coe-secondary);
+  padding-bottom: 1rem;
+  display: inline-block;
+}
+
+.stud-reg__yesno-container:not(:last-child) {
+  margin-bottom: 3em;
+}
+
+.stud-reg__radio {
+  font-weight: 700 !important;
+  font-size: 1.2rem !important;
+}
+
+.field.stud-reg__radio input {
+  height: 5rem !important;
+  width: 5rem !important;
+}
+
+.stud-reg__svg {
+  height: 15rem;
+}
+
+.stud-reg__svg-container {
+  height: 18rem;
+  display: flex;
+  justify-content: center;
+}
+
+.stud-reg__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #fff;
+}
+
+.stud-reg__icon-active {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: green;
+}
+.stud-reg__line-container {
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stud-reg__line {
+  width: 9rem;
+  height: 0.3rem;
+  background-color: #eee;
+  border-radius: 3rem;
+  animation: all 0.2s;
+}
+
+.stud-reg__line-active {
+  width: 9rem;
+  height: 0.3rem;
+  background-color: teal;
+  border-radius: 3rem;
+  animation: all 0.2s;
+}
+
+.stud-reg__forms-modified {
+  padding: 3rem 25rem 5rem 25rem;
+}
+
+.loc-info {
+  position: absolute;
+  padding: 2rem 0 0 0;
+}
+
+.loc-select {
+  position: relative;
+}
+.per-info > span {
+  display: inline-block;
+}
+
+.stud-reg__next-prev {
+  padding: 3rem 0 2rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  z-index: 100;
+}
+
+.stud-reg__complete {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stud-reg__complete--icon {
+  height: 12rem;
+  width: 12rem;
+  fill: var(--color-coe-secondary);
+}
+
+.stud-reg__complete--text {
+  font-size: 2rem;
+  padding: 2rem 0 0 0;
+  display: inline-block;
+  color: var(--color-coe-secondary);
+}
+
+.stud-reg__input > label,
+.stud-reg__select > label {
+  font-size: 1.2rem !important;
+  height: 3rem;
+  color: var(--color-coe-secondary) !important;
+}
+
+.stud-reg__input input {
+  height: 3.5rem !important;
+  font-size: 1.3rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.field.stud-reg__select > div {
+  min-height: 3.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.field.stud-reg__select * {
+  font-size: 1.3rem !important;
+}
+
+.stud-reg__buttons {
+  width: 10rem !important;
+  height: 3.5rem !important;
+}
+
+.stud-reg__buttons > * {
+  font-size: 1.2rem !important;
+}
+
+.company-form__btns {
+  padding: 4rem 0 0 0;
+}
+
+.accordion__title {
+  font-size: 1.3rem !important;
+  display: inline-block;
+  color: teal;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .company-form__back-container {
+    position: absolute;
+    top: 4rem;
+    left: 10rem;
+  }
+  .stud-reg__forms {
+    padding: 10rem 10rem 5rem 10rem !important;
+  }
+
+  .stud-reg__input > label,
+  .stud-reg__select > label {
+    font-size: 1.5rem !important;
+    height: 4rem;
+    color: var(--color-coe-secondary) !important;
+  }
+
+  .stud-reg__input input {
+    height: 5rem !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .field.stud-reg__select > div {
+    height: 5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .field.stud-reg__select * {
+    font-size: 1.7rem !important;
+  }
+
+  .stud-reg__svg {
+    height: 18rem;
+  }
+  .stud-reg {
+    padding: -1rem 8rem 0 8rem;
+  }
+
+  .stud-reg__svg-container {
+    height: 22rem;
+  }
+
+  .stud-reg__yesno {
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+  }
+
+  .stud-reg__radio {
+    font-size: 1.5rem !important;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .company-form__back {
+    position: absolute;
+    top: 4rem;
+    left: 3.5rem;
+  }
+
+  .stud-reg__forms {
+    padding: 10rem 4rem 5rem 4rem !important;
+  }
+
+  .stud-reg__buttons {
+    width: 14rem !important;
+    height: 5rem !important;
+  }
+
+  .stud-reg__buttons > * {
+    font-size: 1.4rem !important;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+  .company-form__back-container {
+    position: absolute;
+    top: 5rem;
+    left: 3rem;
+  }
+  .stud-reg__forms {
+    padding: 10rem 3rem 5rem 3rem !important;
+  }
+}

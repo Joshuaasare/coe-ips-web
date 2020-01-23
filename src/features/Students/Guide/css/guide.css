@@ -1,0 +1,165 @@
+.guide {
+  padding: 10rem 6rem 0 6rem;
+}
+
+.guideline-cover {
+  height: 18rem;
+  margin-bottom: 4rem;
+}
+
+.guideline-cover__image-container {
+  height: 100%;
+  float: left;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+}
+
+.guide__circular {
+  position: absolute;
+  top: 4rem;
+  right: -2rem;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 100rem;
+  background-color: #fff;
+  box-shadow: 0.5rem 0.5rem 4rem rgba(0, 0, 0, 0.2);
+}
+
+.guide__circular-icon {
+}
+
+.guideline-cover__image {
+  height: 10rem;
+  /* box-shadow: 0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.2); */
+}
+
+.guideline-cover__text-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.guide-text__header {
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: inline-block;
+  padding: 1rem 0 1rem 0;
+  margin: 0 0 1rem 0;
+  border-bottom: 3px solid rosybrown;
+}
+
+.guide-text__content {
+  word-wrap: break-word;
+  font-size: 1.3rem;
+}
+
+.guideline__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guideline__header > span {
+  display: inline-block;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.guide__faqs {
+  padding: 2rem 0 0 0;
+}
+
+.guide__faqs-body {
+  padding: 3rem 10rem 5rem 10rem;
+}
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+
+/*TAB PORTRAIT SPECIAL CASE*/
+@media (max-width: 56.25em) {
+  .guide .row [class^='col-'] {
+    width: 100% !important;
+  }
+
+  .guide {
+    padding: 10rem 5rem 0 5rem;
+  }
+  .guideline-cover {
+    height: 25rem;
+  }
+
+  .guide-text__header {
+    font-size: 1.75rem;
+  }
+
+  .guide-text__content {
+    font-size: 1.75rem;
+    word-wrap: break-word;
+    line-height: 2.5rem;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .guide {
+    padding: 10rem 5rem 0 5rem;
+  }
+  .guideline-cover {
+    height: 26rem;
+  }
+
+  .guideline-cover__text-container {
+    padding-left: 3rem;
+  }
+
+  .guide__faqs-body {
+    padding: 3rem 2rem 5rem 2rem;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+  .guideline-cover {
+    height: 25rem;
+  }
+
+  .guideline-cover__image {
+    height: 8rem;
+    /* box-shadow: 0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.2); */
+  }
+
+  .guide {
+    padding: 10rem 3rem 0 3rem;
+  }
+
+  .guide-text__header {
+    font-size: 1.7rem;
+    padding: 0 0 0.7rem 0;
+    margin: 0 0 0.7rem 0;
+  }
+
+  .guide-text__content {
+    font-size: 1.75rem;
+    word-wrap: break-word;
+    line-height: 2.5rem;
+  }
+
+  .guideline__header {
+    padding: 2rem 0 2rem 0;
+  }
+
+  .guide__faqs-body {
+    padding: 3rem 0rem 5rem 0rem;
+  }
+}

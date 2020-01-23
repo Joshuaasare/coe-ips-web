@@ -1,0 +1,175 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 1rem 1rem 1rem;
+  /* background-color: var(--color-coe-secondary); */
+}
+
+.profile__avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__avatar-container {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 100rem;
+  font-size: 3rem;
+}
+
+.profile__avatar-image {
+  height: 9rem;
+  width: 9rem;
+  border-radius: 12rem;
+  font-size: 3rem;
+}
+
+.profile__name {
+  display: inline-block;
+  padding: 2rem 0 0 0;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: maroon;
+}
+
+.profile__programme {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 0 0 0;
+  color: teal;
+}
+
+.profile__info {
+  padding: 2rem 10rem 0 10rem;
+}
+
+.profile__button-container {
+  padding: 2rem 3rem 0 3rem;
+  /* background-color: saddlebrown; */
+  display: flex;
+}
+
+.profile__button {
+  height: 4rem !important;
+}
+
+.profile__svg {
+  width: 11rem;
+  height: 11rem;
+}
+
+.info__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* background-color: aqua; */
+}
+
+.info__group:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.info__icon-title {
+  display: flex;
+  align-items: center;
+  width: 60%;
+}
+
+.info__icon {
+  height: 1rem;
+  width: 1rem;
+  fill: var(--color-coe-secondary);
+}
+
+.info__icon-text {
+  padding-left: 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+.info__text {
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: 40%;
+}
+
+.profile__introductory-letter {
+  position: absolute;
+  opacity: 0;
+  z-index: -500;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .profile__info {
+    padding: 2rem 2rem 0 2rem;
+  }
+
+  .info__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  .info__icon-title {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+
+  .info__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-coe-secondary);
+  }
+
+  .info__icon-text {
+    padding-left: 1.5rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+    display: inline-block;
+  }
+
+  .info__text {
+    font-weight: 600;
+    font-size: 1.6rem;
+    word-wrap: break-word;
+    width: 50%;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .profile__svg {
+    height: 20rem;
+    width: 20rem;
+  }
+
+  .profile__name {
+    font-size: 1.9rem;
+  }
+
+  .profile__programme {
+    font-size: 1.3rem;
+  }
+
+  .profile__button-container {
+    padding: 4rem 1rem 0 1rem;
+    /* background-color: saddlebrown; */
+  }
+
+  .profile__button {
+    height: 6rem !important;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+}
