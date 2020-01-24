@@ -18,50 +18,57 @@ export const guidelines = [
     icon: '',
     header: '3. Check the placement Status',
     content:
-      'Students are to check the placement Status to see if placement has been done successfully. Students who chose to find a company on their can download the letter on the page that they will send to the company',
+      'Students are to check the placement status page to see if placement has been done successfully. Students who chose to find a company on their own can download the introductory letter on dashboard or placement status page. You can use the Letter to seek placement at your company',
     svg: 'wait'
   },
 
   {
     icon: '',
-    header: '4. Download Placement Letter',
+    header: '4. Download Acceptance Letter',
     content:
-      'Download your placement letter from the placement status page and present it to the company before the stated day of internship commencement.',
+      'All students who have been placed by the college should download the acceptance letter from the dashboard and present it to their respective companies as proof of placement before internship begins.',
     svg: 'download'
   },
   {
     icon: '',
     header: '5. Begin Internship',
     content:
-      'Report to the company on the day of commencement and start the internship. Click on the "I have started internship button" on the placement status page',
+      'Report to the company on the day of commencement and start the internship. Click on the "started internship" button on the dasboard the day you start internship.',
     svg: 'begin'
   },
   {
     icon: '',
-    header: '6. Log Sheets',
+    header: '6. Supervisor Details',
     content:
-      'Download the log sheet provided on the internship status page at the end of every week, and make a report of all activities for each day on the log sheet. Make sure your log sheet is signed by your supervisor',
+      'Visit the placement status page and update your company info by adding the details of your supervisor during internship. Make sure the details you provide are all valid.',
     svg: 'logs'
   },
   {
     icon: '',
-    header: '7. Evaluation',
+    header: '7. Log Book',
+    content:
+      'Download the Log Book provided on the placement status page and make a report of all activities for each day on the log book. Make sure your log book is signed by your supervisor at the end of every working week',
+    svg: 'appraisal'
+  },
+  {
+    icon: '',
+    header: '8. Evaluation',
     content:
       'Students are to take note that supervisors will come around to evaluate students periodically during the internship period. Absence during an evaluation day without permission will affect the students overall grade',
     svg: 'start'
   },
   {
     icon: '',
-    header: '8. Appraisal Form',
+    header: '9. Appraisal Form',
     content:
-      'Download the appraisal form from the placement status page and submit it to your supervisor to fill when you complete the internship.',
+      'Submit your log book to your supervisor to fill the appraisal form on the last page before internship completion. The appraisal form forms part of your final grade',
     svg: 'report'
   },
   {
     icon: '',
-    header: '9. Report and Appraisal Submission',
+    header: '10. Report and Log Book Submission',
     content:
-      'Students are to submit a detailed report of the whole internship process along with the signed appraisal form to their COE department co-ordinators before the given deadline. The deadline will be communicated later and is usually a few days after reopening',
+      'Students are to submit a detailed report of the whole internship process along with the filled LogBook to their COE department co-ordinators before the given deadline. The deadline will be communicated later and is usually a few days after reopening',
     svg: 'appraisal'
   }
 ];
@@ -73,13 +80,18 @@ export const faqs = [
       'Yes.. you can contact the co-ordinating assistant for the changes to be made. Please make sure that you change before placement is done'
   },
   {
-    title: 'Can i choose the company i would be placed to?',
+    title: 'Can i choose the company i would be placed to by college?',
     content:
-      'No. Placement is strictly done randomly but based on your home location.'
+      'No. Placement is strictly done based on your home location and program of study.'
   },
-  { title: 'Can I reject Placement?', content: 'Okay go ahead' },
+  {
+    title: 'Can I reject Placement by the college?',
+    content:
+      'If for some reason you are unable to intern at the company chosen for you, inform your department internship coordinator and update the info on the placement status page to the new company you will be interning with'
+  },
   {
     title: 'I have been placed at an inaccessible place?',
-    content: 'Okay go and do it'
+    content:
+      'Contact the your class rep, co-ordinating assistant or department internship coordinator'
   }
 ];
