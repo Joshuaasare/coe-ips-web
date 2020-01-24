@@ -241,6 +241,12 @@
   .stud-reg__radio {
     font-size: 1.5rem !important;
   }
+
+  .accordion__title {
+    font-size: 1.6rem !important;
+    display: inline-block;
+    color: teal;
+  }
 }
 
 /*PHONE*/
