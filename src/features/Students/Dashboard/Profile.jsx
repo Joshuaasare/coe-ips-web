@@ -2,14 +2,14 @@
  * @Author: Joshua Asare
  * @Date: 2019-12-05 18:18:07
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-23 16:27:24
+ * @Last Modified time: 2020-01-24 11:06:11
  */
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
 import { Button } from 'semantic-ui-react';
 import { Ikon } from '../../_shared/components';
 import { svg } from '../../_shared/assets';
-import { Introductory } from '../../_shared/letters';
+import { Introductory, PlacementRequest } from '../../_shared/letters';
 import './css/profile.css';
 
 type Props = {
@@ -23,7 +23,11 @@ type Props = {
 
 const Profile = (props: Props) => {
   const { profileData, name, programme, currentStudentData } = props;
+  const [IntroductoryprintLoading, setIntroductoryPrintLoading] = useState(
+    false
+  );
   const introductoryLetterRef = useRef();
+  const acceptanceLetterRef = useRef();
 
   return (
     <div className="profile">
@@ -57,25 +61,41 @@ const Profile = (props: Props) => {
               fluid
               size="massive"
               icon="download"
+              loading={IntroductoryprintLoading}
             />
           )}
           copyStyles
           content={() => introductoryLetterRef.current}
-          onBeforeGetContent={() =>
-            introductoryLetterRef.current.setDocumentTitle()
-          }
-          onAfterPrint={() =>
-            introductoryLetterRef.current.removeDocumentTitle()
-          }
+          onBeforeGetContent={() => {
+            setIntroductoryPrintLoading(true);
+            introductoryLetterRef.current.setDocumentTitle();
+          }}
+          onBeforePrint={() => {
+            setIntroductoryPrintLoading(false);
+          }}
+          onAfterPrint={() => {
+            setIntroductoryPrintLoading(false);
+            introductoryLetterRef.current.removeDocumentTitle();
+          }}
         />
 
-        <Button
-          content="Acceptance Letter"
-          color="teal"
-          fluid
-          size="massive"
-          icon="download"
-          disabled={!currentStudentData.companyId}
+        <ReactToPrint
+          trigger={() => (
+            <Button
+              content="AcceptanceLetter"
+              color="teal"
+              fluid
+              size="massive"
+              icon="download"
+              disabled={!currentStudentData.companyId}
+            />
+          )}
+          copyStyles
+          content={() => acceptanceLetterRef.current}
+          onBeforeGetContent={() =>
+            acceptanceLetterRef.current.setDocumentTitle()
+          }
+          onAfterPrint={() => acceptanceLetterRef.current.removeDocumentTitle()}
         />
       </div>
 
@@ -83,6 +103,12 @@ const Profile = (props: Props) => {
         <Introductory
           currentStudentData={currentStudentData}
           ref={introductoryLetterRef}
+        />
+      </div>
+      <div className="profile__introductory-letter">
+        <PlacementRequest
+          currentStudentData={currentStudentData}
+          ref={acceptanceLetterRef}
         />
       </div>
     </div>

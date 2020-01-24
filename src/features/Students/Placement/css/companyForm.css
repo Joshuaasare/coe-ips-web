@@ -196,7 +196,7 @@
     top: 4rem;
     left: 10rem;
   }
-  .stud-reg__forms {
+  .stud-reg__forms-modified {
     padding: 10rem 10rem 5rem 10rem !important;
   }
 
@@ -247,12 +247,12 @@
 @media (max-width: 37.5em) {
   .company-form__back {
     position: absolute;
-    top: 4rem;
-    left: 3.5rem;
+    top: 5rem;
+    left: 2rem;
   }
 
-  .stud-reg__forms {
-    padding: 10rem 4rem 5rem 4rem !important;
+  .stud-reg__forms-modified {
+    padding: 14rem 4rem 5rem 4rem !important;
   }
 
   .stud-reg__buttons {
@@ -269,10 +269,10 @@
 @media (max-width: 25em) {
   .company-form__back-container {
     position: absolute;
-    top: 5rem;
-    left: 3rem;
+    top: 3rem;
+    left: 1rem;
   }
-  .stud-reg__forms {
-    padding: 10rem 3rem 5rem 3rem !important;
+  .stud-reg__forms-modified {
+    padding: 12rem 3rem 5rem 3rem !important;
   }
 }

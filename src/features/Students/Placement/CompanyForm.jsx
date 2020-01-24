@@ -359,12 +359,7 @@ const CompanyForm = (props: Props) => {
     return (
       <div className="company-form">
         <div className="company-form__back" onClick={onBackButtonClick}>
-          <CircularButton
-            size={4}
-            iconName="arrow_back"
-            shadowed
-            iconSize={1.5}
-          />
+          <CircularButton size={6} iconName="arrow_back" iconSize={2} />
         </div>
 
         <div className="stud-reg">

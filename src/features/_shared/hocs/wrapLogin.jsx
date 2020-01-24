@@ -149,6 +149,7 @@ function wrapLogin(svgType: string, registerPath: string, userTypeId: number) {
     const onPasswordRecoverySubmit = async () => {
       setPasswordRecoveryLoading(true);
       setPasswordRecoveryError(null);
+      setError(null);
       const { newPassword, email } = passwordRecoveryData;
       const resp = await resetPassword(email, newPassword);
       setPasswordRecoveryLoading(false);
