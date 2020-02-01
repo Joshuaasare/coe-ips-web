@@ -9,6 +9,7 @@ import { Company as CompanyLogin } from './Company';
 // import { StudentDashboard } from '../Students/Dashboard';
 
 import { StudentWrapper } from '../Students';
+import { CoordinatorWrapper } from '../Coordinator';
 
 export const routes = {
   LANDING: {
@@ -56,5 +57,10 @@ export const routes = {
     routeName: 'Undecided',
     path: '/student',
     component: StudentWrapper
+  },
+  COORDINATOR: {
+    routeName: 'Undecided',
+    path: '/coordinator',
+    component: CoordinatorWrapper
   }
 };

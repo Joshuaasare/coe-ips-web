@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-04 09:03:55
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-23 18:06:10
+ * @Last Modified time: 2020-01-31 16:53:25
  */
 import React, { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
@@ -113,7 +113,7 @@ const PlacementNotDone = (props: Props) => {
 
   function renderLetters() {
     return (
-      <div className="placement__info-letters">
+      <div className="letter-hidden">
         <Introductory
           currentStudentData={studentData}
           ref={introductoryLetterRef}

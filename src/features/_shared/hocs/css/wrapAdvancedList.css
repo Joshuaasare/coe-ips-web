@@ -1,0 +1,67 @@
+.advanced-list {
+  padding: 5rem 3rem 0 3rem;
+  min-height: 100vh;
+  position: relative;
+}
+
+.button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #000;
+  width: 10rem;
+  height: 3rem;
+}
+
+.button-icon > span {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.buttons-container {
+  padding: 1rem 0 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.buttons-container > span {
+  margin-left: 1rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: maroon;
+}
+
+.pagination-wrapper {
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+}
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .advanced-list {
+    padding: 10rem 0 0 0;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .advanced-list {
+    padding: 8rem 3rem 0 3rem;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+}

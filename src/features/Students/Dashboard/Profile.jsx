@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-12-05 18:18:07
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-24 11:06:11
+ * @Last Modified time: 2020-01-31 16:35:15
  */
 import React, { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
@@ -99,13 +99,13 @@ const Profile = (props: Props) => {
         />
       </div>
 
-      <div className="profile__introductory-letter">
+      <div className="letter-hidden">
         <Introductory
           currentStudentData={currentStudentData}
           ref={introductoryLetterRef}
         />
       </div>
-      <div className="profile__introductory-letter">
+      <div className="letter-hidden">
         <PlacementRequest
           currentStudentData={currentStudentData}
           ref={acceptanceLetterRef}

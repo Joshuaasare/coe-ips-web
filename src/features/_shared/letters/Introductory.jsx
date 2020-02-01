@@ -54,6 +54,7 @@ class Introductory extends Component<Props> {
               </h5>
             </div>
             <br />
+            <br />
 
             <h5>Office of the Provost</h5>
 
@@ -70,6 +71,7 @@ class Introductory extends Component<Props> {
                   <br />
                   Email:
                   <font color="blue">
+                    {' '}
                     <i>provost.coe@knust.edu.gh</i>
                   </font>
                 </p>

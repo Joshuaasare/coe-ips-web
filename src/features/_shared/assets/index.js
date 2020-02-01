@@ -28,6 +28,9 @@ import logs from './svg/logs.svg';
 import report from './svg/report.svg';
 import appraisal from './svg/appraisal.svg';
 import auth from './svg/auth.svg';
+import cancel from './svg/cancel.svg';
+
+import message from './svg/message.svg';
 
 import noPlacement from './svg/no-placement.svg';
 
@@ -63,5 +66,7 @@ export const svg = {
   robot,
   placed,
   beer,
-  auth
+  auth,
+  cancel,
+  message
 };

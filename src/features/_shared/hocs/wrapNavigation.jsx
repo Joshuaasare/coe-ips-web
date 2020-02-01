@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { Sidebar, Menu, Dimmer } from 'semantic-ui-react';
 import { Toolbar, MainContent, Sidebar as NavBar } from '../components';
-import { checkClientAuth, removeApiToken } from '../services';
+import { checkClientAuth, signUserOut, getUserTypeId } from '../services';
 import { routes as loginRoutes } from '../../Login/routes';
 import './css/wrapNavigation.css';
 
@@ -11,7 +11,7 @@ type Props = {
   history: Object
 };
 
-function wrapNavigation(routes: Object, loginPath: string) {
+function wrapNavigation(routes: Object, loginPath: string, userTypeId: number) {
   return (props: Props) => {
     const { history } = props;
     const [sidebarActive, setSidebarActive] = useState(false);
@@ -25,19 +25,22 @@ function wrapNavigation(routes: Object, loginPath: string) {
     };
 
     async function handleClientAuth() {
-      const isAuthencticated = await checkClientAuth();
-      if (!isAuthencticated) {
-        return props.replaceRoute(loginPath);
+      const isAuthenticated = await checkClientAuth();
+      const storedUserTypeId = await getUserTypeId();
+      console.log(Number(storedUserTypeId) === userTypeId);
+      if (isAuthenticated && Number(storedUserTypeId) === userTypeId) {
+        return null;
       }
-      return null;
+      console.log('here thos');
+      return props.replaceRoute(loginPath);
     }
 
     const onSidebarClose = () => {
       setSidebarActive(false);
     };
 
-    const signOut = () => {
-      removeApiToken();
+    const signOut = async () => {
+      await signUserOut();
       return handleClientAuth();
     };
 

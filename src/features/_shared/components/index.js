@@ -8,6 +8,8 @@ export * from './CustomMessage';
 export * from './Loader';
 export * from './CenterPage';
 export * from './EmptyState';
+export * from './ButtonBar';
+export * from './LegendDivider';
 
 export { default as Ikon } from './Ikon';
 export { default as SecuredRoute } from './SecuredRoute';
@@ -18,3 +20,4 @@ export { default as Input } from './Input';
 export { default as Toolbar } from './Toolbar';
 export { default as Sidebar } from './Sidebar';
 export { default as AnimatedModal } from './AnimatedModal';
+export { default as Pagination } from './Pagination';

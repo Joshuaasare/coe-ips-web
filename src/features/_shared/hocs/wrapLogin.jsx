@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-12-18 21:40:16
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-23 18:04:44
+ * @Last Modified time: 2020-01-25 12:55:04
  *
  *This hoc contains the entire logic for login of both coordinators and
  *students. When a user visits the login page, we check if he is currently logged in,
@@ -17,7 +17,6 @@ import {
   MainContent,
   CustomMessage,
   CenterPage,
-  Loader,
   AnimatedModal
 } from '../components';
 import { images, svg } from '../assets';
@@ -140,7 +139,9 @@ function wrapLogin(svgType: string, registerPath: string, userTypeId: number) {
         case constants.roles.STUDENT.id:
           props.pushRoute(routes.STUDENT.path);
           break;
-
+        case constants.roles.COORDINATOR.id:
+          props.pushRoute(routes.COORDINATOR.path);
+          break;
         default:
           break;
       }
@@ -200,11 +201,7 @@ function wrapLogin(svgType: string, registerPath: string, userTypeId: number) {
 
     function renderContent() {
       if (pageLoader) {
-        return (
-          <CenterPage>
-            <Loader active coverEverything inverted content="Please wait" />
-          </CenterPage>
-        );
+        return <CenterPage>{}</CenterPage>;
       }
 
       function renderPasswordRecovery() {

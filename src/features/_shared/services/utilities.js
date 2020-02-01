@@ -51,7 +51,8 @@ export function arrayHasData(data?: ?Array<any>) {
  */
 export function isEmpty(val: any) {
   return (
-    val == null ||
+    val === null ||
+    val === '' ||
     (Array.isArray(val) && !val.length) ||
     (isObject(val) && !Object.keys(val).length)
   );

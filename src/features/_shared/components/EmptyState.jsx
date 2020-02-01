@@ -2,11 +2,11 @@
  * @Author: Joshua Asare
  * @Date: 2019-12-27 11:28:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2019-12-27 19:10:20
+ * @Last Modified time: 2020-01-29 03:48:17
  */
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import { MainContent } from './MainContent';
+import {} from './MainContent';
 import { svg } from '../assets';
 import './css/emptyState.css';
 
@@ -15,15 +15,32 @@ type Props = {
   onClick?: () => {},
   svgToUse: string,
   content: string,
-  buttonText?: string
+  buttonText?: string,
+  buttonDisabled?: boolean,
+  buttonLoading?: boolean
 };
 
 const EmptyState = (props: Props) => {
-  const { buttonColor, onClick, svgToUse, content, buttonText } = props;
+  const {
+    buttonColor,
+    onClick,
+    svgToUse,
+    content,
+    buttonText,
+    buttonLoading,
+    buttonDisabled
+  } = props;
   function renderButton() {
     return (
       <div className="empty-state__button-container">
-        <Button color={buttonColor} onClick={onClick} size="massive" fluid>
+        <Button
+          color={buttonColor}
+          onClick={onClick}
+          size="massive"
+          fluid
+          loading={buttonLoading}
+          disabled={buttonDisabled}
+        >
           {buttonText}
         </Button>
       </div>
@@ -42,7 +59,9 @@ const EmptyState = (props: Props) => {
 EmptyState.defaultProps = {
   buttonColor: null,
   onClick: null,
-  buttonText: null
+  buttonText: null,
+  buttonLoading: false,
+  buttonDisabled: false
 };
 
 export { EmptyState };

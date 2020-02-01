@@ -95,12 +95,6 @@
   width: 40%;
 }
 
-.profile__introductory-letter {
-  position: absolute;
-  opacity: 0;
-  z-index: -500;
-}
-
 /*BIG DESKTOP*/
 @media (max-width: 112.5em) {
 }

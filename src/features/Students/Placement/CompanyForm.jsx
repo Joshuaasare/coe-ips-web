@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-07 15:38:52
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-23 18:05:19
+ * @Last Modified time: 2020-02-01 05:13:43
  */
 import React, { useState, useEffect, useRef } from 'react';
 import { Form, Button, Accordion, Icon } from 'semantic-ui-react';

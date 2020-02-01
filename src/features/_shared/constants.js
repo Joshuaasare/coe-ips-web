@@ -5,9 +5,11 @@ export const constants = {
 
   app: {
     ENCRYPTED_API_TOKEN: 'encrypted_api_token',
+    USER_TYPE_ID: 'user_type_id',
     BASE_API_URL: 'http://localhost:3001',
     JEST_TEST_KEY: '12h.93u.77#@',
-    TOKEN_IS_ENCRYPTED: true
+    TOKEN_IS_ENCRYPTED: true,
+    ACAD_YEAR: 2019
   },
 
   maps: {

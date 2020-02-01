@@ -2,15 +2,19 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-24 10:59:56
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-24 11:49:17
+ * @Last Modified time: 2020-02-01 08:44:15
  */
 import React, { Component } from 'react';
+import * as changeCase from 'change-case';
 import { getDocumentsDateFormat } from '../services';
 import { images } from '../assets';
 import './css/placementRequest.css';
 
+import { constants } from '../constants';
+
 type Props = {
-  currentStudentData: Object
+  companyDetails: Object,
+  acadYear?: number
 };
 
 class PlacementRequest extends Component<Props> {
@@ -21,7 +25,10 @@ class PlacementRequest extends Component<Props> {
 
   setDocumentTitle() {
     // eslint-disable-next-line no-undef
-    document.title = `${this.props.currentStudentData.indexNumber} Introductory Letter`;
+    document.title = `${this.props.companyDetails.name &&
+      `${changeCase.capitalCase(
+        this.props.companyDetails.name
+      )} request letter`}`;
   }
 
   removeDocumentTitle() {
@@ -30,13 +37,7 @@ class PlacementRequest extends Component<Props> {
   }
 
   renderContent() {
-    const { currentStudentData } = this.props;
-    const {
-      acadYear,
-      surname,
-      otherNames,
-      mainDepartmentName
-    } = currentStudentData;
+    const { companyDetails } = this.props;
     return (
       <div>
         <div id="introductory-letter">
@@ -52,12 +53,12 @@ class PlacementRequest extends Component<Props> {
                 KWAME NKRUMAH UNIVERSITY OF SCIENCE AND TECHNOLOGY
               </h5>
             </div>
-            <br />
 
             <h5>Office of the Provost</h5>
+            <br />
 
             <div className="senders-address">
-              <address className="return-address">
+              <address className="senders-address">
                 <p align="right">
                   University Post Office
                   <br />
@@ -69,24 +70,46 @@ class PlacementRequest extends Component<Props> {
                   <br />
                   Email:
                   <font color="blue">
+                    {' '}
                     <i>provost.coe@knust.edu.gh</i>
                   </font>
                 </p>
               </address>
             </div>
-            <hr className="address__hr" />
             <br />
-
-            <div className="our-reference">
-              <p>
-                Our Ref:CoE-VACT/
-                {acadYear + 1}
-              </p>
-            </div>
-
             <div className="letter-date">
               <p>{getDocumentsDateFormat(Date.parse(`${new Date()}`))}</p>
             </div>
+
+            <br />
+
+            <address className="return-address">
+              <p align="left">
+                The Human Resource Manager,
+                <br />
+                {`${companyDetails.name &&
+                  changeCase.capitalCase(companyDetails.name)}`}
+                <br />
+                <span>
+                  {companyDetails.phone ? (
+                    <span>
+                      {`Phone: ${companyDetails.phone}`}
+                      <br />
+                    </span>
+                  ) : null}
+                </span>
+                <span>
+                  {companyDetails.email && (
+                    <span>
+                      Email:
+                      <font color="blue">
+                        <i>{` ${companyDetails.email}`}</i>
+                      </font>
+                    </span>
+                  )}
+                </span>
+              </p>
+            </address>
             <br />
           </div>
           <p>Dear Sir/Madam,</p>
@@ -114,16 +137,13 @@ class PlacementRequest extends Component<Props> {
             The purpose of this letter is first of all to thank you for the
             support you have been offering us in previous years in the training
             of our young engineers and also the monitoring and evaluation of our
-            students during the vacation training period.
-            <br />
-            <br />
-            The College of Engineering, KNUST, would like to seek for vacation
-            training placement in your company for our Third Year students. We
-            would seek to have your commitment both in the number of students
-            you would be willing to offer places to and the areas of engineering
-            discipline to enable us respond accordingly as per attached. We
-            would also like you to follow the link
-            “www.coeips.netlify.com/company/register” to register and choose the
+            students during the vacation training period. The College of
+            Engineering, KNUST, would like to seek for vacation training
+            placement in your company for our Third Year students. We would seek
+            to have your commitment both in the number of students you would be
+            willing to offer places to and the areas of engineering discipline
+            to enable us respond accordingly as per attached. We would also like
+            you to follow the link in the email to register and choose the
             number of students you need for each discipline.
             <br />
             <br />
@@ -155,8 +175,6 @@ class PlacementRequest extends Component<Props> {
               </div>
             </div>
 
-            <br />
-            <br />
             <br />
             <br />
 
@@ -193,5 +211,9 @@ class PlacementRequest extends Component<Props> {
     document.title = this.state.title;
   }
 }
+
+PlacementRequest.defaultProps = {
+  acadYear: constants.app.ACAD_YEAR
+};
 
 export default PlacementRequest;

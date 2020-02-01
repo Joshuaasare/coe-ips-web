@@ -34,7 +34,8 @@ export async function verifyUser(
         userTypeId
       }
     });
-    saveApiTokenInMemory(response.data.data.authToken, true);
+    await saveApiTokenInMemory(response.data.data.authToken, true);
+    await saveUserTypeIdInMemory(response.data.data.userTypeId);
     return response.data.data;
   } catch (error) {
     return processErrorResponse(error, 'Auth error');
@@ -93,6 +94,23 @@ export async function resetPassword(email, newPassword) {
   }
 }
 
+export const signUserOut = async () => {
+  await removeUserTypeId();
+  await removeApiToken();
+};
+
 export const removeApiToken = () => {
   return deleteFromWebStorage(constants.app.ENCRYPTED_API_TOKEN);
 };
+
+export async function saveUserTypeIdInMemory(userTypeId: number) {
+  await saveToWebStorage(constants.app.USER_TYPE_ID, userTypeId);
+}
+
+export async function getUserTypeId() {
+  return readFromWebStorage(constants.app.USER_TYPE_ID);
+}
+
+export async function removeUserTypeId() {
+  return deleteFromWebStorage(constants.app.USER_TYPE_ID);
+}

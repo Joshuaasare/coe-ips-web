@@ -33,3 +33,13 @@ export function pickRandomAvatarColor(id: ?number): string {
   ];
   return colors[id % 23] || 'black';
 }
+
+export function pickRandomTranslucentColor(id: ?number): string {
+  const colors = [
+    'rgba(107,32,107,0.1)',
+    'rgba(0,0,255,0.1)',
+    'rgba(128,0,0,0.1)',
+    'rgba(0,128,0,0.1)'
+  ];
+  return colors[id % 4] || 'black';
+}

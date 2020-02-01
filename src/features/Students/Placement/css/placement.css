@@ -25,12 +25,6 @@
   flex-direction: row;
 }
 
-.placement__info-letters {
-  opacity: 0;
-  position: absolute;
-  z-index: -500;
-}
-
 .placement-done {
   /* height: calc(100vh - var(--toolbar-height-standard)); */
   position: relative;

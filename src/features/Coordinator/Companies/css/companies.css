@@ -1,0 +1,204 @@
+.companies {
+}
+
+.company-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 5rem 0;
+}
+
+.company-list__table-container {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.company-list__table {
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+.table-cell {
+  width: 15rem;
+  height: 3rem;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  display: inline-block;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.table-cell > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.company-filters {
+  padding: 0 10rem 0 10rem;
+  width: 100%;
+}
+
+.company-addition {
+  width: 100%;
+}
+
+.company-addition__forms {
+  padding: 0 10rem 0 10rem;
+  width: 100%;
+  overflow-y: auto !important;
+}
+.stud-reg__radio {
+  font-weight: 700 !important;
+  font-size: 1.2rem !important;
+}
+
+.field.stud-reg__radio input {
+  height: 5rem !important;
+  width: 5rem !important;
+}
+
+.company-filters__svg {
+  height: 13rem;
+}
+
+.company-filters__svg-container {
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+}
+
+.stud-reg__input > label,
+.stud-reg__select > label {
+  font-size: 1.2rem !important;
+  height: 2rem;
+  color: var(--color-coe-secondary) !important;
+}
+
+.stud-reg__input input {
+  height: 3.5rem !important;
+  font-size: 1.3rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.field.stud-reg__select > div {
+  min-height: 3.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.field.stud-reg__select * {
+  font-size: 1.3rem !important;
+}
+
+.company-details {
+  height: 100vh;
+}
+
+.details-box {
+}
+
+.details-box__body {
+  padding: 3em 0 3rem 0;
+}
+
+.details-box__body > .logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.profile__avatar-container {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 1rem;
+  font-size: 3rem;
+}
+
+.profile__avatar-image {
+  height: 9rem;
+  width: 9rem;
+  border-radius: 12rem;
+  font-size: 3rem;
+}
+.details-box__header {
+  font-size: 1.4rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-box .info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.details-box .info-box .icon-container {
+  width: 6rem;
+  height: 6rem;
+  background-color: var(--color-coe-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5rem;
+  margin: 0 1.5rem 0 1.5rem;
+}
+
+.details-box .info-box .text {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1rem 2rem 0 2rem;
+  text-align: center;
+}
+
+.details-box .details-box__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.details-box .details-box__footer .button-container {
+  width: 100%;
+  margin: 0 1rem 0 1rem;
+}
+
+.company-addition .button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.company-addition .button-container .button {
+  width: 90%;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .company-list {
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .company-list {
+    padding-bottom: 9rem;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+}
