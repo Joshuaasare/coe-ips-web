@@ -254,7 +254,7 @@ const CompanyAdditionForm = (props: Props) => {
               label={
                 requestLetter || requestLetterUrl
                   ? 'File Uploaded. Click to change'
-                  : 'No File Uploaded. Upload Acceptance letter Now (PDF)'
+                  : 'No File Uploaded. Upload request letter Now (PDF)'
               }
               type="file"
               name="acceptanceLetter"

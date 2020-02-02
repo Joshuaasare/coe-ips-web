@@ -15,7 +15,7 @@
 }
 
 .company-list__table {
-  min-width: 600px;
+  min-width: 650px;
   border-collapse: collapse;
 }
 
@@ -95,13 +95,16 @@
 
 .company-details {
   height: 100vh;
+  width: 100%;
 }
 
 .details-box {
+  width: 100%;
 }
 
 .details-box__body {
   padding: 3em 0 3rem 0;
+  width: 100%;
 }
 
 .details-box__body > .logo {
@@ -124,12 +127,14 @@
   border-radius: 12rem;
   font-size: 3rem;
 }
+
 .details-box__header {
   font-size: 1.4rem;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .details-box .info-box {
@@ -161,18 +166,14 @@
 
 .details-box .details-box__footer {
   display: flex;
-  justify-content: center;
-}
-
-.details-box .details-box__footer .button-container {
-  width: 100%;
-  margin: 0 1rem 0 1rem;
+  justify-content: space-between;
 }
 
 .company-addition .button-container {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  padding: 1.5rem 0 0 0;
 }
 
 .company-addition .button-container .button {
@@ -188,7 +189,26 @@
 }
 /*TAB PORTRAIT*/
 @media (max-width: 56.25em) {
-  .company-list {
+  .stud-reg__input > label,
+  .stud-reg__select > label {
+    font-size: 1.5rem !important;
+    height: 4rem;
+    color: var(--color-coe-secondary) !important;
+  }
+
+  .stud-reg__input input {
+    height: 4rem !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .field.stud-reg__select > div {
+    height: 5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .field.stud-reg__select * {
+    font-size: 1.7rem !important;
   }
 }
 
@@ -201,4 +221,14 @@
 
 /*EXTRA PHONE OPTIMIZATION*/
 @media (max-width: 25em) {
+  .details-box__body {
+    padding: 2rem 0 2rem 0;
+    width: 100%;
+  }
+
+  .details-box .details-box__footer {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+  }
 }

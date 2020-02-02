@@ -1,5 +1,5 @@
 .advanced-list {
-  padding: 5rem 3rem 0 3rem;
+  padding: 5rem 2rem 0 2rem;
   min-height: 100vh;
   position: relative;
 }
@@ -28,11 +28,16 @@
   cursor: pointer;
 }
 
-.buttons-container > span {
+.buttons-container__text {
   margin-left: 1rem;
   font-weight: 600;
   font-size: 1.3rem;
   color: maroon;
+}
+
+.buttons-container__icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .pagination-wrapper {
@@ -59,6 +64,15 @@
 @media (max-width: 37.5em) {
   .advanced-list {
     padding: 8rem 3rem 0 3rem;
+  }
+
+  .buttons-container__icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .buttons-container__text {
+    display: none;
   }
 }
 

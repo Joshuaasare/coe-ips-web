@@ -266,6 +266,7 @@ class CompanyList extends Component<Props> {
           <Table.Cell>
             <Button
               icon="eye"
+              size="huge"
               onClick={() => this.props.onItemClick(company)}
             />
           </Table.Cell>
@@ -287,12 +288,13 @@ class CompanyList extends Component<Props> {
           >
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell style={{ width: '5rem' }}>
+                <Table.HeaderCell style={{ width: '6rem' }}>
                   <Button
                     color="google plus"
                     disabled={!arrayHasData(this.state.itemsSelected)}
                     icon="trash"
                     onClick={this.showConfirmDeleteModal}
+                    size="huge"
                   />
 
                   <Button
@@ -300,28 +302,29 @@ class CompanyList extends Component<Props> {
                     disabled={!arrayHasData(this.state.itemsSelected)}
                     icon="mail"
                     onClick={this.showConfirmEmailModal}
+                    size="huge"
                   />
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '15rem' }}>
+                <Table.HeaderCell style={{ width: '12rem' }}>
                   Company Name
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '8rem' }}>
+                <Table.HeaderCell style={{ width: '5rem' }}>
                   Company Address
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '8rem' }}>
+                <Table.HeaderCell style={{ width: '5rem !important' }}>
                   Email Address
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '8rem' }}>
+                <Table.HeaderCell style={{ width: '5rem' }}>
                   Phone
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '8rem' }}>
+                <Table.HeaderCell style={{ width: '5rem' }}>
                   Request Letter Uploaded
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '8rem' }}>
+                <Table.HeaderCell style={{ width: '5rem' }}>
                   Contact Status
                 </Table.HeaderCell>
 
-                <Table.HeaderCell style={{ width: '3rem' }}></Table.HeaderCell>
+                <Table.HeaderCell style={{ width: '5rem' }}></Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>

@@ -80,6 +80,7 @@ const CompanyDetails = (props: Props) => {
     return (
       <div className="details-box">
         <span className="details-box__header">{companyDetails.name}</span>
+
         <div className="details-box__body">
           <div className="logo">
             <CacheImage
@@ -124,43 +125,39 @@ const CompanyDetails = (props: Props) => {
         </div>
 
         <div className="details-box__footer">
-          <div className="button-container">
-            <Button
-              content="Edit"
-              color="google plus"
-              icon="pencil"
-              size="massive"
-              fluid
-              onClick={() => setEditMode(true)}
-            />
-          </div>
+          <Button
+            content="Edit"
+            color="google plus"
+            icon="pencil"
+            size="massive"
+            fluid
+            onClick={() => setEditMode(true)}
+          />
 
-          <div className="button-container">
-            <ReactToPrint
-              trigger={() => (
-                <Button
-                  content="Letter"
-                  color="teal"
-                  icon="cloud download"
-                  size="massive"
-                  fluid
-                  loading={requestPrintLoading}
-                />
-              )}
-              copyStyles
-              content={() => placementRequestRef.current}
-              onBeforeGetContent={() => {
-                setRequestPrintLoading(true);
-                placementRequestRef.current.setDocumentTitle();
-              }}
-              onBeforePrint={() => {
-                setRequestPrintLoading(false);
-              }}
-              onAfterPrint={() =>
-                placementRequestRef.current.removeDocumentTitle()
-              }
-            />
-          </div>
+          <ReactToPrint
+            trigger={() => (
+              <Button
+                content="Letter"
+                color="teal"
+                icon="cloud download"
+                size="massive"
+                fluid
+                loading={requestPrintLoading}
+              />
+            )}
+            copyStyles
+            content={() => placementRequestRef.current}
+            onBeforeGetContent={() => {
+              setRequestPrintLoading(true);
+              placementRequestRef.current.setDocumentTitle();
+            }}
+            onBeforePrint={() => {
+              setRequestPrintLoading(false);
+            }}
+            onAfterPrint={() =>
+              placementRequestRef.current.removeDocumentTitle()
+            }
+          />
         </div>
       </div>
     );

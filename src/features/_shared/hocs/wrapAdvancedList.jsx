@@ -29,7 +29,7 @@ export default function wrapAdvancedList(
       activeItem: null,
       showActiveItem: false,
       activePage: 1,
-      pageSize: 8,
+      pageSize: 5,
       data: null,
       dataSize: null,
       originalData: null,
@@ -184,8 +184,12 @@ export default function wrapAdvancedList(
     renderLeftButtons() {
       return (
         <div className="buttons-container" onClick={this.showFilter}>
-          <Ikon name="equalizer1" size={2} color="maroon" />
-          <span>Open Filter</span>
+          <Ikon
+            name="equalizer"
+            color="maroon"
+            className="buttons-container__icon"
+          />
+          <span className="buttons-container__text">Open Filter</span>
         </div>
       );
     }
