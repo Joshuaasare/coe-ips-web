@@ -79,23 +79,13 @@ const Profile = (props: Props) => {
           }}
         />
 
-        <ReactToPrint
-          trigger={() => (
-            <Button
-              content="AcceptanceLetter"
-              color="teal"
-              fluid
-              size="massive"
-              icon="download"
-              disabled={!currentStudentData.companyId}
-            />
-          )}
-          copyStyles
-          content={() => acceptanceLetterRef.current}
-          onBeforeGetContent={() =>
-            acceptanceLetterRef.current.setDocumentTitle()
-          }
-          onAfterPrint={() => acceptanceLetterRef.current.removeDocumentTitle()}
+        <Button
+          content="AcceptanceLetter"
+          color="teal"
+          fluid
+          size="massive"
+          icon="download"
+          disabled={!currentStudentData.companyId}
         />
       </div>
 
@@ -105,12 +95,7 @@ const Profile = (props: Props) => {
           ref={introductoryLetterRef}
         />
       </div>
-      <div className="letter-hidden">
-        <PlacementRequest
-          currentStudentData={currentStudentData}
-          ref={acceptanceLetterRef}
-        />
-      </div>
+      <div className="letter-hidden">{}</div>
     </div>
   );
 };
