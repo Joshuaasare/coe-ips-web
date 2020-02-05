@@ -21,7 +21,8 @@ const CircularButton = props => {
     iconClassName,
     border,
     iconSize,
-    iconColor
+    iconColor,
+    containerClassName
   } = props;
 
   function renderSize(size, fixed) {
@@ -46,7 +47,7 @@ const CircularButton = props => {
         boxShadow: shadowed ? '1px 3px 5px rgba(0, 0, 0, 0.3)' : null,
         border: border || null
       }}
-      className="circular-button"
+      className={`circular-button ${containerClassName}`}
       onClick={props.onClick}
     >
       <Ikon
@@ -71,7 +72,8 @@ CircularButton.propTypes = {
   border: PropTypes.string,
   iconSize: PropTypes.number.isRequired,
   iconColor: PropTypes.string,
-  iconClassName: PropTypes.string
+  iconClassName: PropTypes.string,
+  containerClassName: PropTypes.string
 };
 
 CircularButton.defaultProps = {
@@ -82,7 +84,8 @@ CircularButton.defaultProps = {
   children: null,
   border: '',
   iconColor: '#000',
-  iconClassName: ''
+  iconClassName: '',
+  containerClassName: ''
 };
 
 const styles = {

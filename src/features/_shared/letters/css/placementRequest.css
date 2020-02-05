@@ -1,71 +1,56 @@
-.introductory {
-  padding: 5rem 0 5rem 0;
-}
-
-.introductory * {
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.introductory__download-btn {
-  padding: -12rem 0 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn {
+#request-letter .btn {
   display: block;
   margin-top: -25px;
   margin: 0 auto;
 }
 
-#introductory-letter {
+#request-letter {
   margin-left: auto;
   margin-right: auto;
   height: 980px;
   width: 595px;
 }
 
-.coe-heading {
+#request-letter .coe-heading {
   color: red;
   text-align: center;
   margin-top: 40px;
 }
 
-.coe-heading__text {
+#request-letter .coe-heading__text {
   text-align: center;
   display: inline-block;
 }
 
-p.letter-intro__header {
+#request-letter p.letter-intro__header {
   border-bottom: 1px solid black;
   display: inline-block;
   text-align: center;
 }
 
-h3 {
+#request-letter h3 {
   font-weight: bold;
 }
 
-h4 {
+#request-letter h4 {
   color: black;
 }
 
-h5 {
+#request-letter h5 {
   color: red;
   font-weight: bold;
   text-align: center;
 }
 
-.provost__office {
+#request-letter .provost__office {
   display: flex;
 }
 
-.knust-heading {
+#request-letter .knust-heading {
   text-align: center;
 }
 
-.knust-logo {
+#request-letter .knust-logo {
   width: 60px;
   height: 80px;
   float: left;
@@ -73,7 +58,7 @@ h5 {
   /* margin-top:20px; */
 }
 
-.coe-logo {
+#request-letter .coe-logo {
   width: 60px;
   height: 80px;
   float: right;
@@ -81,70 +66,72 @@ h5 {
   /* margin-top:20px; */
 }
 
-.knust-in-full {
+#request-letter .knust-in-full {
   color: black;
   font-weight: bold;
   text-align: center;
 }
 
-hr {
+#request-letter hr {
   border: 0;
   border-top: 2px solid red;
   /* margin-top: -20px; */
 }
 
-hr.address__hr {
+#request-letter hr.address__hr {
   margin: 3px 0 3px 0;
 }
 
-.our-reference p {
+#request-letter .our-reference p {
   float: left;
   margin-top: -20px;
 }
-.letter-date p {
+
+#request-letter .letter-date p {
   float: right;
   margin-top: -20px;
 }
-.letter-intro p {
+
+#request-letter .letter-intro p {
   text-align: center;
 }
 
-.letter-content {
+#request-letter .letter-content {
   text-align: justify;
   font-family: 'Times New Roman';
 }
 
-address.return-address {
+#request-letter address.return-address {
   width: 300px;
 }
 
-.closing {
+#request-letter .closing {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.closing-coordinator {
+#request-letter .closing-coordinator {
   font-family: 'Times New Roman';
 }
-.closing-provost {
+#request-letter .closing-provost {
   font-family: 'Times New Roman';
 }
 
-.closing-provost .closing-provost img {
+#request-letter .closing-provost .closing-provost img {
   width: 25px;
   height: 25px;
 }
 
-.letter-footer {
+#request-letter .letter-footer {
   /* margin-top: -20px; */
 
   font-size: 10px;
   color: green;
   text-align: center;
 }
-.energy-centres {
+#request-letter .energy-centres {
   text-align: center;
 }
 
@@ -153,10 +140,10 @@ address.return-address {
 
 /* } */
 @-moz-document url-prefix() {
-  .shift-down-one-break-for-firefox {
+  #request-letter .shift-down-one-break-for-firefox {
     padding-bottom: 15px;
   }
-  #introductory {
+  #request-letter {
     padding-left: 20px;
   }
 }

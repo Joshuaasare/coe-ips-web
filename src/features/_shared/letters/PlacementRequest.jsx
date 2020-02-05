@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-24 10:59:56
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-01 08:44:15
+ * @Last Modified time: 2020-02-04 02:33:13
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
@@ -40,7 +40,7 @@ class PlacementRequest extends Component<Props> {
     const { companyDetails } = this.props;
     return (
       <div>
-        <div id="introductory-letter">
+        <div id="request-letter">
           <div className="shift-down-one-break-for-firefox" />
           <div className="letter-head">
             <div className="coe-heading" style={{}}>
@@ -115,36 +115,32 @@ class PlacementRequest extends Component<Props> {
           <p>Dear Sir/Madam,</p>
           <div className="letter-intro">
             <b>
-              <p>VACATION TRAINING PLACEMENT</p>
+              <p>VACATION TRAINING PLACEMENT REQUEST</p>
             </b>
           </div>
           <div className="letter-content">
             <br />
             The College of Engineering of the Kwame Nkrumah University of
             Science and Technology seeks to become a global college of
-            engineering focused on national industrial development. This means
-            among other things that the need for students to have exposure to
-            industrial practice early in their engineering education is one of
-            the important pillars of their training. Therefore as part of our
-            requirements for graduation in the B.Sc Degree programmes students
-            must complete a minimum of 8-week industrial attachment programme
-            with a local or an overseas industrial establishment between May and
-            August. The purpose of the vacation training among other things is
-            to enable students to translate the theories they have learnt in the
-            classroom into tasks in a real work environment.
+            engineering focused on national industrial development. Therefore as
+            part of our requirements for graduation in the B.Sc Degree
+            programmes students must complete a minimum of 8-week industrial
+            attachment programme with a local or an overseas industrial
+            establishment between May and August to gain valuable industrial
+            experience.
             <br />
             <br />
             The purpose of this letter is first of all to thank you for the
-            support you have been offering us in previous years in the training
-            of our young engineers and also the monitoring and evaluation of our
-            students during the vacation training period. The College of
-            Engineering, KNUST, would like to seek for vacation training
-            placement in your company for our Third Year students. We would seek
-            to have your commitment both in the number of students you would be
-            willing to offer places to and the areas of engineering discipline
-            to enable us respond accordingly as per attached. We would also like
-            you to follow the link in the email to register and choose the
-            number of students you need for each discipline.
+            continous support in the training of our young engineers and the
+            monitoring and evaluation of our students during the vacation
+            training period. The College of Engineering, KNUST, would like to
+            seek placements for vacation training in your company for our Third
+            Year students. We would seek to have your commitment both in the
+            number of students you would be willing to offer places to and the
+            areas of engineering discipline to enable us respond accordingly as
+            per attached. We would also like you to follow the link in the email
+            to register and choose the number of students you need for each
+            discipline.
             <br />
             <br />
             We look forward to a favourable response and future collaborations
@@ -175,7 +171,6 @@ class PlacementRequest extends Component<Props> {
               </div>
             </div>
 
-            <br />
             <br />
 
             <hr />

@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-12-18 21:40:16
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-25 12:55:04
+ * @Last Modified time: 2020-02-05 08:39:24
  *
  *This hoc contains the entire logic for login of both coordinators and
  *students. When a user visits the login page, we check if he is currently logged in,
@@ -24,7 +24,8 @@ import {
   verifyUser,
   checkClientAuth,
   verifyUserWithToken,
-  resetPassword
+  resetPassword,
+  getUserTypeId
 } from '../services';
 import { constants } from '../constants';
 import { getErrorMessages } from '../errorMessages';
@@ -33,7 +34,8 @@ import './css/wrapLogin.css';
 
 type Props = {
   pushRoute: () => void,
-  setUser: () => {}
+  setUser: () => {},
+  history: Object
 };
 
 function wrapLogin(svgType: string, registerPath: string, userTypeId: number) {
@@ -56,23 +58,45 @@ function wrapLogin(svgType: string, registerPath: string, userTypeId: number) {
       false
     );
 
+    console.log(props.history);
+
     useEffect(() => {
       checkCurrentUser();
-    });
+    }, []);
 
     async function checkCurrentUser() {
       const isAuthenticated = await checkClientAuth();
+
       if (!isAuthenticated) {
         return setPageLoader(false);
       }
+
       const resp = await verifyUserWithToken();
       if (resp.error) {
         return setPageLoader(false);
       }
 
-      if (resp.data && resp.data.userTypeId === userTypeId) {
+      console.log('verify resp', resp);
+
+      const storedUserId = await getUserTypeId();
+
+      console.log('stored', storedUserId);
+
+      if (
+        props.history.location.state &&
+        props.history.location.state.clientAuthFailed
+      ) {
+        return setPageLoader(false);
+      }
+
+      if (!storedUserId && resp.data && resp.data.userTypeId === userTypeId) {
         return handleLoginSuccess(resp.data);
       }
+
+      if (storedUserId && resp.data && resp.data.userTypeId === storedUserId) {
+        return handleLoginSuccess(resp.data);
+      }
+
       return setPageLoader(false);
     }
 
@@ -291,6 +315,7 @@ function wrapLogin(svgType: string, registerPath: string, userTypeId: number) {
                 }
                 loading={passwordRecoveryLoading}
                 onClick={onPasswordRecoverySubmit}
+                className="wrapLogin__password-button"
               />
             </AnimatedModal.Footer>
           </AnimatedModal>
@@ -345,7 +370,7 @@ function wrapLogin(svgType: string, registerPath: string, userTypeId: number) {
               disabled={!(credentials.email && credentials.password)}
               onClick={onSubmit}
             >
-              Login
+              <span className="wrapLogin__buttons">Login</span>
             </Button>
           </div>
         </div>

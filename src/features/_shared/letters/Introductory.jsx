@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-23 02:42:51
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-23 14:49:43
+ * @Last Modified time: 2020-02-04 02:42:16
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
@@ -40,7 +40,7 @@ class Introductory extends Component<Props> {
     } = currentStudentData;
     return (
       <div>
-        <div id="introductory-letter">
+        <div id="introductory">
           <div className="shift-down-one-break-for-firefox" />
           <div className="letter-head">
             <div className="coe-heading" style={{}}>
@@ -110,15 +110,17 @@ class Introductory extends Component<Props> {
             requirements for graduation in the B.Sc Engineering Degree
             programmes, students must complete a minimum of 8-week industrial
             attachment programme with a local or an overseas industrial
-            establishment between May and August. The purpose of the vacation
-            training among other things is to enable students to translate the
-            theories they have learnt in the classroom into tasks in a real work
-            environment. The purpose of this letter is first of all to thank you
-            for the support you have been offering us in previous years in the
-            training of our young engineers and also the monitoring and
-            evaluation of our students during the vacation training period. The
-            College of Engineering, KNUST, would like to seek for vacation
-            training placement in your company for
+            establishment between May and August.
+            <br />
+            <br />
+            The purpose of the vacation training among other things is to enable
+            students to translate the theories they have learnt in the classroom
+            into tasks in a real work environment. The purpose of this letter is
+            first of all to thank you for the support you have been offering us
+            in previous years in the training of our young engineers and also
+            the monitoring and evaluation of our students during the vacation
+            training period. The College of Engineering, KNUST, would like to
+            seek for vacation training placement in your company for
             <b>
               {' '}
               {`${changeCase.capitalCase(surname)} ${changeCase.capitalCase(
@@ -136,31 +138,32 @@ class Introductory extends Component<Props> {
             cooperation.
           </div>
           <br />
+          <br />
+
           <div>
-            <div className="closing-coordinator">
-              <p>Yours sincerely,</p>
-              <img src={images.profAndohSignature} alt="" />
-              <br />
-              <p>
-                Prof. P.Y. Andoh
+            <div className="closing-sign">
+              <div className="closing-coordinator">
+                <p>Yours sincerely,</p>
+                <img src={images.profAndohSignature} alt="" />
                 <br />
-                (College Internship Coordinator)
-              </p>
-            </div>
-            <div className="closing-provost">
-              <br />
-              <img src={images.provostSignature} alt="" />
-              <br />
-              <p>
-                Ing. Prof. Mark Adom-Asamoah
+                <p>
+                  Ing. Prof. P.Y. Andoh
+                  <br />
+                  (College Internship Coordinator/industrial Liaison Officer)
+                </p>
+              </div>
+              <div className="closing-provost">
                 <br />
-                (Provost, College of Engineering)
-              </p>
+                <img src={images.provostSignature} alt="" />
+                <br />
+                <p>
+                  Ing. Prof. Mark Adom-Asamoah
+                  <br />
+                  (Provost, College of Engineering)
+                </p>
+              </div>
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
+
             <br />
             <br />
             <br />

@@ -1,14 +1,9 @@
-import { apiGet, apiDelete, isEmpty, apiPut } from '../../../_shared/services';
-
-export async function getArchivedCompanies() {
-  const resp = await apiGet('/coordinator/archived-companies');
-  return resp;
-}
-
-export async function getArchivedCompaniesWithContactMade() {
-  const resp = await apiGet('/coordinator/archived-companies-contact-made');
-  return resp;
-}
+import {
+  apiDelete,
+  isEmpty,
+  apiPut,
+  getArchivedCompaniesWithContactMade
+} from '../../../_shared/services';
 
 export async function getArchivedCompaniesWithFilters(data) {
   const { contactStatus, contactInfoStatus } = data;

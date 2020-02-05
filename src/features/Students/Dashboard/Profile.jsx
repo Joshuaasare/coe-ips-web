@@ -80,12 +80,12 @@ const Profile = (props: Props) => {
         />
 
         <Button
-          content="AcceptanceLetter"
+          content="Acceptance Letter"
           color="teal"
           fluid
           size="massive"
           icon="download"
-          disabled={!currentStudentData.companyId}
+          disabled
         />
       </div>
 

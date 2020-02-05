@@ -2,17 +2,13 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-07 15:38:52
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-01 05:13:43
+ * @Last Modified time: 2020-02-04 11:32:22
  */
 import React, { useState, useEffect, useRef } from 'react';
-import { Form, Button, Accordion, Icon } from 'semantic-ui-react';
+import { Form, Button } from 'semantic-ui-react';
 import firebase from 'firebase/app';
 import 'firebase/storage';
-import {
-  CenterPage,
-  EmptyState,
-  CircularButton
-} from '../../_shared/components';
+import { CenterPage, EmptyState } from '../../_shared/components';
 import { LocationSelection } from '../../Login/Students';
 import { constants } from '../../_shared/constants';
 import {
@@ -60,7 +56,6 @@ const CompanyForm = (props: Props) => {
   const [places, setPlaces] = useState([]);
   const [loading, setLoading] = useState(false);
   const [uploadSuccess, setUploadSuccess] = useState(false);
-  const [activeAccordionIndex, setActiveAccordionIndex] = useState(0);
 
   const {
     name,
@@ -211,12 +206,6 @@ const CompanyForm = (props: Props) => {
 
   const handleFileUploadError = error => {};
 
-  const handleClick = (e, titleProps) => {
-    const { index } = titleProps;
-    const newIndex = activeAccordionIndex === index ? -1 : index;
-    setActiveAccordionIndex(newIndex);
-  };
-
   const handleFileUploadSuccess = () => {
     firebase
       .storage()
@@ -358,209 +347,158 @@ const CompanyForm = (props: Props) => {
 
     return (
       <div className="company-form">
-        <div className="company-form__back" onClick={onBackButtonClick}>
-          <CircularButton size={6} iconName="arrow_back" iconSize={2} />
-        </div>
-
         <div className="stud-reg">
           <div className="stud-reg__forms-modified">
             <Form>
-              <Accordion styled fluid>
-                <Accordion.Title
-                  active={activeAccordionIndex === 0}
-                  index={0}
-                  onClick={handleClick}
-                >
-                  <Icon name="dropdown" color="teal" />
-                  <span className="accordion__title">
-                    Fill Basic Company Information
-                  </span>
-                </Accordion.Title>
+              <Form.Input
+                size="large"
+                label="Company Name (Required)"
+                type="text"
+                name="name"
+                placeholder="Company Name"
+                width={16}
+                className="stud-reg__input"
+                value={name}
+                onChange={onChange}
+                required
+              />
+              <Form.Input
+                size="large"
+                label="Company Email (Required)"
+                type="email"
+                name="email"
+                placeholder="Company Email"
+                width={16}
+                className="stud-reg__input"
+                value={email}
+                onChange={onChange}
+                required
+              />
+              <Form.Input
+                size="large"
+                label="Company Contact (Required)"
+                type="text"
+                name="contact"
+                placeholder="Company Contact"
+                width={16}
+                className="stud-reg__input"
+                value={contact}
+                onChange={onChange}
+                required
+              />
+              <Form.Input
+                size="large"
+                label="Company Website"
+                type="text"
+                name="website"
+                placeholder="Company Website"
+                width={16}
+                className="stud-reg__input"
+                value={website}
+                onChange={onChange}
+              />
+              <Form.Input
+                size="large"
+                label="Company Address"
+                type="text"
+                name="address"
+                placeholder="Company Address"
+                width={16}
+                className="stud-reg__input"
+                value={address}
+                onChange={onChange}
+                required
+              />
+              <Form.Input
+                size="large"
+                label="Company Representative Name"
+                type="text"
+                name="repName"
+                placeholder="Company Rep Name"
+                width={16}
+                className="stud-reg__input"
+                value={repName}
+                onChange={onChange}
+              />
+              <Form.Input
+                size="large"
+                label="Company Representative Contact"
+                type="text"
+                name="repContact"
+                placeholder="Company Rep Contact"
+                width={16}
+                className="stud-reg__input"
+                value={repContact}
+                onChange={onChange}
+              />
+              <Form.Input
+                size="large"
+                label="Company Representative Email"
+                type="text"
+                name="repEmail"
+                placeholder="Company Rep Email"
+                width={16}
+                className="stud-reg__input"
+                value={repEmail}
+                onChange={onChange}
+              />
+              <Form.Input
+                size="large"
+                label={
+                  acceptanceLetterUrl || acceptanceLetter
+                    ? 'File Uploaded. Click to change'
+                    : 'No File Uploaded. Upload Acceptance letter Now (PDF)'
+                }
+                type="file"
+                name="acceptance Letter"
+                placeholder="Acceptance Letter"
+                width={16}
+                className="stud-reg__input file-input"
+                onChange={onAcceptanceLetterChange}
+                accept="application/pdf"
+              />
 
-                <Accordion.Content active={activeAccordionIndex === 0}>
+              {editing ? renderEditingLocation() : renderLocation()}
+              {editing ? (
+                <div className="supervisor__container">
                   <Form.Input
                     size="large"
-                    label="Company Name (Required)"
+                    label="Supervisor Name"
                     type="text"
-                    name="name"
-                    placeholder="Company Name"
+                    name="supervisorName"
+                    placeholder="Supervisor Name"
                     width={16}
                     className="stud-reg__input"
-                    value={name}
+                    value={supervisorName}
                     onChange={onChange}
                     required
                   />
                   <Form.Input
                     size="large"
-                    label="Company Email (Required)"
-                    type="email"
-                    name="email"
-                    placeholder="Company Email"
-                    width={16}
-                    className="stud-reg__input"
-                    value={email}
-                    onChange={onChange}
-                    required
-                  />
-
-                  <Form.Input
-                    size="large"
-                    label="Company Contact (Required)"
+                    label="Supervisor Contact"
                     type="text"
-                    name="contact"
-                    placeholder="Company Contact"
+                    name="supervisorContact"
+                    placeholder="Supervisor Contact"
                     width={16}
                     className="stud-reg__input"
-                    value={contact}
+                    value={supervisorContact}
                     onChange={onChange}
                     required
                   />
                   <Form.Input
                     size="large"
-                    label="Company Website"
+                    label="Supervisor Email"
                     type="text"
-                    name="website"
-                    placeholder="Company Website"
+                    name="supervisorEmail"
+                    placeholder="Supervisor Email"
                     width={16}
                     className="stud-reg__input"
-                    value={website}
-                    onChange={onChange}
-                  />
-
-                  <Form.Input
-                    size="large"
-                    label="Company Address"
-                    type="text"
-                    name="address"
-                    placeholder="Company Address"
-                    width={16}
-                    className="stud-reg__input"
-                    value={address}
+                    value={supervisorEmail}
                     onChange={onChange}
                     required
                   />
-
-                  <Form.Input
-                    size="large"
-                    label="Company Representative Name"
-                    type="text"
-                    name="repName"
-                    placeholder="Company Rep Name"
-                    width={16}
-                    className="stud-reg__input"
-                    value={repName}
-                    onChange={onChange}
-                  />
-                  <Form.Input
-                    size="large"
-                    label="Company Representative Contact"
-                    type="text"
-                    name="repContact"
-                    placeholder="Company Rep Contact"
-                    width={16}
-                    className="stud-reg__input"
-                    value={repContact}
-                    onChange={onChange}
-                  />
-                  <Form.Input
-                    size="large"
-                    label="Company Representative Email"
-                    type="text"
-                    name="repEmail"
-                    placeholder="Company Rep Email"
-                    width={16}
-                    className="stud-reg__input"
-                    value={repEmail}
-                    onChange={onChange}
-                  />
-
-                  <Form.Input
-                    size="large"
-                    label={
-                      acceptanceLetterUrl || acceptanceLetter
-                        ? 'File Uploaded. Click to change'
-                        : 'No File Uploaded. Upload Acceptance letter Now (PDF)'
-                    }
-                    type="file"
-                    name="acceptanceLetter"
-                    placeholder="Acceptance Letter"
-                    width={16}
-                    className="stud-reg__input"
-                    onChange={onAcceptanceLetterChange}
-                    accept="application/pdf"
-                  />
-                </Accordion.Content>
-
-                <Accordion.Title
-                  active={activeAccordionIndex === 1}
-                  index={1}
-                  onClick={handleClick}
-                >
-                  <Icon name="dropdown" color="teal" />
-                  <span className="accordion__title">
-                    Fill Location of Company
-                  </span>
-                </Accordion.Title>
-
-                <Accordion.Content active={activeAccordionIndex === 1}>
-                  {editing ? renderEditingLocation() : renderLocation()}
-                </Accordion.Content>
-
-                {editing ? (
-                  <>
-                    <Accordion.Title
-                      active={activeAccordionIndex === 2}
-                      index={2}
-                      onClick={handleClick}
-                    >
-                      <Icon name="dropdown" color="teal" />
-                      <span className="accordion__title">
-                        Update Supervisor Details
-                      </span>
-                    </Accordion.Title>
-                    <Accordion.Content active={activeAccordionIndex === 2}>
-                      <Form.Input
-                        size="large"
-                        label="Supervisor Name"
-                        type="text"
-                        name="supervisorName"
-                        placeholder="Supervisor Name"
-                        width={16}
-                        className="stud-reg__input"
-                        value={supervisorName}
-                        onChange={onChange}
-                        required
-                      />
-
-                      <Form.Input
-                        size="large"
-                        label="Supervisor Contact"
-                        type="text"
-                        name="supervisorContact"
-                        placeholder="Supervisor Contact"
-                        width={16}
-                        className="stud-reg__input"
-                        value={supervisorContact}
-                        onChange={onChange}
-                        required
-                      />
-
-                      <Form.Input
-                        size="large"
-                        label="Supervisor Email"
-                        type="text"
-                        name="supervisorEmail"
-                        placeholder="Supervisor Email"
-                        width={16}
-                        className="stud-reg__input"
-                        value={supervisorEmail}
-                        onChange={onChange}
-                        required
-                      />
-                    </Accordion.Content>
-                  </>
-                ) : null}
-              </Accordion>
+                </div>
+              ) : null}
             </Form>
 
             <div className="company-form__btns">
@@ -568,11 +506,20 @@ const CompanyForm = (props: Props) => {
                 content="Upload"
                 icon="cloud upload"
                 fluid
-                color="google plus"
+                color="teal"
                 size="massive"
                 onClick={onSaveClick}
                 loading={loading}
                 disabled={dataIsDirty()}
+              />
+
+              <Button
+                content="Cancel"
+                icon="cancel"
+                fluid
+                color="google plus"
+                size="massive"
+                onClick={onBackButtonClick}
               />
             </div>
           </div>

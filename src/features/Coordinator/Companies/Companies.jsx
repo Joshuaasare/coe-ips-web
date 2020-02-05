@@ -3,13 +3,13 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-25 10:00:37
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-29 13:45:49
+ * @Last Modified time: 2020-02-04 10:54:35
  */
 
 import React from 'react';
 import { CompanyList, CompanyDetails, CompanyFilters } from '.';
 import { wrapAdvancedList } from '../../_shared/hocs';
-import { getArchivedCompaniesWithContactMade } from './_helpers';
+import { getArchivedCompaniesWithContactMade } from '../../_shared/services';
 import './css/companies.css';
 
 export const CompanyListView = props => {

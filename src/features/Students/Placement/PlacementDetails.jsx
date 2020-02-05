@@ -2,10 +2,10 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-12 21:03:20
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-23 18:05:48
+ * @Last Modified time: 2020-02-05 17:52:26
  */
 import React from 'react';
-import { Message, Button } from 'semantic-ui-react';
+import { Message, Button, Dropdown } from 'semantic-ui-react';
 import { CircularButton } from '../../_shared/components';
 
 const items = [
@@ -23,34 +23,47 @@ const PlacementDetails = (props: Props) => {
   function renderContent() {
     return (
       <div className="placement-details__container">
-        {/* <div className="placement-details__header">
-          <span> Your placement has been completed!</span>
-        </div> */}
-
         <div className="placement-details__company">
-          <div className="placement-details__company-item">
-            <CircularButton
-              iconClassName=""
-              iconSize={1.4}
-              size={4}
-              iconName="profile"
-              shadowed
-            />
-            <div className="placement-details__company-text">
-              <span className="item__header">Name of Company</span>
-              <span className="item__content">
-                {studentData.companyName || ''}
-              </span>
+          <div className="placement-details__option-container">
+            <div className="placement-details__company-item">
+              <CircularButton
+                iconSize={1.4}
+                iconName="profile"
+                backgroundColor="#1f2a39"
+                iconColor="#ffd25a"
+                iconClassName="company__icon"
+                containerClassName="company__icon-container"
+              />
+              <div className="placement-details__company-text">
+                <span className="item__header">Company</span>
+                <span className="item__content">
+                  {studentData.companyName || ''}
+                </span>
+              </div>
+            </div>
+
+            <div className="placement-details__option">
+              <Dropdown icon="ellipsis vertical" floating direction="left">
+                <Dropdown.Menu className="cursor-pointer">
+                  <Dropdown.Item
+                    icon="cancel"
+                    text="Reject Placement"
+                    className="placement-details__dropdown"
+                    disabled={studentData.wantPlacement === 0}
+                    onClick={() => {}}
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </div>
 
           <div className="placement-details__company-item">
             <CircularButton
-              iconClassName=""
-              iconSize={1.4}
-              size={4}
               iconName="paperplane"
-              shadowed
+              iconColor="#ffd25a"
+              backgroundColor="#1f2a39"
+              iconClassName="company__icon"
+              containerClassName="company__icon-container"
             />
             <div className="placement-details__company-text">
               <span className="item__header">Address</span>
@@ -62,11 +75,11 @@ const PlacementDetails = (props: Props) => {
 
           <div className="placement-details__company-item">
             <CircularButton
-              iconClassName=""
-              iconSize={1.4}
-              size={4}
               iconName="location2"
-              shadowed
+              iconColor="#ffd25a"
+              backgroundColor="#1f2a39"
+              iconClassName="company__icon"
+              containerClassName="company__icon-container"
             />
             <div className="placement-details__company-text">
               <span className="item__header">Location</span>
@@ -78,11 +91,11 @@ const PlacementDetails = (props: Props) => {
 
           <div className="placement-details__company-item">
             <CircularButton
-              iconClassName=""
-              iconSize={1.4}
-              size={4}
+              backgroundColor="#1f2a39"
               iconName="mobile"
-              shadowed
+              iconColor="#ffd25a"
+              iconClassName="company__icon"
+              containerClassName="company__icon-container"
             />
             <div className="placement-details__company-text">
               <span className="item__header">Contact</span>

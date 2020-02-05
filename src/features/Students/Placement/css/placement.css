@@ -11,6 +11,10 @@
   z-index: -1;
 }
 
+.placement .row {
+  max-width: inherit;
+}
+
 .placement-done > .row > .col-1-of-2 {
   margin-right: 0;
   width: calc((100%) / 2);
@@ -34,7 +38,6 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  box-shadow: 0.5rem 0.5rem 5rem rgba(0, 0, 0, 0.15);
   height: calc(100vh - var(--toolbar-height-standard));
 }
 
@@ -85,7 +88,7 @@
 
 .placement-details__company-item {
   display: flex;
-  padding: 1rem 0 0.5rem 0;
+  padding: 1rem 0 1rem 0;
   align-items: center;
 }
 
@@ -93,6 +96,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 1.5rem;
+  margin-top: -0.5rem;
 }
 
 .placement-details__message-container {
@@ -101,6 +105,16 @@
 
 .placement-details__buttons {
   display: flex;
+}
+
+.placement-details__company-item .company__icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.placement-details__company-item .company__icon-container {
+  width: 4rem;
+  height: 4rem;
 }
 
 .item__header {
@@ -118,6 +132,41 @@
   padding: 0.3rem 0 0 0;
   font-size: 1.1rem;
   font-weight: 600;
+}
+
+.placement-details__option-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.placement-details__option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer !important;
+}
+
+.placement-details__dropdown {
+  height: 4rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 16rem;
+  transition: all 0.2s;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-pointer:hover {
+  background-color: #eee !important;
+  transform: scale(1.05) !important;
+  transition: all 0.2s !important;
+}
+.placement-details__dropdown * {
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 
 /*BIG DESKTOP*/
@@ -189,7 +238,7 @@
   .item__content {
     display: inline-block;
     padding: 0.2rem 0 0 0;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 600;
   }
 
@@ -211,6 +260,16 @@
     justify-content: center;
     box-shadow: 0.5rem 0.5rem 5rem rgba(0, 0, 0, 0.15);
     height: 100% !important;
+  }
+
+  .placement-details__company-item .company__icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .placement-details__company-item .company__icon-container {
+    width: 6rem;
+    height: 6rem;
   }
 }
 

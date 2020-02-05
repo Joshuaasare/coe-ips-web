@@ -2,18 +2,14 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-31 18:43:13
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-01 08:12:41
+ * @Last Modified time: 2020-02-04 10:39:24
  */
 
 import React, { useState, useEffect, useRef } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/storage';
 import { Form, Button } from 'semantic-ui-react';
-import {
-  LegendDivider,
-  CenterPage,
-  EmptyState
-} from '../../_shared/components';
+import { CenterPage, EmptyState } from '../../_shared/components';
 import { useDidUpdateEffect } from '../../_shared/hooks';
 import { constants } from '../../_shared/constants';
 import { uploadCompanyData } from './_helpers';
@@ -197,12 +193,6 @@ const CompanyAdditionForm = (props: Props) => {
 
     return (
       <div className="company-addition">
-        <LegendDivider
-          icon="pencil3"
-          backgroundColor="#fff"
-          color="#1f2a39"
-          title="Edit Company"
-        />
         <div className="company-addition__form">
           <Form>
             <Form.Input
@@ -257,10 +247,10 @@ const CompanyAdditionForm = (props: Props) => {
                   : 'No File Uploaded. Upload request letter Now (PDF)'
               }
               type="file"
-              name="acceptanceLetter"
-              placeholder="Acceptance Letter"
+              name="requestLetter"
+              placeholder="Request Letter"
               width={16}
-              className="stud-reg__input"
+              className="stud-reg__input file-input"
               onChange={onRequestLetterChange}
               accept="application/pdf"
             />

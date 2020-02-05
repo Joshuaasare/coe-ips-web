@@ -1,67 +1,67 @@
-.introductory {
+#introductory .introductory {
   padding: 5rem 0 5rem 0;
 }
 
-.introductory__download-btn {
+#introductory .introductory__download-btn {
   padding: -12rem 0 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.btn {
+#introductory .btn {
   display: block;
   margin-top: -25px;
   margin: 0 auto;
 }
 
-#introductory-letter {
+#introductory {
   margin-left: auto;
   margin-right: auto;
   height: 980px;
   width: 595px;
 }
 
-.coe-heading {
+#introductory .coe-heading {
   color: red;
   text-align: center;
   margin-top: 40px;
 }
 
-.coe-heading__text {
+#introductory .coe-heading__text {
   text-align: center;
   display: inline-block;
 }
 
-p.letter-intro__header {
+#introductory p.letter-intro__header {
   border-bottom: 1px solid black;
   display: inline-block;
   text-align: center;
 }
 
-h3 {
+#introductory h3 {
   font-weight: bold;
 }
 
-h4 {
+#introductory h4 {
   color: black;
 }
 
-h5 {
+#introductory h5 {
   color: red;
   font-weight: bold;
   text-align: center;
 }
 
-.provost__office {
+#introductory .provost__office {
   display: flex;
 }
 
-.knust-heading {
+#introductory .knust-heading {
   text-align: center;
 }
 
-.knust-logo {
+#introductory .knust-logo {
   width: 60px;
   height: 80px;
   float: left;
@@ -69,7 +69,7 @@ h5 {
   /* margin-top:20px; */
 }
 
-.coe-logo {
+#introductory .coe-logo {
   width: 60px;
   height: 80px;
   float: right;
@@ -77,61 +77,66 @@ h5 {
   /* margin-top:20px; */
 }
 
-.knust-in-full {
+#introductory .knust-in-full {
   color: black;
   font-weight: bold;
   text-align: center;
 }
 
-hr {
+#introductory hr {
   border: 0;
   border-top: 2px solid red;
   /* margin-top: -20px; */
 }
 
-hr.address__hr {
+#introductory hr.address__hr {
   margin: 3px 0 3px 0;
 }
 
-.our-reference p {
+#introductory .our-reference p {
   float: left;
   margin-top: -20px;
 }
-.letter-date p {
+#introductory .letter-date p {
   float: right;
   margin-top: -20px;
 }
-.letter-intro p {
+#introductory .letter-intro p {
   text-align: center;
 }
 
-.letter-content {
+#introductory .letter-content {
   text-align: justify;
   font-family: 'Times New Roman';
 }
 
-.closing-coordinator {
-  float: left;
+#introductory .closing-sign {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#introductory .closing-coordinator {
   font-family: 'Times New Roman';
 }
-.closing-provost {
-  float: right;
+#introductory .closing-provost {
   font-family: 'Times New Roman';
 }
 
-.closing-provost .closing-provost img {
+#introductory .closing-provost .closing-provost img {
   width: 25px;
   height: 25px;
 }
 
-.letter-footer {
+#introductory .letter-footer {
   /* margin-top: -20px; */
 
   font-size: 10px;
   color: green;
   text-align: center;
 }
-.energy-centres {
+
+#introductory .energy-centres {
   text-align: center;
 }
 

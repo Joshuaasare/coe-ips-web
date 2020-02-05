@@ -5,7 +5,7 @@ import {
 } from './Students';
 import { Landing } from '../Start';
 import { Coordinator as CoordinatorLogin } from './Coordinator';
-import { Company as CompanyLogin } from './Company';
+import { Company as CompanyLogin, CompanyRegistration } from './Company';
 // import { StudentDashboard } from '../Students/Dashboard';
 
 import { StudentWrapper } from '../Students';
@@ -25,6 +25,7 @@ export const routes = {
     path: '/start/students/login',
     component: StudentsLogin
   },
+
   STUDENT_REGISTRATION_INSTRUCTIONS: {
     routeName: 'Instructions',
     isExact: true,
@@ -32,11 +33,24 @@ export const routes = {
     component: StudentInstructions
   },
 
+  COMPANY_REGISTRATION_INSTRUCTIONS: {
+    routeName: 'Instructions',
+    isExact: true,
+    path: '/start/company/instructions'
+  },
+
   STUDENT_REGISTRATION_FORM: {
     routeName: 'Student Registation',
     isExact: true,
     path: '/start/students/register',
     component: StudentRegistration
+  },
+
+  COMPANY_REGISTRATION_FORM: {
+    routeName: 'Company Registration',
+    isExact: true,
+    path: '/start/company/register',
+    component: CompanyRegistration
   },
 
   COORDINATOR_LOGIN: {

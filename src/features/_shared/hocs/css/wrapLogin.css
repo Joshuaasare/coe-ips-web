@@ -133,6 +133,24 @@
   .wrapLogin__buttons > * {
     font-size: 1.4rem !important;
   }
+
+  .wrapLogin__input input {
+    height: 6rem !important;
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .wrapLogin .wrapLogin__buttons {
+    font-size: 1.8rem;
+  }
+
+  .wrapLogin__password .wrapLogin__password-button {
+    height: 7rem !important;
+  }
+
+  .wrapLogin__password .wrapLogin__password-button * {
+    font-size: 2rem !important;
+  }
 }
 
 /*EXTRA PHONE OPTIMIZATION*/

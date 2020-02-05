@@ -6,7 +6,7 @@
  */
 .circular-button {
   cursor: pointer;
-  border-radius: 10rem;
+  border-radius: 50rem;
   transition: all 0.3s;
 }
 

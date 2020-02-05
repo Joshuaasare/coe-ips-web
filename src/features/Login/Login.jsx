@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-18 10:09:09
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-06 04:39:48
+ * @Last Modified time: 2020-02-05 17:41:07
  *
  * @flow
  */
@@ -45,9 +45,9 @@ const Login = (props: Props) => {
     <div key={history.location.pathname}>{renderRoutes()}</div>
   );
 
-  const pushRoute = (nextPath?: string = '') => {
+  const pushRoute = (nextPath?: string = '', state? = {}) => {
     if (nextPath !== path) {
-      history.push(nextPath);
+      history.push(nextPath, state);
     }
   };
 
@@ -56,8 +56,8 @@ const Login = (props: Props) => {
     history.goBack();
   };
 
-  const replaceRoute = (nextPath?: string = '') => {
-    history.replace(nextPath);
+  const replaceRoute = (nextPath?: string = '', state? = {}) => {
+    history.replace(nextPath, state);
   };
 
   function renderRoutes() {

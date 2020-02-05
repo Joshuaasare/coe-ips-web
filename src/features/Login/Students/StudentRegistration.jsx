@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-23 17:33:48
+ * @Last Modified time: 2020-02-04 10:26:07
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -72,7 +72,7 @@ const StudentRegistration = (props: Props) => {
   function renderToolbar() {
     return (
       <div
-        className="student-registration__toolbar"
+        className="registration__toolbar"
         onClick={() => props.pushRoute(routes.LANDING.path)}
       >
         <img src={coeLogo} alt="" className="toolbar-logo" />

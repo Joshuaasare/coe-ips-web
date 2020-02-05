@@ -1,0 +1,53 @@
+.comp__reg-form {
+  padding: 1rem 30rem 5rem 30rem;
+}
+
+.comp__reg-form .stud-reg__select.company-select .visible.menu.transition {
+  min-height: 30rem !important ;
+}
+
+.comp__reg-table {
+  padding: 3rem 0 3rem 0;
+}
+
+.comp__reg-table > span {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.message-container {
+  padding: 1rem 0 2rem 0;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .comp__reg-form {
+    padding: 1rem 15rem 0 15rem;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .comp__reg-form {
+    padding: 1rem 2rem 4rem 2rem;
+  }
+
+  .comp__reg-form .upload-button {
+    height: 7rem !important;
+  }
+
+  .comp__reg-form .upload-button * {
+    font-size: 2rem !important;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+}

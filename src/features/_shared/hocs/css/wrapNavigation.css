@@ -40,6 +40,13 @@
   height: 100vh !important;
 }
 
+.withNav__button-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+
 /*BIG DESKTOP*/
 @media (max-width: 112.5em) {
 }

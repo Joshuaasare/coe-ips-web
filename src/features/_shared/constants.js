@@ -26,7 +26,9 @@ export const constants = {
           MAIN: 'https://coe-ips-backend.appspot.com'
         }
       : {
-          MAIN: 'http://localhost:3001'
+          // MAIN: 'http://localhost:3001',
+          MAIN: 'http://10.10.3.100:3001'
+          // MAIN: 'http://192.168.43.135:3001'
         },
   errors: {
     UNAUTHORIZED_USER: 'unauthorized_user',

@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-28 00:45:17
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-29 14:55:02
+ * @Last Modified time: 2020-02-04 01:05:21
  */
 import React, { useState } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -72,15 +72,13 @@ const CompanyFilters = (props: Props) => {
         />
       </Form>
 
-      <div>
-        <Button
-          content="reset"
-          fluid
-          size="massive"
-          color="teal"
-          onClick={onParamsReset}
-        />
-      </div>
+      <Button
+        content="reset"
+        fluid
+        size="massive"
+        color="teal"
+        onClick={onParamsReset}
+      />
     </div>
   );
 };

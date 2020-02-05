@@ -6,11 +6,6 @@ export function processErrorResponse(error: Object, errorDescription): Object {
       error: constants.errors.NO_INTERNET_CONNECTION
     };
   }
-  // if (error.message && error.message.indexOf('axiosSecure') !== -1) {
-  //   return {
-  //     error: constants.errors.UNAUTHENTICATED_USER
-  //   };
-  // }
 
   return processUnknownError(error, errorDescription, error.response || null);
 }

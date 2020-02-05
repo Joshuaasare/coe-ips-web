@@ -15,6 +15,7 @@ function wrapNavigation(routes: Object, loginPath: string, userTypeId: number) {
   return (props: Props) => {
     const { history } = props;
     const [sidebarActive, setSidebarActive] = useState(false);
+    const [authCheckComplete, setAuthCheckComplete] = useState(false);
 
     useEffect(() => {
       handleClientAuth();
@@ -25,14 +26,13 @@ function wrapNavigation(routes: Object, loginPath: string, userTypeId: number) {
     };
 
     async function handleClientAuth() {
+      setAuthCheckComplete(false);
       const isAuthenticated = await checkClientAuth();
       const storedUserTypeId = await getUserTypeId();
-      console.log(Number(storedUserTypeId) === userTypeId);
       if (isAuthenticated && Number(storedUserTypeId) === userTypeId) {
-        return null;
+        return setAuthCheckComplete(true);
       }
-      console.log('here thos');
-      return props.replaceRoute(loginPath);
+      return props.replaceRoute(loginPath, { clientAuthFailed: true });
     }
 
     const onSidebarClose = () => {
@@ -66,8 +66,8 @@ function wrapNavigation(routes: Object, loginPath: string, userTypeId: number) {
       history.goBack();
     };
 
-    const replaceRoute = (nextPath?: string = '') => {
-      history.replace(nextPath);
+    const replaceRoute = (nextPath?: string = '', state? = {}) => {
+      history.replace(nextPath, state);
     };
 
     const goToLogin = () => {
@@ -107,35 +107,42 @@ function wrapNavigation(routes: Object, loginPath: string, userTypeId: number) {
       return <Switch location={history.location}>{allRoutes}</Switch>;
     }
 
-    return (
-      <MainContent toolbar={renderToolbar()}>
-        <div className={sidebarActive ? 'withNav__inactive' : 'withNav'}>
-          <Sidebar.Pushable>
-            <Sidebar.Pusher>
-              <Dimmer.Dimmable dimmed={sidebarActive}>
-                <Dimmer
-                  inverted
-                  onClickOutside={onSidebarClose}
-                  active={sidebarActive}
-                >
-                  {}
-                </Dimmer>
+    function renderContent() {
+      if (authCheckComplete) {
+        return (
+          <div className={sidebarActive ? 'withNav__inactive' : 'withNav'}>
+            <Sidebar.Pushable>
+              <Sidebar.Pusher>
+                <Dimmer.Dimmable dimmed={sidebarActive}>
+                  <Dimmer
+                    inverted
+                    onClickOutside={onSidebarClose}
+                    active={sidebarActive}
+                  >
+                    {}
+                  </Dimmer>
 
-                <Switch>{renderRoutes()}</Switch>
-              </Dimmer.Dimmable>
-            </Sidebar.Pusher>
-          </Sidebar.Pushable>
-          <Sidebar
-            as={Menu}
-            vertical
-            className="withNav__sidebar"
-            animation="push"
-            visible={sidebarActive}
-          >
-            <NavBar routes={routes} sidebarActive />
-          </Sidebar>
-        </div>
-      </MainContent>
+                  <Switch>{renderRoutes()}</Switch>
+                </Dimmer.Dimmable>
+              </Sidebar.Pusher>
+            </Sidebar.Pushable>
+            <Sidebar
+              as={Menu}
+              vertical
+              className="withNav__sidebar"
+              animation="push"
+              visible={sidebarActive}
+            >
+              <NavBar routes={routes} sidebarActive />
+            </Sidebar>
+          </div>
+        );
+      }
+      return <div>{}</div>;
+    }
+
+    return (
+      <MainContent toolbar={renderToolbar()}>{renderContent()}</MainContent>
     );
   };
 }

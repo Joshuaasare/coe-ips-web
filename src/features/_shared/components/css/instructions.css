@@ -1,0 +1,149 @@
+.registration__toolbar {
+  padding: 2rem 7rem 0 7rem;
+}
+
+.registration__toolbar > div {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.registration {
+  padding: 2rem 7rem 0 7rem;
+}
+
+.info {
+  clip-path: ellipse(100% 55% at 50% 42%);
+  /* background-color: var(--color-purple-dark); */
+  background-color: #1f2a39;
+  min-height: 45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+}
+
+.toolbar-logo {
+  height: 3.5rem;
+  cursor: pointer;
+}
+
+.registration__welcome {
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.note_image-container {
+  height: 20rem;
+  display: flex;
+  align-items: center;
+}
+.welcome--main {
+  font-size: 4rem;
+  line-height: 4rem;
+  display: inline-block;
+  letter-spacing: 0.4rem;
+  color: #fff;
+}
+
+.welcome--sub {
+  display: inline-block;
+  padding: 2rem 0 0 0;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.note_image {
+  height: 15rem;
+  margin-right: 5rem;
+}
+
+.registration__instructions {
+  padding: 7rem 2rem 2rem 2rem;
+  margin: -5rem 0 0 0;
+  background-color: rgba(255, 210, 90, 0.1);
+}
+
+.registration__instruction-group {
+  padding: 1rem 0 1rem 0;
+  display: flex;
+}
+
+.registration__instruction-group-icon {
+  fill: #ffd25a;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-right: 4rem;
+}
+.registration__instruction-group > div {
+  height: 3rem;
+  width: 3rem;
+  padding-top: 0.3rem;
+}
+
+.registration__instruction-group > span {
+  font-size: 1.5rem;
+  line-height: 2.8rem;
+  font-weight: 400;
+}
+
+.registration__button-container {
+  padding: 2rem 0 2rem 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .registration__toolbar {
+    padding: 1rem 4rem 0 4rem;
+  }
+  .registration {
+    padding: 2rem 4rem 0 4rem;
+  }
+
+  .info {
+    min-height: 55rem;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .registration__toolbar {
+    padding: 1rem 2rem 0 2rem;
+  }
+  .registration {
+    padding: 2rem 2rem 0 2rem;
+  }
+
+  .registration__welcome--main {
+    font-size: 2.3rem;
+    line-height: 3rem;
+    display: inline-block;
+    letter-spacing: 0.4rem;
+  }
+
+  .registration__welcome--sub {
+    display: inline-block;
+    padding: 2rem 0 0 0;
+    font-size: 2rem;
+  }
+
+  .registration__instruction-group > span {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    font-weight: 400;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+}
