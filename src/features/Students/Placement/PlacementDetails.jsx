@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-12 21:03:20
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-05 17:52:26
+ * @Last Modified time: 2020-02-06 11:46:00
  */
 import React from 'react';
 import { Message, Button, Dropdown } from 'semantic-ui-react';
@@ -18,6 +18,7 @@ type Props = {
   studentData: Object,
   setCompanyUpdateTrue: () => {}
 };
+
 const PlacementDetails = (props: Props) => {
   const { studentData, setCompanyUpdateTrue } = props;
   function renderContent() {

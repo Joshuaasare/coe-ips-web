@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-04 09:52:47
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-05 17:40:19
+ * @Last Modified time: 2020-02-06 12:18:40
  */
 import React, { useEffect, useState } from 'react';
 import { Form, Table, Input, Button } from 'semantic-ui-react';
@@ -11,7 +11,8 @@ import {
   AnimatedModal,
   EmptyState,
   CenterPage,
-  CustomMessage
+  CustomMessage,
+  Loader
 } from '../../_shared/components';
 import { images, svg } from '../../_shared/assets';
 import { routes } from '../routes';
@@ -26,16 +27,19 @@ import './css/companyRegistration.css';
 import { LocationSelection } from '../Students';
 import { constants } from '../../_shared/constants';
 import { registerCompany } from './_helpers/dataService';
+import { useScrollToTop } from '../../_shared/hooks';
 
 type Props = {
   pushRoute: () => {}
 };
 
 const CompanyRegistration = (props: Props) => {
+  useScrollToTop();
+  const [pageLoading, setPageLoading] = useState(true);
   const [places, setPlaces] = useState([]);
   const [companies, setCompanies] = useState({ data: [], options: [] });
-  const [error, setError] = useState({});
-  const [uploadError, setUploadError] = useState({});
+  const [error, setError] = useState(null);
+  const [uploadError, setUploadError] = useState(null);
   const [uploadSuccess, setUploadSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [subDepartments, setSubDepartments] = useState([]);
@@ -74,6 +78,7 @@ const CompanyRegistration = (props: Props) => {
   }
 
   async function fetchCompaniesAndDepartments() {
+    setPageLoading(true);
     const companyData = await getArchivedCompanyList();
     const subDepartmentsData = await getSubDepartmentsList();
     if (companyData.error) {
@@ -85,6 +90,7 @@ const CompanyRegistration = (props: Props) => {
     }
 
     setError(null);
+    setPageLoading(false);
     const subDept = subDepartmentsData.data.map(dep => {
       return {
         name: dep.name,
@@ -144,7 +150,7 @@ const CompanyRegistration = (props: Props) => {
   };
 
   const onUpload = async () => {
-    setUploadError({});
+    setUploadError(null);
     setLoading(true);
     const updatedDepartments = subDepartments.filter(
       dep => dep.number > 1 || dep.number === 1
@@ -369,6 +375,13 @@ const CompanyRegistration = (props: Props) => {
 
   function renderContent() {
     const { repEmail, repContact, repName } = companyDetails;
+    if (pageLoading) {
+      return (
+        <CenterPage>
+          <Loader inverted coverEverything active content="Please wait" />
+        </CenterPage>
+      );
+    }
     if (error) {
       return (
         <CenterPage>
