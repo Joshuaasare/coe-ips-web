@@ -29,7 +29,7 @@ export default function wrapAdvancedList(
       activeItem: null,
       showActiveItem: false,
       activePage: 1,
-      pageSize: 5,
+      pageSize: 12,
       data: null,
       dataSize: null,
       originalData: null,
