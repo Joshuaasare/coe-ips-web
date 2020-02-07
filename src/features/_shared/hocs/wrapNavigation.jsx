@@ -133,7 +133,7 @@ function wrapNavigation(routes: Object, loginPath: string, userTypeId: number) {
               animation="push"
               visible={sidebarActive}
             >
-              <NavBar routes={routes} sidebarActive />
+              <NavBar routes={routes} sidebarActive userTypeId={userTypeId} />
             </Sidebar>
           </div>
         );

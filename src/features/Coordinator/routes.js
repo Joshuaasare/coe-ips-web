@@ -1,5 +1,6 @@
 import { PlacementRequest } from './PlacementRequest';
 import { Companies } from './Companies';
+import { CompanyAddition } from './CompanyAddition';
 
 export default () => {
   const routes = [
@@ -18,6 +19,14 @@ export default () => {
       showInMenu: true,
       component: Companies,
       path: '/coordinator'
+    },
+    {
+      title: 'New Company',
+      icon: '',
+      isExact: true,
+      showInMenu: true,
+      component: CompanyAddition,
+      path: '/coordinator/company-addition'
     }
   ];
   return routes;

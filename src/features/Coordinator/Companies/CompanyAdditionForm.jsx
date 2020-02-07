@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-31 18:43:13
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-04 10:39:24
+ * @Last Modified time: 2020-02-07 09:49:19
  */
 
 import React, { useState, useEffect, useRef } from 'react';

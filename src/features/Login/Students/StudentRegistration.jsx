@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-04 10:26:07
+ * @Last Modified time: 2020-02-07 12:18:28
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -353,6 +353,8 @@ const StudentRegistration = (props: Props) => {
     if (error === constants.errors.USER_EXISTS) {
       console.log(error);
       setError(getErrorMessages()[constants.errors.USER_EXISTS]);
+    } else if (error === constants.errors.NO_INTERNET_CONNECTION) {
+      setError(getErrorMessages()[constants.errors.NO_INTERNET_CONNECTION]);
     } else {
       setError(getErrorMessages()[constants.errors.GENERIC_ERROR]);
     }

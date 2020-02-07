@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-12-05 17:50:13
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-06 11:40:49
+ * @Last Modified time: 2020-02-07 00:15:09
  */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
@@ -10,15 +10,17 @@ import { connect } from 'react-redux';
 import {} from './MainContent';
 import { svg } from '../assets';
 import './css/sidebar.css';
+import { constants } from '../constants';
 
 type Props = {
   routes: Array,
   onSidebarClose: () => void,
-  user: Object<{ lastName: string, otherNames: string }>
+  user: Object<{ lastName: string, otherNames: string }>,
+  userTypeId: Number
 };
 
 const Sidebar = (props: Props) => {
-  const { routes, onSidebarClose } = props;
+  const { routes, onSidebarClose, userTypeId } = props;
 
   function renderNavLinks() {
     return routes().map((link, index) => {
@@ -45,8 +47,14 @@ const Sidebar = (props: Props) => {
   return (
     <div className="custom__sidebar">
       <div className="custom__sidebar-avatar">
-        <img src={svg.grad} alt="" className="custom__sidebar-svg" />
-        <span className="avatar__name">STUDENT</span>
+        <img
+          src={svg[constants.ui.sidebarOptions[userTypeId - 1].svg]}
+          alt=""
+          className="custom__sidebar-svg"
+        />
+        <span className="avatar__name">
+          {constants.ui.sidebarOptions[userTypeId - 1].name}
+        </span>
       </div>
 
       <div className="navlinks">{renderNavLinks()}</div>

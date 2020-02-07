@@ -1,0 +1,15 @@
+.comp-add {
+  position: relative;
+  padding: 9rem 30rem 0 30rem;
+  width: 100%;
+}
+
+.comp-add__form {
+  width: 100%;
+  padding: 0 5rem 0 5rem;
+}
+
+.comp-add__form .button-container {
+  position: relative;
+  padding: 2rem 0 3rem 0;
+}

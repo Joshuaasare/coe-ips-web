@@ -8,7 +8,7 @@ export async function registerStudents(studentData) {
     const locationDetails = await getLocationDetails(studentData.locationId);
     const data = { ...studentData, locationDetails };
     const resp = await axios.post(
-      `${constants.app.BASE_API_URL}/student/register`,
+      `${constants.services.MAIN}/student/register`,
       { data }
     );
     return resp.data.data;

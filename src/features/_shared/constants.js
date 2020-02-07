@@ -1,6 +1,11 @@
 export const constants = {
   ui: {
-    colors: {}
+    colors: {},
+    sidebarOptions: [
+      { name: 'STUDENT', svg: 'grad' },
+      { name: 'COMPANY', svg: 'eng' },
+      { name: 'COORDINATOR', svg: 'cordi' }
+    ]
   },
 
   app: {

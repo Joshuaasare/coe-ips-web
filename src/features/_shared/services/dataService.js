@@ -1,4 +1,4 @@
-import { apiGet } from './apiService';
+import { apiGet, apiPost } from './apiService';
 
 export async function getCurrentStudentData() {
   const response = await apiGet('/student/current-student', 'current student');
@@ -34,4 +34,9 @@ export async function convertCompaniesToOptionsForUi(data: Array) {
   return data.map(item => {
     return { text: item.name, value: item.id };
   });
+}
+
+export async function addNewCompany(data) {
+  const resp = apiPost('/coordinator/add-company-archive', data);
+  return resp;
 }
