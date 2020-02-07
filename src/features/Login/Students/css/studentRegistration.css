@@ -158,6 +158,10 @@
   font-size: 1.2rem !important;
 }
 
+.acad-form .stud-reg__select.student-select .visible.menu.transition {
+  min-height: 25rem !important ;
+}
+
 /*BIG DESKTOP*/
 @media (max-width: 112.5em) {
 }

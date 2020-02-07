@@ -2,11 +2,11 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-23 02:42:51
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-04 02:42:16
+ * @Last Modified time: 2020-02-07 13:47:53
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
-import { getDocumentsDateFormat } from '../services';
+import { getDocumentsDateFormat, getStudentYearOfStudy } from '../services';
 import { images } from '../assets';
 import './css/introductory.css';
 
@@ -36,8 +36,11 @@ class Introductory extends Component<Props> {
       acadYear,
       surname,
       otherNames,
-      mainDepartmentName
+      mainDepartmentName,
+      yearOfStudy
     } = currentStudentData;
+
+    const studentYear = getStudentYearOfStudy(parseInt(yearOfStudy, 10));
     return (
       <div>
         <div id="introductory">
@@ -98,19 +101,16 @@ class Introductory extends Component<Props> {
               {`VACATION TRAINING FOR ${acadYear}/${acadYear +
                 1} ACADEMIC YEAR`}
             </p>
-            <p>LETTER OF INTRODUCTION</p>
+            <div className="letter-header">LETTER OF INTRODUCTION</div>
           </div>
           <div className="letter-content">
             The College of Engineering of the Kwame Nkrumah University of
             Science and Technology seeks to become a global college of
-            engineering focused on national industrial development. This means
-            among other things that the need for students to have exposure to
-            industrial practice early in their engineering education is one of
-            the important pillars of their training. Therefore as part of our
-            requirements for graduation in the B.Sc Engineering Degree
-            programmes, students must complete a minimum of 8-week industrial
-            attachment programme with a local or an overseas industrial
-            establishment between May and August.
+            engineering focused on national industrial development. Therefore as
+            part of our requirements for graduation in the B.Sc Engineering
+            Degree programmes, students must complete a minimum of 8-week
+            industrial attachment programme with a local or an overseas
+            industrial establishment between May and August.
             <br />
             <br />
             The purpose of the vacation training among other things is to enable
@@ -128,7 +128,7 @@ class Introductory extends Component<Props> {
               )}`}
               ,{' '}
             </b>
-            a 3rd Year student from the
+            a {studentYear} Year student from the
             <b>
               {` ${changeCase.capitalCase(mainDepartmentName)} `}
               Engineering Department.{' '}
@@ -164,8 +164,6 @@ class Introductory extends Component<Props> {
               </div>
             </div>
 
-            <br />
-            <br />
             <br />
             <br />
 

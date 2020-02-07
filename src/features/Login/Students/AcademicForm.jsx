@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-19 05:54:15
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-01-07 16:42:59
+ * @Last Modified time: 2020-02-07 13:23:34
  */
 import React from 'react';
 import { Form, Radio } from 'semantic-ui-react';
@@ -38,7 +38,7 @@ const AcademicForm = (props: Props) => {
           selection
           name="department"
           placeholder="Department"
-          className="stud-reg__select"
+          className="stud-reg__select student-select"
           options={selectionOptions.DEPARTMENTS}
           value={department}
           onChange={onChange}
@@ -52,7 +52,7 @@ const AcademicForm = (props: Props) => {
           selection
           name="programme"
           placeholder="Programme of Study"
-          className="stud-reg__select"
+          className="stud-reg__select student-select"
           options={selectionOptions.PROGRAMMES}
           onChange={onChange}
           required

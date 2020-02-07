@@ -45,6 +45,19 @@ export function arrayHasData(data?: ?Array<any>) {
   return data && data.length;
 }
 
+export function getStudentYearOfStudy(year) {
+  if (year === 1) {
+    return '1st';
+  }
+  if (year === 2) {
+    return '2nd';
+  }
+  if (year === 3) {
+    return '3rd';
+  }
+  return null;
+}
+
 /**
  * isEmpty function that will return false for primitive values
  * like numbers and strings, unlike the lodash version
