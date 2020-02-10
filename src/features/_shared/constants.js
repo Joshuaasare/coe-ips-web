@@ -18,7 +18,8 @@ export const constants = {
   },
 
   maps: {
-    API_KEY: 'AIzaSyCRA9Ea7Llszsd4aTwP-ipbLd8gSfuPB2U'
+    API_KEY: 'AIzaSyCRA9Ea7Llszsd4aTwP-ipbLd8gSfuPB2U',
+    API_KEY_2: 'AIzaSyCMYftKJn7QJcIN7zhxE7rPWJtMW4WlbPY'
   },
   email: {
     USER_ID: 'user_IthvegI82GXXBWlqLEHJS',
