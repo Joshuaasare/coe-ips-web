@@ -13,6 +13,7 @@ import {
 } from '../components';
 import './css/wrapAdvancedList.css';
 import { constants } from '../constants';
+import { isEmpty } from '../services';
 
 type Props = {};
 
@@ -87,13 +88,23 @@ export default function wrapAdvancedList(
         showActiveItem: false,
         showFilter: false
       });
+
       setTimeout(async () => {
         const resp = await getItems();
         if (resp.error) {
           this.handleErrors(resp.error);
         } else {
           this.setState({ originalData: resp.data, data: resp.data });
-          this.setPageData(resp.data);
+
+          if (!isEmpty(this.state.searchTerm)) {
+            const newData = await this.searchItems(
+              this.state.searchTerm,
+              resp.data
+            );
+            this.setPageData(newData);
+          } else {
+            this.setPageData(resp.data);
+          }
         }
       }, 500);
     };
@@ -147,7 +158,7 @@ export default function wrapAdvancedList(
           filteredData: resp
         },
         async () => {
-          if (this.state.searchTerm) {
+          if (!isEmpty(this.state.searchTerm)) {
             const newData = await this.searchItems(this.state.searchTerm, resp);
             return this.setPageData(newData);
           }
@@ -176,6 +187,7 @@ export default function wrapAdvancedList(
             onChange={this.handleSearchInputChange}
             icon="search"
             placeholder="Search"
+            value={this.state.searchTerm}
           />
         </div>
       );

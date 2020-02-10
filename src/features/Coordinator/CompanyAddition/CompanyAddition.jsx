@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-07 00:26:07
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-07 13:06:42
+ * @Last Modified time: 2020-02-08 09:57:00
  */
 import React, { useState } from 'react';
 import { Form, Radio, Button } from 'semantic-ui-react';
@@ -53,16 +53,16 @@ const CompanyAddition = () => {
   };
 
   const onSave = async () => {
-    // setLoading(true);
-    // setError(null);
-    // const resp = await addNewCompany(companyDetails);
-    // setLoading(false);
-    // setModalActive(true);
-    // if (resp.error) {
-    //   return handleErrors(resp.error);
-    // }
-    // resetState();
-    // return setUploadSuccess(true);
+    setLoading(true);
+    setError(null);
+    const resp = await addNewCompany(companyDetails);
+    setLoading(false);
+    setModalActive(true);
+    if (resp.error) {
+      return handleErrors(resp.error);
+    }
+    resetState();
+    return setUploadSuccess(true);
   };
 
   function handleErrors(error) {

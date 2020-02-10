@@ -2,11 +2,11 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:57:43
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-04 22:19:31
+ * @Last Modified time: 2020-02-08 04:40:44
  */
 
 import React, { Component } from 'react';
-import { Table, Button, Checkbox, Icon } from 'semantic-ui-react';
+import { Table, Button, Checkbox, Icon, TableRow } from 'semantic-ui-react';
 import { deleteFromCompanyArchive, sendPlacementRequests } from './_helpers';
 import { AnimatedModal, EmptyState } from '../../_shared/components';
 import { constants } from '../../_shared/constants';
@@ -26,8 +26,8 @@ class CompanyList extends Component<Props> {
     confirmEmail: false,
     error: null,
     showModal: false,
-    checkedItems: [false, false, false, false, false, false, false, false],
-    uploadLetter: false
+    checkedItems: [],
+    selectAllChecked: false
   };
 
   componentDidUpdate(newProps) {
@@ -64,12 +64,12 @@ class CompanyList extends Component<Props> {
       confirmEmail: false,
       error: null,
       showModal: false,
-      checkedItems: [false, false, false, false, false, false, false, false]
+      checkedItems: [],
+      selectAllChecked: false
     });
   };
 
   onCheckBoxChange = (data, companyId, companyName) => {
-    console.log(data.checked);
     if (data.checked) {
       if (!this.state.itemsSelected.find(item => item.id === companyId)) {
         this.state.itemsSelected.push({ name: companyName, id: companyId });
@@ -88,8 +88,30 @@ class CompanyList extends Component<Props> {
         }
       }
     }
+  };
 
-    console.log(this.state.itemsSelected);
+  onSelectAllItemsChecked = data => {
+    const newCheckedItems = [];
+    if (data.checked) {
+      const newItemsSelected = this.props.dataToShow.map(company => {
+        newCheckedItems.push(true);
+        return {
+          name: company.name,
+          id: company.id
+        };
+      });
+      this.setState({
+        selectAllChecked: data.checked,
+        checkedItems: newCheckedItems,
+        itemsSelected: newItemsSelected
+      });
+    } else {
+      this.setState({
+        selectAllChecked: data.checked,
+        checkedItems: newCheckedItems,
+        itemsSelected: []
+      });
+    }
   };
 
   showConfirmDeleteModal = () => {
@@ -218,7 +240,7 @@ class CompanyList extends Component<Props> {
         <Table.Row key={key}>
           <Table.Cell style={styles.boxStyle}>
             <Checkbox
-              checked={this.state.checkedItems[index]}
+              checked={!!this.state.checkedItems[index]}
               onChange={(event, data) => {
                 const updatedCheckedItems = this.state.checkedItems;
                 updatedCheckedItems[index] = !this.state.checkedItems[index];
@@ -329,6 +351,17 @@ class CompanyList extends Component<Props> {
             </Table.Header>
             <Table.Body>
               {this.renderTableBody(this.props.dataToShow)}
+              <TableRow>
+                <Table.Cell>
+                  <Checkbox
+                    onChange={(event, data) =>
+                      this.onSelectAllItemsChecked(data)
+                    }
+                    checked={this.state.selectAllChecked}
+                  />
+                  <span>Select All</span>
+                </Table.Cell>
+              </TableRow>
             </Table.Body>
           </Table>
           {this.renderAnimatedModal()}
