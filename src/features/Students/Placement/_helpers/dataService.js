@@ -1,7 +1,5 @@
 import { apiPost, apiPut } from '../../../_shared/services';
 
-export async function fetchPlacementData() {}
-
 export async function addStudenCompanyData(companyDetails, locationDetails) {
   const data = { ...companyDetails, locationDetails };
   const resp = await apiPost('/student/add-student-company', data);

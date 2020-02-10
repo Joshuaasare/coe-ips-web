@@ -5,12 +5,12 @@ import { constants } from '../constants';
 export async function getPlacesFromSearchKey(searchKey: string): Array<Object> {
   try {
     const proxyUrl = 'https://coe-cors-anywhere.herokuapp.com/';
-    const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${searchKey}&key=${constants.maps.API_KEY_2}&components=country:gh|country:ng|country:ke|country:ci|country:gm`;
+    const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${searchKey}&key=${constants.maps.API_KEY}&components=country:gh|country:ng|country:ke|country:ci|country:gm`;
     const resp = await axios.get(`${proxyUrl}${url}`);
     const options = await convertPlacesToOptionsForUi(resp.data.predictions);
     return options;
   } catch (error) {
-    console.log('places api error', error);
+    console.log(error);
     return { error: { msg: 'A problem occured' } };
   }
 }
