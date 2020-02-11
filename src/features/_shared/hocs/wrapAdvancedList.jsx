@@ -82,6 +82,7 @@ export default function wrapAdvancedList(
       });
     }
 
+    /** This function resets the page data with an active page of 1 */
     initPageData = async () => {
       this.setState({
         showLoader: true,
@@ -104,6 +105,34 @@ export default function wrapAdvancedList(
             this.setPageData(newData);
           } else {
             this.setPageData(resp.data);
+          }
+        }
+      }, 500);
+    };
+
+    /** this function resets the page data whiles maintaining the active page */
+    updatePageData = async () => {
+      this.setState({
+        showLoader: true,
+        showActiveItem: false,
+        showFilter: false
+      });
+
+      setTimeout(async () => {
+        const resp = await getItems();
+        if (resp.error) {
+          this.handleErrors(resp.error);
+        } else {
+          this.setState({ originalData: resp.data, data: resp.data });
+
+          if (!isEmpty(this.state.searchTerm)) {
+            const newData = await this.searchItems(
+              this.state.searchTerm,
+              resp.data
+            );
+            this.setPageData(newData);
+          } else {
+            this.resetPageData(resp.data);
           }
         }
       }, 500);
@@ -135,6 +164,19 @@ export default function wrapAdvancedList(
         data,
         dataSize: data.length,
         dataToRender: data.slice(0, prevState.pageSize),
+        showLoader: false
+      }));
+    }
+
+    resetPageData(data) {
+      this.setState(prevState => ({
+        activePage: prevState.activePage,
+        data,
+        dataSize: data.length,
+        dataToRender: data.slice(
+          (prevState.activePage - 1) * prevState.pageSize,
+          prevState.activePage * prevState.pageSize
+        ),
         showLoader: false
       }));
     }
@@ -240,7 +282,7 @@ export default function wrapAdvancedList(
           <AnimatedModal.Content>
             <DetailsView
               activeItem={this.state.activeItem}
-              reload={this.initPageData}
+              reload={this.resetPageData}
             />
           </AnimatedModal.Content>
           <AnimatedModal.Footer>{}</AnimatedModal.Footer>
@@ -306,7 +348,7 @@ export default function wrapAdvancedList(
             pageSize={this.state.pageSize}
             activePage={this.state.activePage}
             dataToShow={this.state.dataToRender}
-            refreshList={this.initPageData}
+            refreshList={this.updatePageData}
             onItemClick={this.onItemClick}
           />
           {this.renderFilterView()}

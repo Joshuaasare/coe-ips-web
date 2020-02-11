@@ -21,3 +21,5 @@ export { default as Toolbar } from './Toolbar';
 export { default as Sidebar } from './Sidebar';
 export { default as AnimatedModal } from './AnimatedModal';
 export { default as Pagination } from './Pagination';
+export { default as LocationSelection } from './LocationSelection';
+export { default as LocationWrapper } from './LocationWrapper';
