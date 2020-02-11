@@ -115,7 +115,8 @@ export default function wrapAdvancedList(
       this.setState({
         showLoader: true,
         showActiveItem: false,
-        showFilter: false
+        showFilter: false,
+        filteredData: null
       });
 
       setTimeout(async () => {
