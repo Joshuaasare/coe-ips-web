@@ -5,14 +5,14 @@ import { Students } from './Students';
 
 export default () => {
   const routes = [
-    {
-      title: 'Placement Request',
-      icon: '',
-      isExact: true,
-      showInMenu: true,
-      component: PlacementRequest,
-      path: '/coordinator/placement-request'
-    },
+    // {
+    //   title: 'Placement Request',
+    //   icon: '',
+    //   isExact: true,
+    //   showInMenu: true,
+    //   component: PlacementRequest,
+    //   path: '/coordinator/placement-request'
+    // },
     {
       title: 'Companies',
       icon: '',
@@ -20,23 +20,23 @@ export default () => {
       showInMenu: true,
       component: Companies,
       path: '/coordinator'
-    },
-    {
-      title: 'New Company',
-      icon: '',
-      isExact: true,
-      showInMenu: true,
-      component: CompanyAddition,
-      path: '/coordinator/company-addition'
-    },
-    {
-      title: 'Students',
-      icon: '',
-      isExact: true,
-      showInMenu: true,
-      component: Students,
-      path: '/coordinator/students'
     }
+    // {
+    //   title: 'New Company',
+    //   icon: '',
+    //   isExact: true,
+    //   showInMenu: true,
+    //   component: CompanyAddition,
+    //   path: '/coordinator/company-addition'
+    // },
+    // {
+    //   title: 'Students',
+    //   icon: '',
+    //   isExact: true,
+    //   showInMenu: true,
+    //   component: Students,
+    //   path: '/coordinator/students'
+    // }
   ];
   return routes;
 };
