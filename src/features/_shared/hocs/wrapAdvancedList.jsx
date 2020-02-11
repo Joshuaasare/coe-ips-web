@@ -282,7 +282,7 @@ export default function wrapAdvancedList(
           <AnimatedModal.Content>
             <DetailsView
               activeItem={this.state.activeItem}
-              reload={this.resetPageData}
+              reload={this.updatePageData}
             />
           </AnimatedModal.Content>
           <AnimatedModal.Footer>{}</AnimatedModal.Footer>
