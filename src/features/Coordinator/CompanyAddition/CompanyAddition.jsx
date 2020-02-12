@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-07 00:26:07
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-12 08:55:37
+ * @Last Modified time: 2020-02-12 09:27:48
  */
 import React, { useState } from 'react';
 import { Form, Radio, Button } from 'semantic-ui-react';
@@ -97,10 +97,9 @@ const CompanyAddition = () => {
   }
 
   function dataIsDirty() {
-    const { name, phone, hasRequestedPlacement } = companyDetails;
+    const { name, hasRequestedPlacement } = companyDetails;
     return !(
       name &&
-      phone &&
       // email &&
       (hasRequestedPlacement === 0 || hasRequestedPlacement === 1)
     );
