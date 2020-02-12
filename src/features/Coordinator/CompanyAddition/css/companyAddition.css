@@ -13,3 +13,59 @@
   position: relative;
   padding: 2rem 0 3rem 0;
 }
+
+/*BIG DESKTOP*/
+@media (max-width: 112.5em) {
+}
+
+/*TAB LANDSCAPE*/
+@media (max-width: 75em) {
+}
+/*TAB PORTRAIT*/
+@media (max-width: 56.25em) {
+  .comp-add {
+    position: relative;
+    padding: 9rem 20rem 0 20rem;
+    width: 100%;
+  }
+
+  .comp-add__form {
+    width: 100%;
+    padding: 0 5rem 0 5rem;
+  }
+
+  .comp-add__form .button-container {
+    position: relative;
+    padding: 2rem 0 3rem 0;
+  }
+}
+
+/*PHONE*/
+@media (max-width: 37.5em) {
+  .comp-add {
+    position: relative;
+    padding: 9rem 8rem 0 8rem;
+    width: 100%;
+    margin: 5rem 0 0 0;
+  }
+
+  .comp-add__form {
+    width: 100%;
+    padding: 0 0 0 0;
+  }
+
+  .comp-add__form .button-container {
+    position: relative;
+    padding: 2rem 0 3rem 0;
+  }
+}
+
+/*EXTRA PHONE OPTIMIZATION*/
+@media (max-width: 25em) {
+  .comp-add {
+    position: relative;
+    padding: 9rem 3rem 0 3rem;
+    width: 100%;
+    margin: 5rem 0 0 0;
+  }
+}
