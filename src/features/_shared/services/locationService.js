@@ -27,6 +27,7 @@ export async function getLocationDetails(locationId) {
     const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${locationId}&key=${constants.maps.API_KEY}`;
     const resp = await axios.get(`${proxyUrl}${url}`);
     const result = resp.data.result;
+    console.log(result);
     return {
       name: `${result.name}`,
       coords: {

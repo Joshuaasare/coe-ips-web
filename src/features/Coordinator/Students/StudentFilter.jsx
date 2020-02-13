@@ -1,18 +1,72 @@
 /*
  * @Author: Joshua Asare
  * @Date: 2020-02-11 23:43:49
- * @Last Modified by:   Joshua Asare
- * @Last Modified time: 2020-02-11 23:43:49
+ * @Last Modified by: Joshua Asare
+ * @Last Modified time: 2020-02-13 15:18:17
  */
+import React, { useState } from 'react';
+import { Form, Button } from 'semantic-ui-react';
+import { selectionOptions } from '../../_shared/selectionOptions';
+import { useDidUpdateEffect } from '../../_shared/hooks';
+import { getStudentWithFilters } from './_helpers';
+import { svg } from '../../_shared/assets';
 
-import React from 'react';
+type Props = {
+  refreshList: () => {}
+};
 
-const StudentFilter = () => {
+const StudentFilters = (props: Props) => {
+  const [filterParams, setFilterParams] = useState({
+    region: 0
+  });
+
+  async function fetchFilteredData() {
+    const resp = await getStudentWithFilters(filterParams);
+    return props.refreshList(resp);
+  }
+
+  useDidUpdateEffect(fetchFilteredData, [filterParams]);
+
+  const handleSelectChange = (e, { name, value }) => {
+    setFilterParams({ ...filterParams, [name]: value });
+  };
+
+  const onParamsReset = () => {
+    setFilterParams({
+      region: 0
+    });
+  };
+
   return (
-    <div>
-      <div>{}</div>
+    <div className="company-filters">
+      <div className="company-filters__svg-container">
+        <img alt="" className="company-filters__svg" src={svg.logs} />
+      </div>
+
+      <Form>
+        <Form.Select
+          label="Region"
+          fluid
+          selection
+          options={selectionOptions.REGIONS}
+          placeholder="Region"
+          style={{ width: '35rem' }}
+          onChange={handleSelectChange}
+          name="region"
+          className="stud-reg__select"
+          value={filterParams.region}
+        />
+      </Form>
+
+      <Button
+        content="reset"
+        fluid
+        size="massive"
+        color="teal"
+        onClick={onParamsReset}
+      />
     </div>
   );
 };
 
-export default StudentFilter;
+export default StudentFilters;

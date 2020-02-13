@@ -22,6 +22,7 @@ export default function wrapAdvancedList(
   DetailsView: Component | Function,
   FilterView: Component | Function,
   getItems: Function,
+  customSearchFunction?: Function,
   passThroughProps?: Object = {}
 ) {
   class AdvancedList extends Component<Props> {
@@ -40,6 +41,12 @@ export default function wrapAdvancedList(
       searchTerm: '',
       showFilter: false
     };
+
+    constructor(props) {
+      super(props);
+      if (customSearchFunction) this.searchFunction = customSearchFunction;
+      else this.searchFunction = this.searchItems;
+    }
 
     componentDidMount() {
       this.initPageData(this.props);
@@ -92,13 +99,14 @@ export default function wrapAdvancedList(
 
       setTimeout(async () => {
         const resp = await getItems();
+        console.log(resp);
         if (resp.error) {
           this.handleErrors(resp.error);
         } else {
           this.setState({ originalData: resp.data, data: resp.data });
 
           if (!isEmpty(this.state.searchTerm)) {
-            const newData = await this.searchItems(
+            const newData = await this.searchFunction(
               this.state.searchTerm,
               resp.data
             );
@@ -127,7 +135,7 @@ export default function wrapAdvancedList(
           this.setState({ originalData: resp.data, data: resp.data });
 
           if (!isEmpty(this.state.searchTerm)) {
-            const newData = await this.searchItems(
+            const newData = await this.searchFunction(
               this.state.searchTerm,
               resp.data
             );
@@ -202,7 +210,10 @@ export default function wrapAdvancedList(
         },
         async () => {
           if (!isEmpty(this.state.searchTerm)) {
-            const newData = await this.searchItems(this.state.searchTerm, resp);
+            const newData = await this.searchFunction(
+              this.state.searchTerm,
+              resp
+            );
             return this.setPageData(newData);
           }
           return this.setPageData(resp);
@@ -213,7 +224,7 @@ export default function wrapAdvancedList(
     handleSearchInputChange = async (e, { value }) => {
       this.setState({ searchTerm: value });
       const dataToSearch = this.state.filteredData || this.state.originalData;
-      const filteredData = await this.searchItems(value, dataToSearch);
+      const filteredData = await this.searchFunction(value, dataToSearch);
       return this.setPageData(filteredData);
     };
 

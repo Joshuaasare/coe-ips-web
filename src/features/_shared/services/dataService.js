@@ -37,6 +37,11 @@ export async function convertCompaniesToOptionsForUi(data: Array) {
 }
 
 export async function addNewCompany(data) {
-  const resp = apiPost('/coordinator/add-company-archive', data);
+  const resp = await apiPost('/coordinator/add-company-archive', data);
+  return resp;
+}
+
+export async function getAllStudents() {
+  const resp = await apiGet('/coordinator/students');
   return resp;
 }

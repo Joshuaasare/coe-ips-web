@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:57:43
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-10 14:25:18
+ * @Last Modified time: 2020-02-13 10:16:46
  */
 
 import React, { Component } from 'react';
@@ -327,22 +327,22 @@ class CompanyList extends Component<Props> {
                     size="huge"
                   />
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '12rem' }}>
+                <Table.HeaderCell style={{ width: '4rem !important' }}>
                   Company Name
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '5rem' }}>
+                <Table.HeaderCell style={{ width: '3rem !important' }}>
                   Company Address
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '5rem !important' }}>
+                <Table.HeaderCell style={{ width: '3rem !important' }}>
                   Email Address
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '5rem' }}>
+                <Table.HeaderCell style={{ width: '3rem !important' }}>
                   Phone
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '5rem' }}>
+                <Table.HeaderCell style={{ width: '.5rem !important' }}>
                   Request Letter Uploaded
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '5rem' }}>
+                <Table.HeaderCell style={{ width: '.5rem !important' }}>
                   Contact Status
                 </Table.HeaderCell>
 

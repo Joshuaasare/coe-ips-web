@@ -20,15 +20,15 @@ export default () => {
       showInMenu: true,
       component: CompanyAddition,
       path: '/coordinator/company-addition'
+    },
+    {
+      title: 'Students',
+      icon: '',
+      isExact: true,
+      showInMenu: true,
+      component: Students,
+      path: '/coordinator/students'
     }
-    // {
-    //   title: 'Students',
-    //   icon: '',
-    //   isExact: true,
-    //   showInMenu: true,
-    //   component: Students,
-    //   path: '/coordinator/students'
-    // }
   ];
   return routes;
 };

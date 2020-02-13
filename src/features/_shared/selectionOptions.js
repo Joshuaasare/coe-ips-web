@@ -64,5 +64,19 @@ export const selectionOptions = {
     { text: 'Companies without Phone or Email Address', value: 5 },
     { text: 'Companies with Both Phone and Email Address', value: 6 },
     { text: 'No Filter', value: 10 }
+  ],
+
+  REGIONS: [
+    { text: 'No Filter', value: 0 },
+    { text: 'Western Region', value: 1 },
+    { text: 'Eastern Region', value: 2 },
+    { text: 'Central', value: 3 },
+    { text: 'Ashanti Region', value: 4 },
+    { text: 'Northern Region', value: 5 },
+    { text: 'Volta Region', value: 6 },
+    { text: 'Greater Accra Region', value: 7 },
+    { text: 'Brong Ahafo Region', value: 8 },
+    { text: 'Upper West Region', value: 9 },
+    { text: 'Upper East Region', value: 10 }
   ]
 };
