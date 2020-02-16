@@ -481,6 +481,14 @@ span.generic-large-detail-avatar {
 .flex__row {
   display: flex;
 }
+
+.distribution__icons {
+  position: absolute;
+  top: 20rem;
+  right: 5.5rem;
+  z-index: 1000000;
+}
+
 /*BIG DESKTOP*/
 @media (max-width: 112.5em) {
 }
@@ -499,6 +507,13 @@ span.generic-large-detail-avatar {
 
   .info {
     min-height: 55rem;
+  }
+
+  .distribution__icons {
+    position: absolute;
+    top: 22rem;
+    right: 7rem;
+    z-index: 1000000;
   }
 }
 
@@ -528,6 +543,17 @@ span.generic-large-detail-avatar {
     font-size: 1.8rem;
     line-height: 2.8rem;
     font-weight: 400;
+  }
+
+  .distribution__map {
+    width: 100vw;
+    height: 100vh;
+    padding: 0 2rem 0 2rem;
+  }
+
+  .distribution__icons {
+    top: 22rem;
+    right: 4rem;
   }
 }
 

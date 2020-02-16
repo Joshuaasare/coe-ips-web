@@ -1,6 +1,6 @@
-import { PlacementRequest } from './PlacementRequest';
+import {} from './PlacementRequest';
 import { Companies } from './Companies';
-import { CompanyAddition, CompanyAdditionTest } from './CompanyAddition';
+import { CompanyAddition } from './CompanyAddition';
 import { Students } from './Students';
 
 export default () => {

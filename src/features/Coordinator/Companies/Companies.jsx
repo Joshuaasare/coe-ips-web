@@ -3,16 +3,14 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-25 10:00:37
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-16 19:56:55
+ * @Last Modified time: 2020-02-16 20:35:29
  */
 
 import React from 'react';
-import { CompanyList, CompanyDetails, CompanyFilters } from '.';
+import { CompanyList, CompanyDetails, CompanyFilters, CompanyMapView } from '.';
 import { wrapAdvancedList } from '../../_shared/hocs';
 import { getArchivedCompaniesWithContactMade } from '../../_shared/services';
 import './css/companies.css';
-import { MultiLocation } from '../../_shared/components';
-import { constants } from '../../_shared/constants';
 
 type MapViewProps = {
   data: Array
@@ -31,17 +29,7 @@ export const CompanyFilterView = props => {
 };
 
 export const MapDistributionView = (props: MapViewProps) => {
-  return (
-    <div className="distribution__map">
-      <MultiLocation
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${constants.maps.API_KEY}`}
-        loadingElement={<div style={{ height: `100%` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: '500px' }} />}
-        data={props.data}
-      />
-    </div>
-  );
+  return <CompanyMapView {...props} />;
 };
 
 export default wrapAdvancedList(
