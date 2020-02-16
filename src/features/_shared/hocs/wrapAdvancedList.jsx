@@ -21,6 +21,7 @@ export default function wrapAdvancedList(
   List: Component | Function,
   DetailsView: Component | Function,
   FilterView: Component | Function,
+  MapView: Component | Function,
   getItems: Function,
   customSearchFunction?: Function,
   passThroughProps?: Object = {}
@@ -39,7 +40,8 @@ export default function wrapAdvancedList(
       dataToRender: null,
       error: null,
       searchTerm: '',
-      showFilter: false
+      showFilter: false,
+      showMap: false
     };
 
     constructor(props) {
@@ -99,7 +101,6 @@ export default function wrapAdvancedList(
 
       setTimeout(async () => {
         const resp = await getItems();
-        console.log(resp);
         if (resp.error) {
           this.handleErrors(resp.error);
         } else {
@@ -161,6 +162,14 @@ export default function wrapAdvancedList(
 
     hideActiveItem = () => {
       this.setState({ showActiveItem: false });
+    };
+
+    showMap = () => {
+      this.setState({ showMap: true });
+    };
+
+    hideMap = () => {
+      this.setState({ showMap: false });
     };
 
     onItemClick = item => {
@@ -249,13 +258,27 @@ export default function wrapAdvancedList(
 
     renderLeftButtons() {
       return (
-        <div className="buttons-container" onClick={this.showFilter}>
-          <Ikon
-            name="equalizer"
-            color="maroon"
-            className="buttons-container__icon"
-          />
-          <span className="buttons-container__text">Open Filter</span>
+        <div className="flex__row">
+          <div
+            className="buttons-container u-margin-right-standard"
+            onClick={this.showFilter}
+          >
+            <Ikon
+              name="equalizer"
+              color="maroon"
+              className="buttons-container__icon"
+            />
+            <span className="buttons-container__text">Open Filter</span>
+          </div>
+
+          <div className="buttons-container" onClick={this.showMap}>
+            <Ikon
+              name="location2"
+              color="maroon"
+              className="buttons-container__icon"
+            />
+            <span className="buttons-container__text">Open Map</span>
+          </div>
         </div>
       );
     }
@@ -325,6 +348,28 @@ export default function wrapAdvancedList(
       );
     }
 
+    renderMapView() {
+      return (
+        <AnimatedModal
+          onClose={this.hideMap}
+          onShow={this.showMap}
+          show={this.state.showMap}
+        >
+          <AnimatedModal.Header>
+            <AnimatedModal.Title>Distribution on Map</AnimatedModal.Title>
+          </AnimatedModal.Header>
+          <AnimatedModal.Content>
+            <MapView
+              {...this.props}
+              {...passThroughProps}
+              data={this.state.filteredData || this.state.data}
+            />
+          </AnimatedModal.Content>
+          <AnimatedModal.Footer>{}</AnimatedModal.Footer>
+        </AnimatedModal>
+      );
+    }
+
     renderContent() {
       const { error, showLoader } = this.state;
       if (error) {
@@ -365,6 +410,7 @@ export default function wrapAdvancedList(
           />
           {this.renderFilterView()}
           {this.renderDetailsView()}
+          {this.renderMapView()}
         </MainContainer>
       );
     }

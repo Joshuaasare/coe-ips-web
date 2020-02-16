@@ -51,19 +51,19 @@ export const selectionOptions = {
   ],
 
   COMPANY_CONTACTED: [
+    { text: 'No Filter', value: 0 },
     { text: 'Companies Emailed', value: 1 },
-    { text: 'Companies Not Emailed', value: 0 },
-    { text: 'No Filter', value: 10 }
+    { text: 'Companies Not Emailed', value: 0 }
   ],
 
   COMPANY_CONTACT_INFO_STATUS: [
+    { text: 'No Filter', value: 0 },
     { text: 'Companies with Email', value: 1 },
     { text: 'Companies with Phone Numbers', value: 2 },
     { text: 'Companies without Phone Numbers', value: 3 },
     { text: 'Companies without Email', value: 4 },
     { text: 'Companies without Phone or Email Address', value: 5 },
-    { text: 'Companies with Both Phone and Email Address', value: 6 },
-    { text: 'No Filter', value: 10 }
+    { text: 'Companies with Both Phone and Email Address', value: 6 }
   ],
 
   REGIONS: [

@@ -23,3 +23,4 @@ export { default as AnimatedModal } from './AnimatedModal';
 export { default as Pagination } from './Pagination';
 export { default as LocationSelection } from './LocationSelection';
 export { default as LocationWrapper } from './LocationWrapper';
+export { default as MultiLocation } from './MultiLocation';

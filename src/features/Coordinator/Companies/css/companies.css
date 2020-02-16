@@ -43,14 +43,15 @@
 }
 
 .company-addition {
-  width: 100%;
+  width: 100vw;
 }
 
 .company-addition__form {
-  padding: 0 10rem 0 10rem;
+  padding: 0 35rem 0 35rem;
   width: 100%;
   overflow-y: auto !important;
 }
+
 .stud-reg__radio {
   font-weight: 700 !important;
   font-size: 1.2rem !important;
@@ -170,17 +171,68 @@
   padding: 0 15rem 0 15rem;
 }
 
+.company-addition {
+  position: relative;
+  margin-top: -2rem;
+}
+
 .company-addition .button-container {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 1.5rem 0 0 0;
+  padding: 1rem 0 0 0;
 }
 
-.company-addition .button-container .button {
-  width: 90%;
+.company-addition .nav-buttons {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 1px;
+  border-color: teal;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 150ms ease-in;
+  background: white;
 }
 
+.company-addition .forward {
+  width: 80px;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.company-addition .backwards {
+  width: 80px;
+}
+
+.company-addition .nav-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0 1rem 0;
+  align-items: center;
+}
+
+.company-addition .nav-buttons-container span {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: teal;
+}
+
+.company-addition .forward-button:hover,
+.company-addition .backward-button:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.company__map {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 5rem 0 5rem;
+}
 /*BIG DESKTOP*/
 @media (max-width: 112.5em) {
 }
@@ -222,6 +274,12 @@
     justify-content: space-between;
     padding: 0 5rem 0 5rem;
   }
+
+  .company-addition__form {
+    padding: 0 15rem 0 15rem;
+    width: 100%;
+    overflow-y: auto !important;
+  }
 }
 
 /*PHONE*/
@@ -252,6 +310,12 @@
     text-align: center;
   }
 
+  .company-addition__form {
+    padding: 0 5rem 0 5rem;
+    width: 100%;
+    overflow-y: auto !important;
+  }
+
   .stud-reg__input.file-input > label {
     height: 5rem;
   }
@@ -269,5 +333,19 @@
     justify-content: space-between;
     width: 80vw;
     padding: 0 0 0 0;
+  }
+
+  .company-addition__form {
+    padding: 0 2rem 0 2rem;
+    width: 100%;
+    overflow-y: auto !important;
+  }
+
+  .company-addition .forward-button {
+    right: 1rem;
+  }
+
+  .company-addition .backward-button {
+    left: 1rem;
   }
 }

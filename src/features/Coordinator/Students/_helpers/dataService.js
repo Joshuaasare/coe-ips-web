@@ -6,7 +6,10 @@ export async function studentSearchFunction(searchTerm, originalData) {
     return (
       item.surname.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
       item.other_names.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
-      item.index_number.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+      item.index_number
+        .toString()
+        .toLowerCase()
+        .indexOf(searchTerm.toLowerCase()) > -1
     );
   });
 }

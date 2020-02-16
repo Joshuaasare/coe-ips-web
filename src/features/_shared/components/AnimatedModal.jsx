@@ -83,7 +83,7 @@ class AnimatedModal extends React.PureComponent<Props> {
           {!this.props.hideExitButton && (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             <div className="animated-modal__exit-btn" onClick={this.hideModal}>
-              <Ikon name="android-close" size={2} />
+              <Ikon name="android-close" size={2} color="maroon" />
             </div>
           )}
           <div

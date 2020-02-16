@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-28 00:45:17
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-04 01:05:21
+ * @Last Modified time: 2020-02-14 03:05:00
  */
 import React, { useState } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -17,8 +17,9 @@ type Props = {
 
 const CompanyFilters = (props: Props) => {
   const [filterParams, setFilterParams] = useState({
-    contactStatus: 10,
-    contactInfoStatus: 10
+    contactStatus: 0,
+    contactInfoStatus: 0,
+    region: 0
   });
 
   async function fetchFilteredData() {
@@ -34,8 +35,9 @@ const CompanyFilters = (props: Props) => {
 
   const onParamsReset = () => {
     setFilterParams({
-      contactInfoStatus: 10,
-      contactStatus: 10
+      contactInfoStatus: 0,
+      contactStatus: 0,
+      region: 0
     });
   };
 
@@ -46,6 +48,18 @@ const CompanyFilters = (props: Props) => {
       </div>
 
       <Form>
+        <Form.Select
+          label="Region"
+          fluid
+          selection
+          options={selectionOptions.REGIONS}
+          placeholder="Region"
+          style={{ width: '35rem' }}
+          onChange={handleSelectChange}
+          name="region"
+          className="stud-reg__select"
+          value={filterParams.region}
+        />
         <Form.Select
           label="Email Address Status"
           fluid

@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:57:43
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-13 10:16:46
+ * @Last Modified time: 2020-02-14 02:51:41
  */
 
 import React, { Component } from 'react';
@@ -257,6 +257,8 @@ class CompanyList extends Component<Props> {
           </Table.Cell>
           <Table.Cell>{company.name}</Table.Cell>
           <Table.Cell>{company.postal_address}</Table.Cell>
+
+          <Table.Cell>{company.location_address}</Table.Cell>
           <Table.Cell>{company.email}</Table.Cell>
           <Table.Cell>{company.phone}</Table.Cell>
           <Table.Cell>
@@ -331,12 +333,16 @@ class CompanyList extends Component<Props> {
                   Company Name
                 </Table.HeaderCell>
                 <Table.HeaderCell style={{ width: '3rem !important' }}>
-                  Company Address
+                  Postal Address
                 </Table.HeaderCell>
+
                 <Table.HeaderCell style={{ width: '3rem !important' }}>
+                  Company Location
+                </Table.HeaderCell>
+                <Table.HeaderCell style={{ width: '2rem !important' }}>
                   Email Address
                 </Table.HeaderCell>
-                <Table.HeaderCell style={{ width: '3rem !important' }}>
+                <Table.HeaderCell style={{ width: '2rem !important' }}>
                   Phone
                 </Table.HeaderCell>
                 <Table.HeaderCell style={{ width: '.5rem !important' }}>

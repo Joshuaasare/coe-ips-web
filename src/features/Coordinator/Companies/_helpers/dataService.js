@@ -4,9 +4,10 @@ import {
   apiPut,
   getArchivedCompaniesWithContactMade
 } from '../../../_shared/services';
+import { selectionOptions } from '../../../_shared/selectionOptions';
 
 export async function getArchivedCompaniesWithFilters(data) {
-  const { contactStatus, contactInfoStatus } = data;
+  const { contactStatus, contactInfoStatus, region } = data;
   const resp = await getArchivedCompaniesWithContactMade();
   if (resp.error) {
     return resp;
@@ -15,7 +16,10 @@ export async function getArchivedCompaniesWithFilters(data) {
 
   const filteredData = companies.filter(
     company =>
-      (contactStatus !== 10 ? contactStatus === company.contact_made : true) &&
+      (contactStatus !== 0 ? contactStatus === company.contact_made : true) &&
+      (region !== 0
+        ? selectionOptions.REGIONS[region].text === company.region
+        : true) &&
       contactInfoCondition(contactInfoStatus, company)
   );
   return filteredData;
@@ -48,5 +52,16 @@ export function contactInfoCondition(contactInfoStatus, company) {
 
 export async function uploadCompanyData(data) {
   const resp = await apiPut('/coordinator/update-company-archive', data);
+  return resp;
+}
+
+export async function uploadCompanyDataWithLocation(
+  companyDetails,
+  locationDetails
+) {
+  const resp = await apiPut('/coordinator/update-company-archive-location', {
+    companyDetails,
+    locationDetails
+  });
   return resp;
 }

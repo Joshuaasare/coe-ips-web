@@ -2,17 +2,23 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-31 18:43:13
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-07 09:49:19
+ * @Last Modified time: 2020-02-14 15:52:49
  */
 
 import React, { useState, useEffect, useRef } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/storage';
 import { Form, Button } from 'semantic-ui-react';
-import { CenterPage, EmptyState } from '../../_shared/components';
+import {
+  CenterPage,
+  EmptyState,
+  LocationWrapper,
+  Ikon
+} from '../../_shared/components';
 import { useDidUpdateEffect } from '../../_shared/hooks';
 import { constants } from '../../_shared/constants';
-import { uploadCompanyData } from './_helpers';
+import { uploadCompanyData, uploadCompanyDataWithLocation } from './_helpers';
+import { isEmpty } from '../../_shared/services';
 
 type Props = {
   companyDetails: Object,
@@ -26,11 +32,15 @@ const CompanyAdditionForm = (props: Props) => {
     name: props.companyDetails.name || '',
     email: props.companyDetails.email || '',
     phone: props.companyDetails.phone || '',
+    locationId: props.companyDetails.location_id,
     postalAddress: props.companyDetails.postal_address || '',
     requestLetterUrl: props.companyDetails.request_letter_url || ''
   });
+
+  const [companyLocationDetails, setCompanyLocationDetails] = useState({});
   const [error, setError] = useState(null);
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [activePage, setActivePage] = useState(0);
 
   const uploadObserver = useRef(null);
 
@@ -52,9 +62,18 @@ const CompanyAdditionForm = (props: Props) => {
     }
   };
 
+  const onLocationSelectChange = location => {
+    setCompanyLocationDetails(location.locationDetails);
+  };
+
   const uploadData = async () => {
     setLoading(true);
-    const resp = await uploadCompanyData(companyDetails);
+    const resp = !isEmpty(companyLocationDetails)
+      ? await uploadCompanyDataWithLocation(
+          companyDetails,
+          companyLocationDetails
+        )
+      : await uploadCompanyData(companyDetails);
     if (resp.error) {
       return handleErrors(resp.error);
     }
@@ -155,7 +174,7 @@ const CompanyAdditionForm = (props: Props) => {
     setError(null);
   };
 
-  function renderContent() {
+  function renderPageData(activePage) {
     const {
       name,
       email,
@@ -163,6 +182,85 @@ const CompanyAdditionForm = (props: Props) => {
       postalAddress,
       requestLetterUrl
     } = companyDetails;
+    if (activePage === 0) {
+      return (
+        <>
+          <Form.Input
+            label="Enter Company Name"
+            fluid
+            placeholder="Company Name"
+            name="name"
+            className="stud-reg__input"
+            value={name}
+            onChange={onChange}
+          />
+
+          <Form.Input
+            label="Enter Postal Address"
+            fluid
+            placeholder="Postal Address"
+            name="postalAddress"
+            className="stud-reg__input"
+            value={postalAddress}
+            onChange={onChange}
+          />
+
+          <Form.Input
+            label="Enter Phone Number"
+            fluid
+            placeholder="Phone Number"
+            name="phone"
+            className="stud-reg__input"
+            value={phone}
+            onChange={onChange}
+          />
+
+          <Form.Input
+            label="Enter Email Address"
+            fluid
+            placeholder="Email Address"
+            name="email"
+            className="stud-reg__input"
+            value={email}
+            onChange={onChange}
+          />
+
+          <Form.Input
+            size="large"
+            label={
+              requestLetter || requestLetterUrl
+                ? 'File Uploaded. Click to change'
+                : 'No File Uploaded. Upload request letter Now (PDF)'
+            }
+            type="file"
+            name="requestLetter"
+            placeholder="Request Letter"
+            width={16}
+            className="stud-reg__input file-input"
+            onChange={onRequestLetterChange}
+            accept="application/pdf"
+          />
+        </>
+      );
+    }
+
+    if (activePage === 1) {
+      return (
+        <LocationWrapper
+          locationName={
+            companyLocationDetails.address
+              ? companyLocationDetails.address
+              : props.companyDetails.location_address
+          }
+          onLocationSelectChange={onLocationSelectChange}
+        />
+      );
+    }
+
+    return null;
+  }
+
+  function renderContent() {
     if (error && !loading) {
       return (
         <CenterPage>
@@ -194,67 +292,31 @@ const CompanyAdditionForm = (props: Props) => {
     return (
       <div className="company-addition">
         <div className="company-addition__form">
-          <Form>
-            <Form.Input
-              label="Enter Company Name"
-              fluid
-              placeholder="Company Name"
-              style={{ width: '35rem' }}
-              name="name"
-              className="stud-reg__input"
-              value={name}
-              onChange={onChange}
-            />
+          <div className="nav-buttons-container">
+            <div className="backwards">
+              {activePage !== 0 && (
+                <div
+                  className="nav-buttons backward-button"
+                  onClick={() => setActivePage(activePage - 1)}
+                >
+                  <Ikon name="chevron-left2" size={1.5} color="teal" />
+                </div>
+              )}
+            </div>
+            <span>{`Page ${activePage + 1}`}</span>
+            <div className="forward">
+              {activePage !== 1 && (
+                <div
+                  className="nav-buttons forward-button"
+                  onClick={() => setActivePage(activePage + 1)}
+                >
+                  <Ikon name="chevron-right2" size={1.5} color="teal" />
+                </div>
+              )}
+            </div>
+          </div>
 
-            <Form.Input
-              label="Enter Postal Address"
-              fluid
-              placeholder="Postal Address"
-              style={{ width: '35rem' }}
-              name="postalAddress"
-              className="stud-reg__input"
-              value={postalAddress}
-              onChange={onChange}
-            />
-
-            <Form.Input
-              label="Enter Phone Number"
-              fluid
-              placeholder="Phone Number"
-              style={{ width: '35rem' }}
-              name="phone"
-              className="stud-reg__input"
-              value={phone}
-              onChange={onChange}
-            />
-
-            <Form.Input
-              label="Enter Email Address"
-              fluid
-              placeholder="Email Address"
-              style={{ width: '35rem' }}
-              name="email"
-              className="stud-reg__input"
-              value={email}
-              onChange={onChange}
-            />
-
-            <Form.Input
-              size="large"
-              label={
-                requestLetter || requestLetterUrl
-                  ? 'File Uploaded. Click to change'
-                  : 'No File Uploaded. Upload request letter Now (PDF)'
-              }
-              type="file"
-              name="requestLetter"
-              placeholder="Request Letter"
-              width={16}
-              className="stud-reg__input file-input"
-              onChange={onRequestLetterChange}
-              accept="application/pdf"
-            />
-          </Form>
+          <Form>{renderPageData(activePage)}</Form>
 
           <div className="button-container">
             <div className="button">
@@ -265,13 +327,14 @@ const CompanyAdditionForm = (props: Props) => {
                 size="massive"
                 onClick={onSaveClick}
                 loading={loading}
+                disabled={!companyDetails.name}
               />
             </div>
 
             <div className="button">
               <Button
                 content="cancel"
-                icon="cancel"
+                icon="close"
                 color="google plus"
                 size="massive"
                 onClick={props.cancelEdit}

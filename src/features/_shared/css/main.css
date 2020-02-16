@@ -472,6 +472,15 @@ span.generic-large-detail-avatar {
   justify-content: flex-end;
 }
 
+.distribution__map {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 5rem 0 5rem;
+}
+
+.flex__row {
+  display: flex;
+}
 /*BIG DESKTOP*/
 @media (max-width: 112.5em) {
 }

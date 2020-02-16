@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-12-18 21:40:16
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-05 08:39:24
+ * @Last Modified time: 2020-02-16 19:59:33
  *
  *This hoc contains the entire logic for login of both coordinators and
  *students. When a user visits the login page, we check if he is currently logged in,
@@ -58,8 +58,6 @@ function wrapLogin(svgType: string, registerPath: string, userTypeId: number) {
       false
     );
 
-    console.log(props.history);
-
     useEffect(() => {
       checkCurrentUser();
     }, []);
@@ -76,11 +74,7 @@ function wrapLogin(svgType: string, registerPath: string, userTypeId: number) {
         return setPageLoader(false);
       }
 
-      console.log('verify resp', resp);
-
       const storedUserId = await getUserTypeId();
-
-      console.log('stored', storedUserId);
 
       if (
         props.history.location.state &&

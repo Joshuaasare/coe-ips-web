@@ -2,17 +2,22 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-10 10:52:03
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-11 23:36:12
+ * @Last Modified time: 2020-02-14 10:38:26
  */
 import React, { useState, useEffect } from 'react';
 import { Form } from 'semantic-ui-react';
 import { LocationSelection } from '.';
 import { constants } from '../constants';
-import { getPlacesFromSearchKey, getLocationDetails } from '../services';
+import {
+  getPlacesFromSearchKey,
+  getLocationDetails,
+  isEmpty
+} from '../services';
 import './css/locationWrapper.css';
 
 type Props = {
-  onLocationSelectChange?: () => {}
+  onLocationSelectChange?: () => {},
+  locationName: string
 };
 
 const LocationWrapper = (props: Props) => {
@@ -24,6 +29,8 @@ const LocationWrapper = (props: Props) => {
   useEffect(() => {
     fetchPlaces();
   }, [searchKey]);
+
+  console.log(props);
 
   async function fetchPlaces() {
     const resp = await getPlacesFromSearchKey(searchKey);
@@ -54,7 +61,11 @@ const LocationWrapper = (props: Props) => {
       <div className="location-wrapper">
         <Form>
           <Form.Select
-            label="Search Location"
+            label={
+              !isEmpty(props.locationName)
+                ? props.locationName
+                : 'Search Location'
+            }
             size="large"
             search
             className="stud-reg__select"
@@ -72,7 +83,7 @@ const LocationWrapper = (props: Props) => {
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${constants.maps.API_KEY}`}
         loadingElement={<div style={{ height: `100%` }} />}
         mapElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: '400px' }} />}
+        containerElement={<div style={{ height: '350px' }} />}
         locationDetails={locationDetails}
         locationId={locationId}
       />
