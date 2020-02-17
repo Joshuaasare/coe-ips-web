@@ -2,14 +2,18 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:56:25
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-01 06:06:40
+ * @Last Modified time: 2020-02-17 09:51:01
  */
 
 import React, { useState, useEffect, useRef } from 'react';
 import ReactToPrint from 'react-to-print';
 import { Button } from 'semantic-ui-react';
 import { CenterPage, Loader, Ikon, CacheImage } from '../../_shared/components';
-import { PlacementRequest } from '../../_shared/letters';
+import {
+  PlacementRequest,
+  GeneralPlacementRequest,
+  PlacementRequestNoLetterHead
+} from '../../_shared/letters';
 import { CompanyAdditionForm } from '.';
 
 type Props = {
@@ -21,9 +25,12 @@ const CompanyDetails = (props: Props) => {
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
   const [companyDetails, setCompanyDetails] = useState({});
-  const [requestPrintLoading, setRequestPrintLoading] = useState(false);
+
+  const [requestPrintALoading, setRequestPrintALoading] = useState(false);
+  const [requestPrintBLoading, setRequestPrintBLoading] = useState(false);
 
   const placementRequestRef = useRef(null);
+  const placementLetterNoLetterHeadRef = useRef(null);
 
   useEffect(() => {
     initPageData();
@@ -40,7 +47,8 @@ const CompanyDetails = (props: Props) => {
   function resetState() {
     setEditMode(false);
     setLoading(true);
-    setRequestPrintLoading(false);
+    setRequestPrintALoading(false);
+    setRequestPrintBLoading(false);
   }
 
   const cancelEdit = () => {
@@ -50,6 +58,11 @@ const CompanyDetails = (props: Props) => {
   function renderLetter() {
     return (
       <div className="letter-hidden">
+        <PlacementRequestNoLetterHead
+          ref={placementLetterNoLetterHeadRef}
+          companyDetails={companyDetails}
+        />
+
         <PlacementRequest
           ref={placementRequestRef}
           companyDetails={companyDetails}
@@ -137,25 +150,50 @@ const CompanyDetails = (props: Props) => {
           <ReactToPrint
             trigger={() => (
               <Button
-                content="Letter"
+                content="Letter A"
                 color="teal"
                 icon="cloud download"
                 size="massive"
                 fluid
-                loading={requestPrintLoading}
+                loading={requestPrintALoading}
               />
             )}
             copyStyles
             content={() => placementRequestRef.current}
             onBeforeGetContent={() => {
-              setRequestPrintLoading(true);
+              setRequestPrintALoading(true);
               placementRequestRef.current.setDocumentTitle();
             }}
             onBeforePrint={() => {
-              setRequestPrintLoading(false);
+              setRequestPrintALoading(false);
             }}
             onAfterPrint={() =>
               placementRequestRef.current.removeDocumentTitle()
+            }
+          />
+
+          <ReactToPrint
+            trigger={() => (
+              <Button
+                content="Letter B"
+                color="teal"
+                icon="cloud download"
+                size="massive"
+                fluid
+                loading={requestPrintBLoading}
+              />
+            )}
+            copyStyles
+            content={() => placementLetterNoLetterHeadRef.current}
+            onBeforeGetContent={() => {
+              setRequestPrintBLoading(true);
+              placementLetterNoLetterHeadRef.current.setDocumentTitle();
+            }}
+            onBeforePrint={() => {
+              setRequestPrintBLoading(false);
+            }}
+            onAfterPrint={() =>
+              placementLetterNoLetterHeadRef.current.removeDocumentTitle()
             }
           />
         </div>
