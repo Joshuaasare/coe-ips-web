@@ -144,6 +144,8 @@ class PlacementRequestNoLetterHead extends Component<Props> {
 
             <br />
             <br />
+            <br />
+            <br />
 
             <div className="letter-footer">
               <font color="blue">
