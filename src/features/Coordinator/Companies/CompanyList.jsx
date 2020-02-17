@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:57:43
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-14 02:51:41
+ * @Last Modified time: 2020-02-17 09:58:56
  */
 
 import React, { Component } from 'react';
@@ -11,6 +11,7 @@ import { deleteFromCompanyArchive, sendPlacementRequests } from './_helpers';
 import { AnimatedModal, EmptyState } from '../../_shared/components';
 import { constants } from '../../_shared/constants';
 import { arrayHasData, isEmpty } from '../../_shared/services';
+import { GeneralPlacementRequest } from '../../_shared/letters';
 
 type Props = {
   dataToShow: Array<{}>,
@@ -156,6 +157,14 @@ class CompanyList extends Component<Props> {
         svgToUse: 'robot'
       }
     });
+  }
+
+  renderLetter() {
+    return (
+      <div className="letter-hidden">
+        <GeneralPlacementRequest />
+      </div>
+    );
   }
 
   renderAnimatedModal() {
@@ -371,6 +380,8 @@ class CompanyList extends Component<Props> {
             </Table.Body>
           </Table>
           {this.renderAnimatedModal()}
+          {this.renderLetter()}
+          <Button content="General Letter" />
         </div>
       </div>
     );

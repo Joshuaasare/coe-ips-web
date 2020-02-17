@@ -79,6 +79,9 @@ class PlacementRequestNoLetterHead extends Component<Props> {
               </p>
             </address>
             <br />
+            <span>Our Ref:CoE-VACT/2020</span>
+            <br />
+            <br />
           </div>
           <p>Dear Sir/Madam,</p>
           <div className="letter-intro">
@@ -106,9 +109,9 @@ class PlacementRequestNoLetterHead extends Component<Props> {
             Year students. We would seek to have your commitment both in the
             number of students you would be willing to offer places to and the
             areas of engineering discipline to enable us respond accordingly as
-            per attached. We would also like you to follow the link in the email
-            to register and choose the number of students you need for each
-            discipline.
+            per attached. We would also like you to follow this link
+            "https://coeips.netlify.com" to register and choose the number of
+            students you need for each discipline.
             <br />
             <br />
             We look forward to a favourable response and future collaborations
@@ -141,10 +144,7 @@ class PlacementRequestNoLetterHead extends Component<Props> {
 
             <br />
             <br />
-            <br />
-            <br />
 
-            <hr />
             <div className="letter-footer">
               <font color="blue">
                 <i>Departments</i>
