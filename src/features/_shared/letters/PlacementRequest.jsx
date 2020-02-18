@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-24 10:59:56
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-04 02:33:13
+ * @Last Modified time: 2020-02-18 11:06:22
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
@@ -147,6 +147,7 @@ class PlacementRequest extends Component<Props> {
             with your company. Thank you in anticipation of your cooperation.
           </div>
           <br />
+          <br />
           <div>
             <div className="closing">
               <div className="closing-coordinator">
@@ -171,6 +172,8 @@ class PlacementRequest extends Component<Props> {
               </div>
             </div>
 
+            <br />
+            <br />
             <br />
 
             <hr />

@@ -5,11 +5,14 @@
 }
 
 #request-letter .empty-letter-head {
-  height: 10rem;
 }
 
 #request-letter .empty-senders-address {
   height: 20rem;
+}
+
+#request-letter .empty-letter-head-general {
+  height: 40rem;
 }
 
 #request-letter {

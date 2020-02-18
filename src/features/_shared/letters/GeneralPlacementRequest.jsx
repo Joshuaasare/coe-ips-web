@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-17 09:25:02
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-17 09:36:12
+ * @Last Modified time: 2020-02-18 11:08:34
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
@@ -25,10 +25,7 @@ class GeneralPlacementRequest extends Component<Props> {
 
   setDocumentTitle() {
     // eslint-disable-next-line no-undef
-    document.title = `${this.props.companyDetails.name &&
-      `${changeCase.capitalCase(
-        this.props.companyDetails.name
-      )} request letter`}`;
+    document.title = 'General Placement Letter';
   }
 
   removeDocumentTitle() {
@@ -37,12 +34,12 @@ class GeneralPlacementRequest extends Component<Props> {
   }
 
   renderContent() {
-    const { companyDetails } = this.props;
+    // const { companyDetails } = this.props;
     return (
       <div>
         <div id="request-letter">
           <div className="shift-down-one-break-for-firefox" />
-          <div className="empty-letter-head">{}</div>
+          <div className="empty-letter-head-general">{}</div>
           <p>Dear Sir/Madam,</p>
           <div className="letter-intro">
             <b>
@@ -107,7 +104,6 @@ class GeneralPlacementRequest extends Component<Props> {
             <br />
             <br />
 
-            <hr />
             <div className="letter-footer">
               <font color="blue">
                 <i>Departments</i>

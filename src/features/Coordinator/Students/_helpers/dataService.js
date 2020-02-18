@@ -15,17 +15,20 @@ export async function studentSearchFunction(searchTerm, originalData) {
 }
 
 export async function getStudentWithFilters(data) {
-  const { region } = data;
+  const { region, department } = data;
   const resp = await getAllStudents();
   if (resp.error) {
     return resp;
   }
   const students = resp.data;
+  console.log('stud', students);
 
-  const filteredData = students.filter(student =>
-    region !== 0
-      ? selectionOptions.REGIONS[region].text === student.region
-      : true
+  const filteredData = students.filter(
+    student =>
+      (region !== 0
+        ? selectionOptions.REGIONS[region].text === student.region
+        : true) &&
+      (department !== 0 ? department === student.main_department_id : true)
   );
   return filteredData;
 }

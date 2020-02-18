@@ -2,10 +2,11 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:57:43
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-17 09:58:56
+ * @Last Modified time: 2020-02-18 11:03:24
  */
 
 import React, { Component } from 'react';
+import ReactToPrint from 'react-to-print';
 import { Table, Button, Checkbox, Icon, TableRow } from 'semantic-ui-react';
 import { deleteFromCompanyArchive, sendPlacementRequests } from './_helpers';
 import { AnimatedModal, EmptyState } from '../../_shared/components';
@@ -28,8 +29,14 @@ class CompanyList extends Component<Props> {
     error: null,
     showModal: false,
     checkedItems: [],
-    selectAllChecked: false
+    selectAllChecked: false,
+    generalLetterLoading: false
   };
+
+  constructor(props) {
+    super(props);
+    this.generalLetterRef = React.createRef();
+  }
 
   componentDidUpdate(newProps) {
     if (newProps.dataToShow !== this.props.dataToShow) {
@@ -162,7 +169,7 @@ class CompanyList extends Component<Props> {
   renderLetter() {
     return (
       <div className="letter-hidden">
-        <GeneralPlacementRequest />
+        <GeneralPlacementRequest ref={this.generalLetterRef} />
       </div>
     );
   }
@@ -381,7 +388,29 @@ class CompanyList extends Component<Props> {
           </Table>
           {this.renderAnimatedModal()}
           {this.renderLetter()}
-          <Button content="General Letter" />
+
+          <ReactToPrint
+            trigger={() => (
+              <Button
+                content="General Letter"
+                size="massive"
+                icon="cloud download"
+                loading={this.state.generalLetterLoading}
+              />
+            )}
+            copyStyles
+            content={() => this.generalLetterRef.current}
+            onBeforeGetContent={() => {
+              this.setState({ generalLetterLoading: true });
+              this.generalLetterRef.current.setDocumentTitle();
+            }}
+            onBeforePrint={() => {
+              this.setState({ generalLetterLoading: false });
+            }}
+            onAfterPrint={() =>
+              this.generalLetterRef.current.removeDocumentTitle()
+            }
+          />
         </div>
       </div>
     );

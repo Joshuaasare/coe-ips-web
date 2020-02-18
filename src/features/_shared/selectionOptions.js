@@ -22,6 +22,7 @@ export const selectionOptions = {
     { text: 'Telecommunications Engineering', value: 12, key: 17 }
   ],
   DEPARTMENTS: [
+    { text: 'No filter', value: 0 },
     { text: 'Agricultural And Biosystems Engineering Department.', value: 1 },
     { text: 'Chemical Engineering Dept.', value: 2 },
     { text: 'Computer Engineering Department', value: 3 },
@@ -36,6 +37,7 @@ export const selectionOptions = {
     { text: 'Mechanical Engineering Department', value: 9 },
     { text: 'Petroleum Engineering Department', value: 10 }
   ],
+
   YESORNO: [
     { text: 'Yes', value: 1 },
     { text: 'No', value: 0 }

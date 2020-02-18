@@ -2,11 +2,11 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-17 09:25:06
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-17 09:46:16
+ * @Last Modified time: 2020-02-18 11:07:18
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
-import { getDocumentsDateFormat } from '../services';
+// import { getDocumentsDateFormat } from '../services';
 import { images } from '../assets';
 import './css/placementRequest.css';
 
@@ -42,7 +42,7 @@ class PlacementRequestNoLetterHead extends Component<Props> {
       <div>
         <div id="request-letter">
           <div className="shift-down-one-break-for-firefox" />
-          <div className="letter-head">
+          <div className="empty-letter-head">
             <div className="empty-senders-address">{}</div>
             <br />
             {/* <div className="letter-date">
@@ -142,6 +142,7 @@ class PlacementRequestNoLetterHead extends Component<Props> {
               </div>
             </div>
 
+            <br />
             <br />
             <br />
             <br />
