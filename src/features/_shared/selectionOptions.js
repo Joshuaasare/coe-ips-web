@@ -80,5 +80,32 @@ export const selectionOptions = {
     { text: 'Brong Ahafo Region', value: 8 },
     { text: 'Upper West Region', value: 9 },
     { text: 'Upper East Region', value: 10 }
-  ]
+  ],
+
+  DISTRICTS: {
+    'Western Region': [
+      { text: 'Ahanta West', id: 1 },
+      { text: 'Aowin/Suaman', id: 2 },
+      { text: 'Bia West', id: 3 },
+      { text: 'Bia East', id: 4 },
+      { text: 'Bibiani/Anhwiaso/Bekwai', id: 5 },
+      { text: 'Bodi', id: 6 },
+      { text: 'Ellembele', id: 7 },
+      { text: 'Jomoro', id: 8 },
+      { text: 'Juaboso', id: 9 },
+      { text: 'Mpohor', id: 10 },
+      { text: 'Nzema East', id: 12 },
+      { text: 'Prestea-Huni', id: 13 },
+      { text: 'Sefwi Akontombra', id: 14 },
+      { text: 'Sefwi Wiawso', id: 15 },
+      { text: 'Sekondi Takoradi Metropolitan', id: 16 },
+      { text: 'Tarkwa-Nsuaem', id: 17 },
+      { text: 'Shama', id: 18 },
+      { text: 'Wassa East', id: 19 },
+      { text: 'Wassa West', id: 20 },
+      { text: 'Asankragua', id: 21 }
+    ],
+    'Greater Accra Region': [],
+    'No Filter': [{ text: 'No Filter', value: 0 }]
+  }
 };

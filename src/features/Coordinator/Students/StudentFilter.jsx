@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-11 23:43:49
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-18 14:38:01
+ * @Last Modified time: 2020-02-18 17:47:37
  */
 import React, { useState } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -18,7 +18,8 @@ type Props = {
 const StudentFilters = (props: Props) => {
   const [filterParams, setFilterParams] = useState({
     region: 0,
-    department: 0
+    department: 0,
+    district: 0
   });
 
   async function fetchFilteredData() {
@@ -35,7 +36,8 @@ const StudentFilters = (props: Props) => {
   const onParamsReset = () => {
     setFilterParams({
       region: 0,
-      department: 0
+      department: 0,
+      district: 0
     });
   };
 
@@ -64,10 +66,27 @@ const StudentFilters = (props: Props) => {
           fluid
           selection
           options={selectionOptions.DEPARTMENTS}
-          placeholder="department"
+          placeholder="Department"
           style={{ width: '35rem' }}
           onChange={handleSelectChange}
           name="department"
+          className="stud-reg__select"
+          value={filterParams.department}
+        />
+
+        <Form.Select
+          label="District"
+          fluid
+          selection
+          options={
+            selectionOptions.DISTRICTS[
+              selectionOptions.REGIONS[filterParams.region].text
+            ]
+          }
+          placeholder="District"
+          style={{ width: '35rem' }}
+          onChange={handleSelectChange}
+          name="district"
           className="stud-reg__select"
           value={filterParams.department}
         />
