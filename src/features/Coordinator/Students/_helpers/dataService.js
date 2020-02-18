@@ -21,7 +21,6 @@ export async function getStudentWithFilters(data) {
     return resp;
   }
   const students = resp.data;
-  console.log('stud', students);
 
   const filteredData = students.filter(
     student =>
@@ -32,7 +31,7 @@ export async function getStudentWithFilters(data) {
       (district !== 0
         ? selectionOptions.DISTRICTS[selectionOptions.REGIONS[region].text][
             district
-          ] === student.district
+          ].text === student.district
         : true)
   );
   return filteredData;
