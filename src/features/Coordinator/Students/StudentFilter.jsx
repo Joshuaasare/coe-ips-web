@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-11 23:43:49
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-18 17:47:37
+ * @Last Modified time: 2020-02-18 18:16:00
  */
 import React, { useState } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -88,7 +88,7 @@ const StudentFilters = (props: Props) => {
           onChange={handleSelectChange}
           name="district"
           className="stud-reg__select"
-          value={filterParams.department}
+          value={filterParams.district}
         />
       </Form>
 
