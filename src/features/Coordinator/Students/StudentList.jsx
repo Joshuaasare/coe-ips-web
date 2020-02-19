@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-11 23:44:03
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-13 10:11:07
+ * @Last Modified time: 2020-02-19 11:37:18
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
@@ -243,6 +243,7 @@ class StudentList extends Component<Props> {
           <Table.Cell>{student.main_department_name}</Table.Cell>
           <Table.Cell>{student.sub_department_name}</Table.Cell>
           <Table.Cell>{student.address}</Table.Cell>
+          <Table.Cell>{student.district}</Table.Cell>
           <Table.Cell>
             <div
               style={{
@@ -305,6 +306,9 @@ class StudentList extends Component<Props> {
                 </Table.HeaderCell>
                 <Table.HeaderCell style={{ width: '3rem !important' }}>
                   Address
+                </Table.HeaderCell>
+                <Table.HeaderCell style={{ width: '3rem !important' }}>
+                  District
                 </Table.HeaderCell>
                 <Table.HeaderCell style={{ width: '5rem' }}>
                   Placement Status
