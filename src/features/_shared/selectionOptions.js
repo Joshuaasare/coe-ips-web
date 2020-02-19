@@ -98,13 +98,12 @@ export const selectionOptions = {
       { text: 'Nzema East', value: 11 },
       { text: 'Prestea-Huni', value: 12 },
       { text: 'Sefwi Akontombra', value: 13 },
-      { text: 'Sefwi Wiawso', value: 14 },
-      { text: 'Sekondi Takoradi Metropolitan', value: 15 },
-      { text: 'Tarkwa-Nsuaem', value: 16 },
-      { text: 'Shama', value: 17 },
-      { text: 'Wassa East', value: 18 },
-      { text: 'Wassa West', value: 19 },
-      { text: 'Asankragua', value: 20 }
+      { text: 'Sefwi - Wiawso', value: 14 },
+      { text: 'Sekondi-Takoradi Metropolitan', value: 15 },
+      { text: 'Shama', value: 16 },
+      { text: 'Wassa East', value: 17 },
+      { text: 'Wassa West', value: 18 },
+      { text: 'Asankragua', value: 19 }
     ],
     'Greater Accra Region': [],
     'No Filter': [{ text: 'No Filter', value: 0 }]
