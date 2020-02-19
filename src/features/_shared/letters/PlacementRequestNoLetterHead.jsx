@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-17 09:25:06
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-18 11:07:18
+ * @Last Modified time: 2020-02-19 16:35:41
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
@@ -58,6 +58,14 @@ class PlacementRequestNoLetterHead extends Component<Props> {
                 {`${companyDetails.name &&
                   changeCase.capitalCase(companyDetails.name)}`}
                 <br />
+                <span>
+                  {companyDetails.location_address ? (
+                    <span>
+                      {`${companyDetails.location_address}`}
+                      <br />
+                    </span>
+                  ) : null}
+                </span>
                 <span>
                   {companyDetails.phone ? (
                     <span>
@@ -142,8 +150,6 @@ class PlacementRequestNoLetterHead extends Component<Props> {
               </div>
             </div>
 
-            <br />
-            <br />
             <br />
             <br />
             <br />

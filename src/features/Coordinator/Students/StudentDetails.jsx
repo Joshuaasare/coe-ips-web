@@ -2,10 +2,11 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-11 23:43:26
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-19 11:22:57
+ * @Last Modified time: 2020-02-19 15:06:04
  */
 import React, { useState, useEffect } from 'react';
 import { Button } from 'semantic-ui-react';
+import * as changeCase from 'change-case';
 import { CenterPage, Loader, Ikon, CacheImage } from '../../_shared/components';
 
 type Props = {
@@ -22,6 +23,7 @@ const StudentDetails = (props: Props) => {
   }, [props.activeItem]);
 
   function initPageData() {
+    console.log('st', props.activeItem);
     if (props.activeItem) {
       resetState();
       setStudentDetails(props.activeItem);
@@ -35,6 +37,7 @@ const StudentDetails = (props: Props) => {
   }
 
   function renderContent() {
+    const { surname, other_names, phone, email, address } = studentDetails;
     if (loading) {
       return (
         <CenterPage>
@@ -54,7 +57,9 @@ const StudentDetails = (props: Props) => {
         <div className="details-box__body">
           <div className="logo">
             <CacheImage
-              name={studentDetails.name}
+              name={`${surname.toUpperCase()},  ${changeCase.capitalCase(
+                other_names
+              )}`}
               id={studentDetails.id}
               containerClassName="profile__avatar-container"
               imageClassName="profile__avatar-image"
