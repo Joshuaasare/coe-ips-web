@@ -489,6 +489,80 @@ span.generic-large-detail-avatar {
   z-index: 1000000;
 }
 
+/**DETAILS**/
+
+.details-box {
+  width: 100%;
+}
+
+.details-box__body {
+  padding: 3rem 15rem 3rem 15rem;
+  width: 100%;
+}
+
+.details-box__body > .logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.profile__avatar-container {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 1rem;
+  font-size: 3rem;
+}
+
+.profile__avatar-image {
+  height: 9rem;
+  width: 9rem;
+  border-radius: 12rem;
+  font-size: 3rem;
+}
+
+.details-box__header {
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.details-box .info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.details-box .info-box .icon-container {
+  width: 6rem;
+  height: 6rem;
+  background-color: var(--color-coe-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5rem;
+  margin: 0 1.5rem 0 1.5rem;
+}
+
+.details-box .info-box .text {
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1rem 2rem 0 2rem;
+  text-align: center;
+}
+
+.details-box .details-box__footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15rem 0 15rem;
+}
+
 /*BIG DESKTOP*/
 @media (max-width: 112.5em) {
 }
@@ -514,6 +588,17 @@ span.generic-large-detail-avatar {
     top: 22rem;
     right: 7rem;
     z-index: 1000000;
+  }
+
+  .details-box__body {
+    padding: 3rem 5rem 3rem 5rem;
+    width: 100%;
+  }
+
+  .details-box .details-box__footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5rem 0 5rem;
   }
 }
 
@@ -555,10 +640,39 @@ span.generic-large-detail-avatar {
     top: 22rem;
     right: 4rem;
   }
+
+  .details-box__body {
+    padding: 3rem 0 3rem 0;
+    width: 100%;
+  }
+
+  .details-box .info-box .icon-container {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .details-box .info-box .text {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 2rem 0 2rem;
+    text-align: center;
+  }
 }
 
 /*EXTRA PHONE OPTIMIZATION*/
 @media (max-width: 25em) {
+  .details-box__body {
+    padding: 2rem 0 2rem 0;
+    width: 100%;
+  }
+
+  .details-box .details-box__footer {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    padding: 0 0 0 0;
+  }
 }
 
 /***END REGISTRATION INSTRUCTONS***/

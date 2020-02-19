@@ -15,7 +15,7 @@ export const instructions = {
     'Fill in the infomation of a representative through which enquiries can be made',
     'On the Location selection field, search for the location of your company and select from the dropdown list. This will enable the college place students who reside within the environs of the company',
     'Kindly check on the map to view the updated location',
-    'Enter the number of students who want for each discipline.',
+    'Enter the number of students you want for each discipline.',
     'Enter 0 for disciplines you do not require students in'
   ]
 };

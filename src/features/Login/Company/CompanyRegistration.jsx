@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-04 09:52:47
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-11 23:08:28
+ * @Last Modified time: 2020-02-19 11:29:15
  */
 import React, { useEffect, useState } from 'react';
 import { Form, Table, Input, Button } from 'semantic-ui-react';
@@ -297,7 +297,7 @@ const CompanyRegistration = (props: Props) => {
   function renderDepartments() {
     return (
       <div className="comp__reg-table">
-        <span>Please select the number of students you need for per field</span>
+        <span>Please select the number of students you need per field</span>
         <Table selectable unstackable celled>
           <Table.Header>
             <Table.Row>
