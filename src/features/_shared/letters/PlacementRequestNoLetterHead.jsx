@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-17 09:25:06
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-19 16:35:41
+ * @Last Modified time: 2020-02-19 17:12:23
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
@@ -87,7 +87,7 @@ class PlacementRequestNoLetterHead extends Component<Props> {
               </p>
             </address>
             <br />
-            <span>Our Ref:CoE-VACT/2020</span>
+            <span className="bold__text">Our Ref:CoE-VACT/2020</span>
             <br />
             <br />
           </div>

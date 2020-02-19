@@ -267,6 +267,10 @@ span.generic-large-detail-avatar {
   opacity: 0.1;
 }
 
+.bold__text {
+  font-weight: 800;
+}
+
 .vertical-scrollbar-style {
   overflow: hidden;
   overflow-y: auto;
