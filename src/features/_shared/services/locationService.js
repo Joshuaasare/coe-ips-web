@@ -46,6 +46,7 @@ export async function getLocationDetails(locationId) {
         lat: result.geometry.location.lat,
         lng: result.geometry.location.lng
       },
+      google_place_id: locationId,
       address: result.formatted_address,
       route: routeObject ? routeObject.long_name : '',
       locality: localityObject ? localityObject.long_name : '',

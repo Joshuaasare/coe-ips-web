@@ -11,20 +11,6 @@
   align-items: center;
 }
 
-.profile__avatar-container {
-  width: 9rem;
-  height: 9rem;
-  border-radius: 100rem;
-  font-size: 3rem;
-}
-
-.profile__avatar-image {
-  height: 9rem;
-  width: 9rem;
-  border-radius: 12rem;
-  font-size: 3rem;
-}
-
 .profile__name {
   display: inline-block;
   padding: 2rem 0 0 0;

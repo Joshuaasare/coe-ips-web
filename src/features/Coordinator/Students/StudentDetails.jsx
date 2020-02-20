@@ -2,15 +2,17 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-11 23:43:26
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-19 15:06:04
+ * @Last Modified time: 2020-02-20 10:36:31
  */
 import React, { useState, useEffect } from 'react';
 import { Button } from 'semantic-ui-react';
 import * as changeCase from 'change-case';
 import { CenterPage, Loader, Ikon, CacheImage } from '../../_shared/components';
+import { StudentAdditionForm } from '.';
 
 type Props = {
-  activeItem: Object
+  activeItem: Object,
+  reload: () => {}
 };
 
 const StudentDetails = (props: Props) => {
@@ -37,7 +39,13 @@ const StudentDetails = (props: Props) => {
   }
 
   function renderContent() {
-    const { surname, other_names, phone, email, address } = studentDetails;
+    const {
+      surname,
+      other_names: otherNames,
+      index_number: indexNumber,
+      phone,
+      email
+    } = studentDetails;
     if (loading) {
       return (
         <CenterPage>
@@ -47,20 +55,27 @@ const StudentDetails = (props: Props) => {
     }
 
     if (editMode) {
-      return null;
+      return (
+        <StudentAdditionForm
+          studentInfo={studentDetails}
+          reload={props.reload}
+        />
+      );
     }
 
     return (
       <div className="details-box">
-        <span className="details-box__header">{studentDetails.name}</span>
+        <span className="details-box__header">
+          {`${surname.toUpperCase()},  ${changeCase.capitalCase(otherNames)}`}
+        </span>
 
         <div className="details-box__body">
           <div className="logo">
             <CacheImage
               name={`${surname.toUpperCase()},  ${changeCase.capitalCase(
-                other_names
+                otherNames
               )}`}
-              id={studentDetails.id}
+              id={studentDetails.user_id}
               containerClassName="profile__avatar-container"
               imageClassName="profile__avatar-image"
             />
@@ -73,7 +88,7 @@ const StudentDetails = (props: Props) => {
                   <Ikon name="mode_edit" color="#ffd25a" size={1.5} />
                 </div>
 
-                <span className="text">{studentDetails.postal_address}</span>
+                <span className="text">{indexNumber}</span>
               </div>
             </div>
 
@@ -83,7 +98,7 @@ const StudentDetails = (props: Props) => {
                   <Ikon name="phone" color="#ffd25a" size={1.5} />
                 </div>
 
-                <span className="text">{studentDetails.phone}</span>
+                <span className="text">{phone}</span>
               </div>
             </div>
 
@@ -93,7 +108,7 @@ const StudentDetails = (props: Props) => {
                   <Ikon name="paperplane" color="#ffd25a" size={1.5} />
                 </div>
 
-                <span className="text">{StudentDetails.email}</span>
+                <span className="text">{email}</span>
               </div>
             </div>
           </div>

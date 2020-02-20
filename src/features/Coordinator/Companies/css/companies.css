@@ -99,63 +99,6 @@
   width: 100%;
 }
 
-.company-addition {
-  position: relative;
-  margin-top: -2rem;
-}
-
-.company-addition .button-container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  padding: 1rem 0 0 0;
-}
-
-.company-addition .nav-buttons {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: solid 1px;
-  border-color: teal;
-  opacity: 0.6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: all 150ms ease-in;
-  background: white;
-}
-
-.company-addition .forward {
-  width: 80px;
-  justify-content: flex-end;
-  display: flex;
-}
-
-.company-addition .backwards {
-  width: 80px;
-}
-
-.company-addition .nav-buttons-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0 1rem 0;
-  align-items: center;
-}
-
-.company-addition .nav-buttons-container span {
-  display: inline-block;
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: teal;
-}
-
-.company-addition .forward-button:hover,
-.company-addition .backward-button:hover {
-  opacity: 1;
-  transform: scale(1.2);
-}
-
 .company__map {
   width: 100vw;
   height: 100vh;

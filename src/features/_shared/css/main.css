@@ -521,7 +521,7 @@ span.generic-large-detail-avatar {
 .profile__avatar-image {
   height: 9rem;
   width: 9rem;
-  border-radius: 12rem;
+  border-radius: 1rem;
   font-size: 3rem;
 }
 
@@ -567,6 +567,70 @@ span.generic-large-detail-avatar {
   padding: 0 15rem 0 15rem;
 }
 
+.details-addition {
+  position: relative;
+  margin-top: -2rem;
+  width: 100vw;
+}
+
+.details-addition__form {
+  padding: 0 35rem 0 35rem;
+  width: 100%;
+  overflow-y: auto !important;
+}
+
+.details-addition .button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 1rem 0 0 0;
+}
+
+.details-addition .nav-buttons {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 1px;
+  border-color: teal;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 150ms ease-in;
+  background: white;
+}
+
+.details-addition .forward {
+  width: 80px;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.details-addition .backwards {
+  width: 80px;
+}
+
+.details-addition .nav-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0 1rem 0;
+  align-items: center;
+}
+
+.details-addition .nav-buttons-container span {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: teal;
+}
+
+.details-addition .forward-button:hover,
+.details-addition .backward-button:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
 /*BIG DESKTOP*/
 @media (max-width: 112.5em) {
 }
@@ -603,6 +667,12 @@ span.generic-large-detail-avatar {
     display: flex;
     justify-content: space-between;
     padding: 0 5rem 0 5rem;
+  }
+
+  .details-addition__form {
+    padding: 0 15rem 0 15rem;
+    width: 100%;
+    overflow-y: auto !important;
   }
 }
 
@@ -662,6 +732,18 @@ span.generic-large-detail-avatar {
     padding: 1rem 2rem 0 2rem;
     text-align: center;
   }
+
+  .details-addition {
+    position: relative;
+    margin-top: 3rem;
+    width: 100vw;
+  }
+
+  .details-addition__form {
+    padding: 0 5rem 0 5rem;
+    width: 100%;
+    overflow-y: auto !important;
+  }
 }
 
 /*EXTRA PHONE OPTIMIZATION*/
@@ -676,6 +758,20 @@ span.generic-large-detail-avatar {
     justify-content: space-between;
     width: 80vw;
     padding: 0 0 0 0;
+  }
+
+  .details-addition__form {
+    padding: 0 2rem 0 2rem;
+    width: 100%;
+    overflow-y: auto !important;
+  }
+
+  .details-addition .forward-button {
+    right: 1rem;
+  }
+
+  .details-addition .backward-button {
+    left: 1rem;
   }
 }
 

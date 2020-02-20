@@ -1,4 +1,4 @@
-import { getAllStudents } from '../../../_shared/services';
+import { getAllStudents, apiPut } from '../../../_shared/services';
 import { selectionOptions } from '../../../_shared/selectionOptions';
 
 export async function studentSearchFunction(searchTerm, originalData) {
@@ -35,4 +35,20 @@ export async function getStudentWithFilters(data) {
         : true)
   );
   return filteredData;
+}
+
+export async function uploadStudentData(data) {
+  const resp = await apiPut('/coordinator/update-student', data);
+  return resp;
+}
+
+export async function uploadStudentDataWithLocation(
+  studentDetails,
+  locationDetails
+) {
+  const resp = await apiPut('/coordinator/update-student-location', {
+    studentDetails,
+    locationDetails
+  });
+  return resp;
 }
