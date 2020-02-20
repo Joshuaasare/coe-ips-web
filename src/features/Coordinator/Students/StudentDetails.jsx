@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-11 23:43:26
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-20 10:36:31
+ * @Last Modified time: 2020-02-20 16:34:40
  */
 import React, { useState, useEffect } from 'react';
 import { Button } from 'semantic-ui-react';
@@ -25,7 +25,6 @@ const StudentDetails = (props: Props) => {
   }, [props.activeItem]);
 
   function initPageData() {
-    console.log('st', props.activeItem);
     if (props.activeItem) {
       resetState();
       setStudentDetails(props.activeItem);
