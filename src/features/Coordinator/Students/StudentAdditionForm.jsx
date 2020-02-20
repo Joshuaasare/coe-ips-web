@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-20 03:30:36
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-20 10:17:17
+ * @Last Modified time: 2020-02-20 16:23:33
  */
 
 import React, { useState } from 'react';
@@ -96,11 +96,14 @@ const StudentAdditionForm = (props: Props) => {
     setError(null);
   };
 
-  const OnUploadData = () => {
+  const OnUploadData = async () => {
     setLoading(true);
     const resp = !isEmpty(studentLocationDetails)
-      ? uploadStudentDataWithLocation(studentDetails, studentLocationDetails)
-      : uploadStudentData(studentDetails);
+      ? await uploadStudentDataWithLocation(
+          studentDetails,
+          studentLocationDetails
+        )
+      : await uploadStudentData(studentDetails);
 
     if (resp.error) {
       return handleErrors(resp.error);
