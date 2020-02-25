@@ -10,7 +10,6 @@ export async function getPlacesFromSearchKey(searchKey: string): Array<Object> {
     const options = await convertPlacesToOptionsForUi(resp.data.predictions);
     return options;
   } catch (error) {
-    console.log(error);
     return { error: { msg: 'A problem occured' } };
   }
 }

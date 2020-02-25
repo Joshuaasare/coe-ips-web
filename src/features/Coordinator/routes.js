@@ -1,7 +1,7 @@
-import {} from './PlacementRequest';
 import { Companies } from './Companies';
 import { CompanyAddition } from './CompanyAddition';
 import { Students } from './Students';
+import { Placement } from './Placement';
 
 export default () => {
   const routes = [
@@ -29,6 +29,14 @@ export default () => {
       component: Students,
       path: '/coordinator/students'
     }
+    // {
+    //   title: 'Placement',
+    //   icon: '',
+    //   isExact: true,
+    //   showInMenu: true,
+    //   component: Placement,
+    //   path: '/coordinator/placement'
+    // }
   ];
   return routes;
 };

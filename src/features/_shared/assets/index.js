@@ -17,6 +17,7 @@ import success from './svg/success.svg';
 import robot from './svg/robot.svg';
 import beer from './svg/beer.svg';
 import placed from './svg/placed.svg';
+import setup from './svg/setup.svg';
 
 import reg from './svg/reg.svg';
 import wait from './svg/wait.svg';
@@ -68,5 +69,6 @@ export const svg = {
   beer,
   auth,
   cancel,
-  message
+  message,
+  setup
 };

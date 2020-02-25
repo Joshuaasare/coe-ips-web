@@ -91,7 +91,9 @@ export default function wrapAdvancedList(
       });
     }
 
-    /** This function resets the page data with an active page of 1 */
+    /**
+     * !this function reloads the data whiles maintaining the active page
+     */
     initPageData = async () => {
       this.setState({
         showLoader: true,

@@ -1,0 +1,36 @@
+.stud-placement {
+  position: relative;
+  padding: 5rem 0 0 0;
+}
+
+.stud-placement .button-group {
+  padding: 2rem 0 0 0;
+}
+
+.stud-placement .circ-btn {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 10rem;
+}
+
+.stud-placement .circ-nav-bar {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 0 0;
+}
+
+.stud-placement .circ-nav-bar > div {
+  padding: 1rem 2rem 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.stud-placement .circ-nav-bar > div > span {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--color-coe-secondary);
+  padding-top: 1rem;
+  font-size: 1.4rem;
+}

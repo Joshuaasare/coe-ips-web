@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-07 15:38:52
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-04 11:32:22
+ * @Last Modified time: 2020-02-22 20:48:28
  */
 import React, { useState, useEffect, useRef } from 'react';
 import { Form, Button } from 'semantic-ui-react';
