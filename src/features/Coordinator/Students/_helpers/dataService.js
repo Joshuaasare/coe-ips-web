@@ -14,6 +14,12 @@ export async function studentSearchFunction(searchTerm, originalData) {
   });
 }
 
+/**
+ *
+ * @param {region, department, distric} data
+ * TODO: change departments to programmes for the subsequent academic years
+ */
+
 export async function getStudentWithFilters(data) {
   const { region, department, district } = data;
   const resp = await getAllStudents();
