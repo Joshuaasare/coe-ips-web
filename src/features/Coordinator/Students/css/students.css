@@ -1,3 +1,7 @@
 .students {
   padding: 7rem 35rem 0 35rem;
 }
+
+.student-details {
+  height: 100rem !important;
+}

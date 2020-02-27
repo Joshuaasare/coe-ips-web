@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-11 23:43:49
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-18 18:16:00
+ * @Last Modified time: 2020-02-27 17:33:39
  */
 import React, { useState } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -65,7 +65,7 @@ const StudentFilters = (props: Props) => {
           label="Department"
           fluid
           selection
-          options={selectionOptions.DEPARTMENTS}
+          options={selectionOptions.DEPARTMENTS2}
           placeholder="Department"
           style={{ width: '35rem' }}
           onChange={handleSelectChange}

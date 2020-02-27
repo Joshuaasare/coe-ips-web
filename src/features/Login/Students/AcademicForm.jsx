@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-19 05:54:15
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-07 13:23:34
+ * @Last Modified time: 2020-02-27 14:47:10
  */
 import React from 'react';
 import { Form, Radio } from 'semantic-ui-react';
@@ -26,7 +26,7 @@ const AcademicForm = (props: Props) => {
     onChange,
     yearOfStudy,
     foreignStudent,
-    controlledProgramme
+    programme
   } = props;
   return (
     <MainContent>
@@ -56,7 +56,7 @@ const AcademicForm = (props: Props) => {
           options={selectionOptions.PROGRAMMES}
           onChange={onChange}
           required
-          value={controlledProgramme}
+          value={programme}
         />
 
         <Form.Select

@@ -1,26 +1,6 @@
 import { getRandomInt } from './services/utilities';
 
 export const selectionOptions = {
-  PROGRAMMES: [
-    { text: 'Aerospace Engineering', value: 17, key: 0 },
-    { text: 'Agricultural and Biosystems Engineering', value: 20, key: 1 },
-    { text: 'Automobile Engineering', value: 21, key: 2 },
-    { text: 'Geomatic Engineering', value: 14, key: 3 },
-    { text: 'Biomedical Engineering', value: 4, key: 4 },
-    { text: 'Chemical Engineering', value: 2, key: 5 },
-    { text: 'Civil Engineering', value: getRandomInt(6, 10), key: 6 },
-    { text: 'Computer Engineering', value: 5, key: 7 },
-    { text: 'Electrical/Electronic Eng', value: 11, key: 8 },
-    { text: 'Geological Engineering', value: 13, key: 9 },
-    { text: 'Industrial Engineering', value: 22, key: 10 },
-    { text: 'Mechanical Engineering', value: 18, key: 11 },
-    { text: 'Materials Engineering', value: 15, key: 12 },
-    { text: 'Marine Engineering', value: 9, key: 13 },
-    { text: 'Metallurgical Engineering', value: 16, key: 14 },
-    { text: 'Petroleum Engineering', value: 19, key: 15 },
-    { text: 'Petrochemical Engineering', value: 3, key: 16 },
-    { text: 'Telecommunications Engineering', value: 12, key: 17 }
-  ],
   DEPARTMENTS: [
     { text: 'No filter', value: 0 },
     { text: 'Agricultural And Biosystems Engineering Department.', value: 1 },
@@ -36,6 +16,28 @@ export const selectionOptions = {
     { text: 'Materials Engineering Department', value: 8 },
     { text: 'Mechanical Engineering Department', value: 9 },
     { text: 'Petroleum Engineering Department', value: 10 }
+  ],
+
+  PROGRAMMES: [
+    { text: 'Agricultural and Biosystems Engineering', value: 1, key: 1 },
+    { text: 'Chemical Engineering', value: 2, key: 2 },
+    { text: 'Petrochemical Engineering', value: 3, key: 3 },
+    { text: 'Biomedical Engineering', value: 4, key: 4 },
+    { text: 'Computer Engineering', value: 5, key: 5 },
+    { text: 'Civil Engineering', value: 6, key: 6 },
+    { text: 'Marine Engineering', value: 7, key: 7 },
+    { text: 'Automobile Engineering', value: 8, key: 8 },
+    { text: 'Industrial Engineering', value: 9, key: 9 },
+    //
+    { text: 'Electrical/Electronic Eng', value: 11, key: 11 },
+    { text: 'Telecommunications Engineering', value: 12, key: 12 },
+    { text: 'Geological Engineering', value: 13, key: 13 },
+    { text: 'Geomatic Engineering', value: 14, key: 14 },
+    { text: 'Materials Engineering', value: 15, key: 15 },
+    { text: 'Metallurgical Engineering', value: 16, key: 16 },
+    { text: 'Aerospace Engineering', value: 17, key: 17 },
+    { text: 'Mechanical Engineering', value: 18, key: 18 },
+    { text: 'Petroleum Engineering', value: 19, key: 19 }
   ],
 
   YESORNO: [
@@ -107,5 +109,49 @@ export const selectionOptions = {
     ],
     'Greater Accra Region': [],
     'No Filter': [{ text: 'No Filter', value: 0 }]
-  }
+  },
+  /**
+   * *Programmes and departments selection for filtering
+   * *contains additional field known as no filter field
+   */
+
+  DEPARTMENTS2: [
+    { text: 'No filter', value: 0 },
+    { text: 'Agricultural And Biosystems Engineering Department.', value: 1 },
+    { text: 'Chemical Engineering Dept.', value: 2 },
+    { text: 'Computer Engineering Department', value: 3 },
+    { text: 'Civil Engineering Department', value: 4 },
+    {
+      text: 'Electrical/Electronic Engineering Department',
+      value: 5
+    },
+    { text: 'Geological Engineering Department', value: 6 },
+    { text: 'Geomatic Engineering Department', value: 7 },
+    { text: 'Materials Engineering Department', value: 8 },
+    { text: 'Mechanical Engineering Department', value: 9 },
+    { text: 'Petroleum Engineering Department', value: 10 }
+  ],
+
+  PROGRAMMES2: [
+    { text: 'No filter', value: 0 },
+    { text: 'Agricultural and Biosystems Engineering', value: 1, key: 1 },
+    { text: 'Chemical Engineering', value: 2, key: 2 },
+    { text: 'Petrochemical Engineering', value: 3, key: 3 },
+    { text: 'Biomedical Engineering', value: 4, key: 4 },
+    { text: 'Computer Engineering', value: 5, key: 5 },
+    { text: 'Civil Engineering', value: 6, key: 6 },
+    { text: 'Marine Engineering', value: 7, key: 7 },
+    { text: 'Automobile Engineering', value: 8, key: 8 },
+    { text: 'Industrial Engineering', value: 9, key: 9 },
+    {},
+    { text: 'Electrical/Electronic Eng', value: 11, key: 11 },
+    { text: 'Telecommunications Engineering', value: 12, key: 12 },
+    { text: 'Geological Engineering', value: 13, key: 13 },
+    { text: 'Geomatic Engineering', value: 14, key: 14 },
+    { text: 'Materials Engineering', value: 15, key: 15 },
+    { text: 'Metallurgical Engineering', value: 16, key: 16 },
+    { text: 'Aerospace Engineering', value: 17, key: 17 },
+    { text: 'Mechanical Engineering', value: 18, key: 18 },
+    { text: 'Petroleum Engineering', value: 19, key: 19 }
+  ]
 };

@@ -2,7 +2,9 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-11 23:43:26
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-20 16:34:40
+ * @Last Modified time: 2020-02-27 13:47:42
+ *
+ * @flow
  */
 import React, { useState, useEffect } from 'react';
 import { Button } from 'semantic-ui-react';
@@ -126,7 +128,11 @@ const StudentDetails = (props: Props) => {
       </div>
     );
   }
-  return <div className="student-details">{renderContent()}</div>;
+  return (
+    <div className="student-details vertical-scrollbar-style">
+      {renderContent()}
+    </div>
+  );
 };
 
 export default StudentDetails;

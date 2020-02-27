@@ -2,7 +2,10 @@
  * @Author: Joshua Asare
  * @Date: 2019-11-17 15:52:24
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-07 12:18:28
+ * @Last Modified time: 2020-02-27 14:31:07
+ *
+ *
+ * @flow
  */
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -167,21 +170,6 @@ const StudentRegistration = (props: Props) => {
   const onChange = (e: any, { name, value }): void => {
     if (name === 'phone') {
       setStudentData({ ...studentData, [name]: value.trim() });
-    } else if (
-      (value === 18 || value === 20 || value === 21 || value === 22) &&
-      name === 'programme'
-    ) {
-      setStudentData({
-        ...studentData,
-        [name]: 18,
-        controlledProgramme: value
-      });
-    } else if (name === 'programme') {
-      setStudentData({
-        ...studentData,
-        [name]: value,
-        controlledProgramme: value
-      });
     } else {
       setStudentData({ ...studentData, [name]: value });
     }

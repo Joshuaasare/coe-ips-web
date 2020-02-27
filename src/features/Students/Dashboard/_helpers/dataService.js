@@ -65,7 +65,7 @@ export async function convertToProfileAndTimelineData(data) {
     name: `${data.surname.toUpperCase()},  ${changeCase.capitalCase(
       data.otherNames
     )}`,
-    programme: `DEPARTMENT OF ${data.mainDepartmentName.toUpperCase()} ENGINEERING`,
+    programme: `${data.subDepartmentName.toUpperCase()} ENGINEERING`,
     profile,
     timeline,
     wantPlacement,
