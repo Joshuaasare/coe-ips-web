@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:57:43
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-18 11:03:24
+ * @Last Modified time: 2020-03-01 22:09:10
  */
 
 import React, { Component } from 'react';
@@ -318,14 +318,8 @@ class CompanyList extends Component<Props> {
   render() {
     return (
       <div className="company-list">
-        <div className="company-list__table-container">
-          <Table
-            selectable
-            sortable
-            unstackable
-            className="company-list__table"
-            celled
-          >
+        <div className="list__table-container">
+          <Table selectable sortable unstackable className="list__table" celled>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell style={{ width: '6rem' }}>

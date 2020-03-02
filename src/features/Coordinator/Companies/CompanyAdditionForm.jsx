@@ -12,8 +12,7 @@ import { Form, Button } from 'semantic-ui-react';
 import {
   CenterPage,
   EmptyState,
-  LocationWrapper,
-  Ikon
+  LocationWrapper
 } from '../../_shared/components';
 import { useDidUpdateEffect } from '../../_shared/hooks';
 import { constants } from '../../_shared/constants';
@@ -40,7 +39,6 @@ const CompanyAdditionForm = (props: Props) => {
   const [companyLocationDetails, setCompanyLocationDetails] = useState({});
   const [error, setError] = useState(null);
   const [uploadSuccess, setUploadSuccess] = useState(false);
-  const [activePage, setActivePage] = useState(0);
 
   const uploadObserver = useRef(null);
 
@@ -174,7 +172,7 @@ const CompanyAdditionForm = (props: Props) => {
     setError(null);
   };
 
-  function renderPageData(activePage) {
+  function renderPageData() {
     const {
       name,
       email,
@@ -182,70 +180,64 @@ const CompanyAdditionForm = (props: Props) => {
       postalAddress,
       requestLetterUrl
     } = companyDetails;
-    if (activePage === 0) {
-      return (
-        <>
-          <Form.Input
-            label="Enter Company Name"
-            fluid
-            placeholder="Company Name"
-            name="name"
-            className="stud-reg__input"
-            value={name}
-            onChange={onChange}
-          />
+    return (
+      <>
+        <Form.Input
+          label="Enter Company Name"
+          fluid
+          placeholder="Company Name"
+          name="name"
+          className="stud-reg__input"
+          value={name}
+          onChange={onChange}
+        />
 
-          <Form.Input
-            label="Enter Postal Address"
-            fluid
-            placeholder="Postal Address"
-            name="postalAddress"
-            className="stud-reg__input"
-            value={postalAddress}
-            onChange={onChange}
-          />
+        <Form.Input
+          label="Enter Postal Address"
+          fluid
+          placeholder="Postal Address"
+          name="postalAddress"
+          className="stud-reg__input"
+          value={postalAddress}
+          onChange={onChange}
+        />
 
-          <Form.Input
-            label="Enter Phone Number"
-            fluid
-            placeholder="Phone Number"
-            name="phone"
-            className="stud-reg__input"
-            value={phone}
-            onChange={onChange}
-          />
+        <Form.Input
+          label="Enter Phone Number"
+          fluid
+          placeholder="Phone Number"
+          name="phone"
+          className="stud-reg__input"
+          value={phone}
+          onChange={onChange}
+        />
 
-          <Form.Input
-            label="Enter Email Address"
-            fluid
-            placeholder="Email Address"
-            name="email"
-            className="stud-reg__input"
-            value={email}
-            onChange={onChange}
-          />
+        <Form.Input
+          label="Enter Email Address"
+          fluid
+          placeholder="Email Address"
+          name="email"
+          className="stud-reg__input"
+          value={email}
+          onChange={onChange}
+        />
 
-          <Form.Input
-            size="large"
-            label={
-              requestLetter || requestLetterUrl
-                ? 'File Uploaded. Click to change'
-                : 'No File Uploaded. Upload request letter Now (PDF)'
-            }
-            type="file"
-            name="requestLetter"
-            placeholder="Request Letter"
-            width={16}
-            className="stud-reg__input file-input"
-            onChange={onRequestLetterChange}
-            accept="application/pdf"
-          />
-        </>
-      );
-    }
+        <Form.Input
+          size="large"
+          label={
+            requestLetter || requestLetterUrl
+              ? 'File Uploaded. Click to change'
+              : 'No File Uploaded. Upload request letter Now (PDF)'
+          }
+          type="file"
+          name="requestLetter"
+          placeholder="Request Letter"
+          width={16}
+          className="stud-reg__input file-input"
+          onChange={onRequestLetterChange}
+          accept="application/pdf"
+        />
 
-    if (activePage === 1) {
-      return (
         <LocationWrapper
           locationName={
             companyLocationDetails.address
@@ -253,11 +245,13 @@ const CompanyAdditionForm = (props: Props) => {
               : props.companyDetails.location_address
           }
           onLocationSelectChange={onLocationSelectChange}
+          initialRegion={{
+            lat: parseFloat(props.companyDetails.latitude),
+            lng: parseFloat(props.companyDetails.longitude)
+          }}
         />
-      );
-    }
-
-    return null;
+      </>
+    );
   }
 
   function renderContent() {
@@ -292,31 +286,7 @@ const CompanyAdditionForm = (props: Props) => {
     return (
       <div className="details-addition">
         <div className="details-addition__form">
-          <div className="nav-buttons-container">
-            <div className="backwards">
-              {activePage !== 0 && (
-                <div
-                  className="nav-buttons backward-button"
-                  onClick={() => setActivePage(activePage - 1)}
-                >
-                  <Ikon name="chevron-left2" size={1.5} color="teal" />
-                </div>
-              )}
-            </div>
-            <span>{`Page ${activePage + 1}`}</span>
-            <div className="forward">
-              {activePage !== 1 && (
-                <div
-                  className="nav-buttons forward-button"
-                  onClick={() => setActivePage(activePage + 1)}
-                >
-                  <Ikon name="chevron-right2" size={1.5} color="teal" />
-                </div>
-              )}
-            </div>
-          </div>
-
-          <Form>{renderPageData(activePage)}</Form>
+          <Form>{renderPageData()}</Form>
 
           <div className="button-container">
             <div className="button">

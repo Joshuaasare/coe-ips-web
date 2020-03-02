@@ -1,30 +1,23 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /*
  * @Author: Joshua Asare
  * @Date: 2020-02-22 12:16:48
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-22 17:34:20
- *
- */
-
-/**
- * !ok so better comments is now working
- * *important comment
- * TODO: todo comment
- * ?question
- * @param parameter in the buildingi
+ * @Last Modified time: 2020-02-29 22:05:55
  */
 
 import React from 'react';
 import './css/placement.css';
 import { wrapAdvancedList } from '../../_shared/hocs';
-import { getAllStudents } from '../../_shared/services';
+import { PlacementFilter, PlacementList } from '.';
+import { getCompaniesWithSlots } from './_helpers/dataService';
 
 export const PlacementFilterView = props => {
-  return <div></div>;
+  return <PlacementFilter {...props} />;
 };
 
 export const PlacementListView = props => {
-  return <PlacementListView />;
+  return <PlacementList {...props} />;
 };
 
 export const PlacementDetailView = props => {
@@ -40,5 +33,5 @@ export default wrapAdvancedList(
   PlacementDetailView,
   PlacementFilterView,
   MapDistributionView,
-  getAllStudents
+  getCompaniesWithSlots
 );

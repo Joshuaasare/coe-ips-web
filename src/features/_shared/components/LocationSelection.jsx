@@ -16,14 +16,19 @@ import { MainContent } from '.';
 import './css/locationSelection.css';
 
 type Props = {
-  locationDetails?: Object
+  locationDetails?: Object,
+  region: Object,
+  initialRegion: Object
 };
 
 // eslint-disable-next-line no-undef
-const google = window.google;
 
 const LocationSelection = memo((props: Props) => {
   function renderToolbar() {}
+
+  console.log('sele', props);
+
+  // function renderDefaultCenter() {}
 
   return (
     <MainContent toolbar={renderToolbar()}>
@@ -31,12 +36,13 @@ const LocationSelection = memo((props: Props) => {
         key={new Date().getTime()}
         defaultZoom={12}
         defaultCenter={
-          props.locationDetails.coords || { lat: -34.397, lng: 150.644 }
+          props.region || props.initialRegion || { lat: -34.397, lng: 150.644 }
         }
       >
         <Marker
           position={
-            props.locationDetails.coords || { lat: -34.397, lng: 150.644 }
+            props.region ||
+            props.initialRegion || { lat: -34.397, lng: 150.644 }
           }
         />
       </GoogleMap>

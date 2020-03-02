@@ -39,7 +39,6 @@ const StudentAdditionForm = (props: Props) => {
   const [studentLocationDetails, setStudentLocationDetails] = useState({});
   const [error, setError] = useState(null);
   const [uploadSuccess, setUploadSuccess] = useState(false);
-  const [activePage, setActivePage] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const onLocationSelectChange = location => {
@@ -123,73 +122,70 @@ const StudentAdditionForm = (props: Props) => {
     return !(surname && otherNames && phone && email && indexNumber && address);
   }
 
-  function renderPageData(activePage) {
+  function renderPageData() {
     const { email, surname, otherNames, phone, indexNumber } = studentDetails;
-    if (activePage === 0) {
-      return (
-        <>
-          <Form.Input
-            label="Enter Surname"
-            fluid
-            placeholder="Surname"
-            name="surname"
-            className="stud-reg__input"
-            value={surname}
-            onChange={onChange}
-          />
+    return (
+      <>
+        <Form.Input
+          label="Enter Surname"
+          fluid
+          placeholder="Surname"
+          name="surname"
+          className="stud-reg__input"
+          value={surname}
+          onChange={onChange}
+        />
 
-          <Form.Input
-            label="Enter Other Names"
-            fluid
-            placeholder="Other Names"
-            name="otherNames"
-            className="stud-reg__input"
-            value={otherNames}
-            onChange={onChange}
-          />
+        <Form.Input
+          label="Enter Other Names"
+          fluid
+          placeholder="Other Names"
+          name="otherNames"
+          className="stud-reg__input"
+          value={otherNames}
+          onChange={onChange}
+        />
 
-          <Form.Input
-            label="Enter Phone Number"
-            fluid
-            placeholder="Phone Number"
-            name="phone"
-            className="stud-reg__input"
-            value={phone}
-            onChange={onChange}
-          />
+        <Form.Input
+          label="Enter Phone Number"
+          fluid
+          placeholder="Phone Number"
+          name="phone"
+          className="stud-reg__input"
+          value={phone}
+          onChange={onChange}
+        />
 
-          <Form.Input
-            label="Enter Email Address"
-            fluid
-            placeholder="Email Address"
-            name="email"
-            className="stud-reg__input"
-            value={email}
-            onChange={onChange}
-          />
+        <Form.Input
+          label="Enter Email Address"
+          fluid
+          placeholder="Email Address"
+          name="email"
+          className="stud-reg__input"
+          value={email}
+          onChange={onChange}
+        />
 
-          <Form.Input
-            label="Enter Index Number"
-            fluid
-            placeholder="Index Number"
-            name="indexNumber"
-            className="stud-reg__input"
-            value={indexNumber}
-            onChange={onChange}
-          />
-        </>
-      );
-    }
+        <Form.Input
+          label="Enter Index Number"
+          fluid
+          placeholder="Index Number"
+          name="indexNumber"
+          className="stud-reg__input"
+          value={indexNumber}
+          onChange={onChange}
+        />
 
-    if (activePage === 1) {
-      return (
         <LocationWrapper
           onLocationSelectChange={onLocationSelectChange}
           locationName={studentLocationDetails.address || studentInfo.address}
+          initialRegion={{
+            lat: parseFloat(studentInfo.latitude),
+            lng: parseFloat(studentInfo.longitude)
+          }}
         />
-      );
-    }
-    return null;
+      </>
+    );
   }
 
   function renderContent() {
@@ -224,31 +220,7 @@ const StudentAdditionForm = (props: Props) => {
     return (
       <div className="details-addition">
         <div className="details-addition__form">
-          <div className="nav-buttons-container">
-            <div className="backwards">
-              {activePage !== 0 && (
-                <div
-                  className="nav-buttons backward-button"
-                  onClick={() => setActivePage(activePage - 1)}
-                >
-                  <Ikon name="chevron-left2" size={1.5} color="teal" />
-                </div>
-              )}
-            </div>
-            <span>{`Page ${activePage + 1}`}</span>
-            <div className="forward">
-              {activePage !== 1 && (
-                <div
-                  className="nav-buttons forward-button"
-                  onClick={() => setActivePage(activePage + 1)}
-                >
-                  <Ikon name="chevron-right2" size={1.5} color="teal" />
-                </div>
-              )}
-            </div>
-          </div>
-
-          <Form>{renderPageData(activePage)}</Form>
+          <Form>{renderPageData()}</Form>
 
           <div className="button-container">
             <div className="button">

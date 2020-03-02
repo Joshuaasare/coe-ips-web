@@ -128,11 +128,7 @@ const StudentDetails = (props: Props) => {
       </div>
     );
   }
-  return (
-    <div className="student-details vertical-scrollbar-style">
-      {renderContent()}
-    </div>
-  );
+  return <div className="student-details">{renderContent()}</div>;
 };
 
 export default StudentDetails;

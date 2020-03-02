@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:56:25
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-17 09:51:01
+ * @Last Modified time: 2020-02-28 11:06:49
  */
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -12,7 +12,8 @@ import { CenterPage, Loader, Ikon, CacheImage } from '../../_shared/components';
 import {
   PlacementRequest,
   GeneralPlacementRequest,
-  PlacementRequestNoLetterHead
+  PlacementRequestNoLetterHead,
+  SpecialRequestLetter
 } from '../../_shared/letters';
 import { CompanyAdditionForm } from '.';
 

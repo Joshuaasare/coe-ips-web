@@ -374,8 +374,11 @@ span.generic-large-detail-avatar {
 
 .letter-hidden {
   position: absolute;
+  top: 0;
+  left: 0;
   opacity: 0;
   z-index: -500;
+  display: none;
 }
 
 /***START REGISTRATION INSTRUCTONS***/
@@ -478,7 +481,6 @@ span.generic-large-detail-avatar {
 
 .distribution__map {
   width: 100vw;
-  height: 100vh;
   padding: 0 5rem 0 5rem;
 }
 
@@ -569,14 +571,13 @@ span.generic-large-detail-avatar {
 
 .details-addition {
   position: relative;
-  margin-top: -2rem;
   width: 100vw;
+  margin: 1rem 0 2rem 0;
 }
 
 .details-addition__form {
   padding: 0 35rem 0 35rem;
   width: 100%;
-  overflow-y: auto !important;
 }
 
 .details-addition .button-container {
@@ -631,6 +632,69 @@ span.generic-large-detail-avatar {
   transform: scale(1.2);
 }
 
+/*TABLE*/
+
+.list__table-container {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.list__table {
+  min-width: 650px;
+  border-collapse: collapse;
+}
+
+.table-cell {
+  width: 15rem;
+  height: 3rem;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  display: inline-block;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.table-cell > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/**WIDTH MARKED AS IMPORTANT**/
+.cell__1 {
+  width: 1rem !important;
+}
+
+.cell__2 {
+  width: 2rem !important;
+}
+
+.cell__3 {
+  width: 3rem !important;
+}
+
+.cell__4 {
+  width: 4rem !important;
+}
+
+.cell__5 {
+  width: 5rem !important;
+}
+
+.cell__6 {
+  width: 6rem !important;
+}
+
+.cell__7 {
+  width: 7rem !important;
+}
+
+.cell__8 {
+  width: 7rem !important;
+}
 /*BIG DESKTOP*/
 @media (max-width: 112.5em) {
 }
@@ -706,7 +770,6 @@ span.generic-large-detail-avatar {
 
   .distribution__map {
     width: 100vw;
-    height: 100vh;
     padding: 0 2rem 0 2rem;
   }
 

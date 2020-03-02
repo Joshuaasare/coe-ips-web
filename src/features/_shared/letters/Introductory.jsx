@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-23 02:42:51
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-07 13:47:53
+ * @Last Modified time: 2020-03-02 10:33:33
  */
 import React, { Component } from 'react';
 import * as changeCase from 'change-case';
@@ -37,7 +37,8 @@ class Introductory extends Component<Props> {
       surname,
       otherNames,
       mainDepartmentName,
-      yearOfStudy
+      yearOfStudy,
+      subDepartmentName
     } = currentStudentData;
 
     const studentYear = getStudentYearOfStudy(parseInt(yearOfStudy, 10));
@@ -128,10 +129,10 @@ class Introductory extends Component<Props> {
               )}`}
               ,{' '}
             </b>
-            a {studentYear} Year student from the
+            a {studentYear} Year student offering
             <b>
-              {` ${changeCase.capitalCase(mainDepartmentName)} `}
-              Engineering Department.{' '}
+              {` ${changeCase.capitalCase(subDepartmentName)} `}
+              Engineering.{' '}
             </b>
             We would be most grateful, if you could offer him/her a vacation
             training position in your company. Thank you in anticipation of your

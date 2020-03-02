@@ -17,7 +17,8 @@ import './css/locationWrapper.css';
 
 type Props = {
   onLocationSelectChange?: () => {},
-  locationName: string
+  locationName: string,
+  initialRegion: Object
 };
 
 const LocationWrapper = (props: Props) => {
@@ -84,7 +85,8 @@ const LocationWrapper = (props: Props) => {
         loadingElement={<div style={{ height: `100%` }} />}
         mapElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: '350px' }} />}
-        locationDetails={locationDetails}
+        region={locationDetails.coords}
+        initialRegion={props.initialRegion}
         locationId={locationId}
       />
     </>
