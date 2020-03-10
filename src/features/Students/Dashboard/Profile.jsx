@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2019-12-05 18:18:07
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-09 07:19:21
+ * @Last Modified time: 2020-03-10 22:18:06
  */
 import React, { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
@@ -88,7 +88,7 @@ const Profile = (props: Props) => {
               fluid
               size="massive"
               icon="download"
-              disable={currentStudentData.companyId}
+              disabled={!currentStudentData.companyId}
               loading={acceptancePrintLoading}
             />
           )}
