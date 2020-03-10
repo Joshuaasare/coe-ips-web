@@ -12,7 +12,7 @@ export async function convertToProfileAndTimelineData(data) {
     { title: 'Phone Number', subtitle: data.phone, icon: 'phone' },
     {
       title: 'Address',
-      subtitle: `${data.location}, ${data.address}`,
+      subtitle: `${data.address}`,
       icon: 'home'
     },
     {
