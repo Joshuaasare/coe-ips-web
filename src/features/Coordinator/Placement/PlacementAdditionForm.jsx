@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-03-09 12:01:22
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-10 03:09:50
+ * @Last Modified time: 2020-03-10 12:08:12
  */
 import React, { useState, useEffect, useRef } from 'react';
 import firebase from 'firebase/app';
@@ -33,6 +33,7 @@ const PlacementAdditionForm = (props: Props) => {
   const [companyDetails, setCompanyDetails] = useState({
     id: props.companyDetails.companyId,
     name: props.companyDetails.companyName,
+    email: props.companyDetails.email,
     placementLetterUrl: props.companyDetails.placementLetterUrl,
     locationId: props.companyDetails.locationId
   });
@@ -168,8 +169,13 @@ const PlacementAdditionForm = (props: Props) => {
     return setLoading(false);
   }
 
+  const onChange = (e: any, { name, value }): void => {
+    if (e) e.preventDefault();
+    setCompanyDetails({ ...companyDetails, [name]: value });
+  };
+
   function renderContent() {
-    const { placementLetterUrl } = companyDetails;
+    const { placementLetterUrl, email } = companyDetails;
     if (error && !loading) {
       return (
         <CenterPage>
@@ -202,6 +208,14 @@ const PlacementAdditionForm = (props: Props) => {
       <div className="details-addition">
         <div className="details-addition__form">
           <Form>
+            <Form.Input
+              label="Enter Email Address"
+              placeholder="Email Address"
+              name="email"
+              className="stud-reg__input"
+              value={companyDetails.email}
+              onChange={onChange}
+            />
             <Form.Input
               size="large"
               label={
@@ -242,7 +256,11 @@ const PlacementAdditionForm = (props: Props) => {
                 onClick={onSaveClick}
                 loading={loading}
                 disabled={
-                  !(placementLetter || !isEmpty(companyLocationDetails))
+                  !(
+                    email ||
+                    placementLetter ||
+                    !isEmpty(companyLocationDetails)
+                  )
                 }
               />
             </div>

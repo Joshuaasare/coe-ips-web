@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-22 16:28:26
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-10 07:43:39
+ * @Last Modified time: 2020-03-10 13:04:06
  *
  * This component list out the companies with slots in the current page of the hoc
  * It also handles the placement logic
@@ -13,7 +13,7 @@ import { Table, Checkbox, Dropdown, Button, Icon } from 'semantic-ui-react';
 import * as changeCase from 'change-case';
 import { AnimatedModal, EmptyState } from '../../_shared/components';
 import { arrayHasData } from '../../_shared/services';
-import { uploadPlacementData } from './_helpers/dataService';
+import { uploadPlacementData, sendPlacementLetters } from './_helpers';
 import { constants } from '../../_shared/constants';
 
 type Props = {
@@ -279,6 +279,16 @@ class PlacementList extends Component<Props> {
     this.setState({ placementData: newPlacementData }, callback || (() => {}));
   };
 
+  sendEmails = async ids => {
+    this.setState({ loading: true });
+    const resp = await sendPlacementLetters(ids);
+    if (!resp.error) {
+      return this.props.refreshList();
+    }
+    this.setState({ confirmEmail: false, loading: false });
+    return this.handleErrors(resp.error);
+  };
+
   renderAnimatedModal() {
     return (
       <AnimatedModal
@@ -307,18 +317,33 @@ class PlacementList extends Component<Props> {
       error,
       itemsSelected,
       loading,
-      confirmEmail
+      confirmEmail,
+      placementData
     } = this.state;
-    const names = itemsSelected.map(item => item.name);
-    const ids = itemsSelected.map(item => item.id);
 
-    const displayName = names.join(', ');
+    const ids = itemsSelected.map(item => item.id);
+    const namesForPlacement = itemsSelected.map(item => item.name);
+
+    const companyIds = [];
+    const namesForEmail = [];
+
+    placementData.map(company => {
+      if (ids.includes(company.id) && !companyIds.includes(company.companyId)) {
+        companyIds.push(company.companyId);
+        namesForEmail.push(company.companyName);
+        return company.companyId;
+      }
+      return null;
+    });
+
+    const displayNameForPlacement = namesForPlacement.join(', ');
+    const displayNameForEmail = namesForEmail.join(', ');
 
     if (confirmPlacement && !error) {
       return (
         <EmptyState
-          content={`Run placement for ${displayName}?  
-          [Total: ${names.length}]`}
+          content={`Run placement for ${displayNameForPlacement}?  
+          [Total: ${namesForPlacement.length}]`}
           svgToUse="begin"
           buttonText="run"
           buttonColor="teal"
@@ -336,13 +361,13 @@ class PlacementList extends Component<Props> {
     if (confirmEmail && !error) {
       return (
         <EmptyState
-          content={`Mail Placement requests to ${displayName}?  
-          [Total: ${names.length}]`}
+          content={`Mail Placement List to ${displayNameForEmail}?  
+          [Total: ${namesForEmail.length}]`}
           svgToUse="message"
           buttonText="Send"
           buttonColor="teal"
           onClick={() => {
-            this.savePlacement();
+            this.sendEmails(companyIds);
           }}
           buttonLoading={loading}
         />

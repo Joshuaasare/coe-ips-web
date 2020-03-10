@@ -83,12 +83,10 @@ export async function uploadPlacementData(placementData) {
     };
   });
   const resp = await apiPut('/coordinator/update-placement', data);
-  console.log('pl', data);
   return resp;
 }
 
 export async function uploadCompanyPlacementData(companyDetails) {
-  console.log('compD', companyDetails);
   const resp = await apiPut('/coordinator/update-company', companyDetails);
   return resp;
 }
@@ -106,5 +104,10 @@ export async function uploadCompanyPlacementDataWithLocation(
 
 export async function getCompanyStudents(companyId) {
   const resp = await apiGet(`/coordinator/company-students/?id=${companyId}`);
+  return resp;
+}
+
+export async function sendPlacementLetters(ids: Array<number>) {
+  const resp = await apiPut(`/coordinator/placement-letter`, { ids });
   return resp;
 }

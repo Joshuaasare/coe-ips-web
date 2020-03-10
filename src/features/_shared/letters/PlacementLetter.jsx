@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-03-09 08:27:54
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-10 07:56:44
+ * @Last Modified time: 2020-03-10 12:11:28
  */
 
 import React, { Component } from 'react';
@@ -30,7 +30,7 @@ class PlacementLetter extends Component<Props> {
     document.title = `${this.props.companyDetails.companyName &&
       `${changeCase.capitalCase(
         this.props.companyDetails.companyName
-      )} request letter`}`;
+      )} placement list letter`}`;
   }
 
   removeDocumentTitle() {
