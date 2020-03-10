@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-04 09:52:47
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-19 11:29:15
+ * @Last Modified time: 2020-03-10 22:01:03
  */
 import React, { useEffect, useState } from 'react';
 import { Form, Table, Input, Button } from 'semantic-ui-react';
@@ -119,7 +119,7 @@ const CompanyRegistration = (props: Props) => {
 
   const onSubDepartmentNumberChange = (data, index): void => {
     const dep = subDepartments;
-    dep[index].number = data.value;
+    dep[index].number = parseInt(data.value, 10);
     setSubDepartments(dep);
   };
 
@@ -152,9 +152,8 @@ const CompanyRegistration = (props: Props) => {
   const onUpload = async () => {
     setUploadError(null);
     setLoading(true);
-    const updatedDepartments = subDepartments.filter(
-      dep => dep.number > 1 || dep.number === 1
-    );
+    const updatedDepartments = subDepartments.filter(dep => dep.number > 0);
+
     const resp = await registerCompany(
       companyDetails,
       locationDetails,
@@ -287,6 +286,7 @@ const CompanyRegistration = (props: Props) => {
                 if (event) event.preventDefault();
                 onSubDepartmentNumberChange(data, index);
               }}
+              type="number"
             />
           </Table.Cell>
         </Table.Row>
