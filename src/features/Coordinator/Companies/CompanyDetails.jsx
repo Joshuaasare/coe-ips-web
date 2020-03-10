@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:56:25
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-28 11:06:49
+ * @Last Modified time: 2020-03-03 13:33:39
  */
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -11,9 +11,7 @@ import { Button } from 'semantic-ui-react';
 import { CenterPage, Loader, Ikon, CacheImage } from '../../_shared/components';
 import {
   PlacementRequest,
-  GeneralPlacementRequest,
-  PlacementRequestNoLetterHead,
-  SpecialRequestLetter
+  PlacementRequestNoLetterHead
 } from '../../_shared/letters';
 import { CompanyAdditionForm } from '.';
 
@@ -30,8 +28,8 @@ const CompanyDetails = (props: Props) => {
   const [requestPrintALoading, setRequestPrintALoading] = useState(false);
   const [requestPrintBLoading, setRequestPrintBLoading] = useState(false);
 
-  const placementRequestRef = useRef(null);
   const placementLetterNoLetterHeadRef = useRef(null);
+  const placementRequestRef = useRef(null);
 
   useEffect(() => {
     initPageData();

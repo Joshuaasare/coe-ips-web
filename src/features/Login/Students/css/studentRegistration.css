@@ -134,6 +134,10 @@
   color: var(--color-coe-secondary) !important;
 }
 
+.stud-reg__select.location-select > label {
+  height: 4rem !important;
+}
+
 .stud-reg__input input {
   height: 3.5rem !important;
   font-size: 1.3rem !important;

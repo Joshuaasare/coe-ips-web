@@ -1,25 +1,25 @@
 /*
  * @Author: Joshua Asare
- * @Date: 2020-02-28 10:43:12
+ * @Date: 2020-03-09 08:27:54
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-04 12:01:17
+ * @Last Modified time: 2020-03-10 07:56:44
  */
 
 import React, { Component } from 'react';
+import { Table } from 'semantic-ui-react';
 import * as changeCase from 'change-case';
-// import { getDocumentsDateFormat } from '../services';
+import { getDocumentsDateFormat } from '../services';
 import { images } from '../assets';
 import './css/placementRequest.css';
 
 import { constants } from '../constants';
-import { getDocumentsDateFormat } from '../services';
 
 type Props = {
   companyDetails: Object,
   acadYear?: number
 };
 
-class SpecialRequestLetter extends Component<Props> {
+class PlacementLetter extends Component<Props> {
   state = {
     // eslint-disable-next-line no-undef
     title: document.title
@@ -27,11 +27,10 @@ class SpecialRequestLetter extends Component<Props> {
 
   setDocumentTitle() {
     // eslint-disable-next-line no-undef
-    document.title = `Telecom Letter ECG`;
-    // document.title = `${this.props.companyDetails.name &&
-    //   `${changeCase.capitalCase(
-    //     this.props.companyDetails.name
-    //   )} request letter`}`;
+    document.title = `${this.props.companyDetails.companyName &&
+      `${changeCase.capitalCase(
+        this.props.companyDetails.companyName
+      )} request letter`}`;
   }
 
   removeDocumentTitle() {
@@ -39,8 +38,28 @@ class SpecialRequestLetter extends Component<Props> {
     document.title = this.state.title;
   }
 
+  renderTableBody(data) {
+    return data.map((student, index) => {
+      const key = `company-${index}`;
+
+      return (
+        <Table.Row key={key}>
+          <Table.Cell>
+            {`${student.surname.toUpperCase()},  ${changeCase.capitalCase(
+              student.other_names
+            )}`}
+          </Table.Cell>
+          <Table.Cell>{student.phone}</Table.Cell>
+          <Table.Cell>{student.sub_department_name}</Table.Cell>
+          <Table.Cell>{student.location_name}</Table.Cell>
+        </Table.Row>
+      );
+    });
+  }
+
   renderContent() {
     const { companyDetails } = this.props;
+    console.log('comp2', companyDetails);
     return (
       <div>
         <div id="request-letter">
@@ -88,54 +107,67 @@ class SpecialRequestLetter extends Component<Props> {
 
             <address className="return-address">
               <p align="left">
-                The Director of Human Resource
+                The Human Resource Manager,
                 <br />
-                <span>Electricity Company of Ghana</span>
+                {`${companyDetails.companyName &&
+                  changeCase.capitalCase(companyDetails.companyName)}`}
                 <br />
-                <span>Electro-Volta House</span>
-                <br />
+                <span>
+                  {companyDetails.phone ? (
+                    <span>
+                      {`Phone: ${companyDetails.phone}`}
+                      <br />
+                    </span>
+                  ) : null}
+                </span>
+                <span>
+                  {companyDetails.email && (
+                    <span>
+                      Email:
+                      <font color="blue">
+                        <i>{` ${companyDetails.email}`}</i>
+                      </font>
+                    </span>
+                  )}
+                </span>
               </p>
             </address>
-            <br />
-            <span className="bold__text">Our Ref:CoE-VACT/2020</span>
-            <br />
             <br />
           </div>
           <p>Dear Sir/Madam,</p>
           <div className="letter-intro">
             <b>
-              <p>VACATION TRAINING PLACEMENT REQUEST</p>
+              <p>VACATION TRAINING PLACEMENT LIST</p>
             </b>
           </div>
           <div className="letter-content">
             <br />
             The College of Engineering of the Kwame Nkrumah University of
-            Science and Technology seeks to become a global college of
-            engineering focused on national industrial development. Therefore as
-            part of our requirements for graduation in the B.Sc Degree
-            programmes students must complete a minimum of 8-week industrial
-            attachment programme.
+            Science and Technology writes to first of all, thank you for the
+            support you have been offering us in the training of our young
+            engineers and also monitoring and evaluating our students during the
+            vacation training period and to inform you of the Students we have
+            posted to your institution for the vacation training program.
             <br />
             <br />
-            The Telecommunication Engineering Department of the College of
-            Engineering, KNUST, would like to seek placements for vacation
-            training in your company for our third year students at the
-            <br />
-            <br />
-            <span className="bulleted-bold">
-              i. Metering and Technical Services Division
-            </span>
-            <br />
-            <span className="bulleted-bold">
-              ii. Network and Security Division
-            </span>
-            <br />
-            <br />
-            We would seek to have your commitment in the number of students you
-            would be willing to offer places to. We look forward to a favourable
-            response and future collaborations with your company. Thank you in
-            anticipation of your cooperation.
           </div>
+
+          <Table selectable sortable unstackable className="list__table" celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell width={5}>Name</Table.HeaderCell>
+                <Table.HeaderCell width={4}>Contact</Table.HeaderCell>
+                <Table.HeaderCell width={5}>Programme</Table.HeaderCell>
+
+                <Table.HeaderCell width={5}>Address</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+
+            <Table.Body>
+              {this.renderTableBody(companyDetails.placedStudents)}
+            </Table.Body>
+          </Table>
+          <br />
           <br />
           <div>
             <div className="closing">
@@ -164,10 +196,8 @@ class SpecialRequestLetter extends Component<Props> {
             <br />
             <br />
             <br />
-            <br />
-            <br />
-            <br />
 
+            <hr />
             <div className="letter-footer">
               <font color="blue">
                 <i>Departments</i>
@@ -201,8 +231,8 @@ class SpecialRequestLetter extends Component<Props> {
   }
 }
 
-SpecialRequestLetter.defaultProps = {
+PlacementLetter.defaultProps = {
   acadYear: constants.app.ACAD_YEAR
 };
 
-export default SpecialRequestLetter;
+export default PlacementLetter;

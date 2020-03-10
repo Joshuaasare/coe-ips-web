@@ -24,3 +24,4 @@ export { default as Pagination } from './Pagination';
 export { default as LocationSelection } from './LocationSelection';
 export { default as LocationWrapper } from './LocationWrapper';
 export { default as MultiLocation } from './MultiLocation';
+export { default as AnimatedFloatingButton } from './AnimatedFloatingButton';

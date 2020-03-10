@@ -147,6 +147,13 @@
   text-align: center;
 }
 
+#introductory .margin-bottom-tiny {
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
 /* .shift-down-one-break-for-firefox{ */
 /*     padding-bottom:0.3px; */
 

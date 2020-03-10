@@ -3,13 +3,13 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-22 12:16:48
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-29 22:05:55
+ * @Last Modified time: 2020-03-09 10:36:59
  */
 
 import React from 'react';
 import './css/placement.css';
 import { wrapAdvancedList } from '../../_shared/hocs';
-import { PlacementFilter, PlacementList } from '.';
+import { PlacementFilter, PlacementList, PlacementDetails } from '.';
 import { getCompaniesWithSlots } from './_helpers/dataService';
 
 export const PlacementFilterView = props => {
@@ -21,7 +21,7 @@ export const PlacementListView = props => {
 };
 
 export const PlacementDetailView = props => {
-  return <div></div>;
+  return <PlacementDetails {...props} />;
 };
 
 export const MapDistributionView = props => {

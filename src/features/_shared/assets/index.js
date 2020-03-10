@@ -31,6 +31,8 @@ import appraisal from './svg/appraisal.svg';
 import auth from './svg/auth.svg';
 import cancel from './svg/cancel.svg';
 
+import profile from './svg/profile-1.svg';
+
 import message from './svg/message.svg';
 
 import noPlacement from './svg/no-placement.svg';
@@ -70,5 +72,6 @@ export const svg = {
   auth,
   cancel,
   message,
-  setup
+  setup,
+  profile
 };

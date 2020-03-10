@@ -212,6 +212,7 @@ export default function wrapAdvancedList(
     };
 
     refreshList = async resp => {
+      console.log('refresh', resp);
       if (resp.error) {
         return this.handleErrors(resp.error);
       }
@@ -266,7 +267,7 @@ export default function wrapAdvancedList(
             onClick={this.showFilter}
           >
             <Ikon
-              name="equalizer"
+              name="filter_list"
               color="maroon"
               className="buttons-container__icon"
             />

@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-28 00:45:17
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-14 03:05:00
+ * @Last Modified time: 2020-03-04 12:08:44
  */
 import React, { useState } from 'react';
 import { Form, Button } from 'semantic-ui-react';
@@ -42,9 +42,9 @@ const CompanyFilters = (props: Props) => {
   };
 
   return (
-    <div className="company-filters">
-      <div className="company-filters__svg-container">
-        <img alt="" className="company-filters__svg" src={svg.logs} />
+    <div className="filters">
+      <div className="filters__svg-container">
+        <img alt="" className="filters__svg" src={svg.logs} />
       </div>
 
       <Form>

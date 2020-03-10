@@ -37,11 +37,6 @@
   width: 100%;
 }
 
-.company-filters {
-  padding: 0 10rem 0 10rem;
-  width: 100%;
-}
-
 .company-addition {
   width: 100vw;
 }
@@ -60,16 +55,6 @@
 .field.stud-reg__radio input {
   height: 5rem !important;
   width: 5rem !important;
-}
-
-.company-filters__svg {
-  height: 13rem;
-}
-
-.company-filters__svg-container {
-  height: 15rem;
-  display: flex;
-  justify-content: center;
 }
 
 .stud-reg__input > label,

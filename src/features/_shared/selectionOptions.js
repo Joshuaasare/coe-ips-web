@@ -153,5 +153,19 @@ export const selectionOptions = {
     { text: 'Aerospace Engineering', value: 17, key: 17 },
     { text: 'Mechanical Engineering', value: 18, key: 18 },
     { text: 'Petroleum Engineering', value: 19, key: 19 }
+  ],
+
+  PLACEMENT_FALLBACK_OPTION: [
+    { text: 'No filter', value: 0, key: 0 },
+    { text: 'District', value: 1, key: 1 },
+    { text: 'Regional', value: 2, key: 2 }
+  ],
+
+  GEOMETRY_OPTIONS: [
+    { text: 'No filter', value: 0, key: 0 },
+    { text: 'up to 5km', value: 5, key: 1 },
+    { text: 'up to 10km', value: 10, key: 2 },
+    { text: 'up to 15km', value: 15, key: 3 },
+    { text: 'up to 20km', value: 20, key: 4 }
   ]
 };

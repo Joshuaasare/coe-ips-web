@@ -1,44 +1,46 @@
 /*
  * @Author: Joshua Asare
- * @Date: 2020-01-31 18:43:13
+ * @Date: 2020-03-09 12:01:22
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-10 02:44:18
+ * @Last Modified time: 2020-03-10 03:09:50
  */
-
 import React, { useState, useEffect, useRef } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/storage';
 import { Form, Button } from 'semantic-ui-react';
 import {
-  CenterPage,
   EmptyState,
+  CenterPage,
   LocationWrapper
 } from '../../_shared/components';
-import { useDidUpdateEffect } from '../../_shared/hooks';
 import { constants } from '../../_shared/constants';
-import { uploadCompanyData, uploadCompanyDataWithLocation } from './_helpers';
+import {
+  uploadCompanyPlacementData,
+  uploadCompanyPlacementDataWithLocation
+} from './_helpers';
+import { useDidUpdateEffect } from '../../_shared/hooks';
 import { isEmpty } from '../../_shared/services';
 
 type Props = {
   companyDetails: Object,
-  reload: () => {},
-  cancelEdit: () => {}
+  cancelEdit: () => {},
+  reload: () => {}
 };
 
-const CompanyAdditionForm = (props: Props) => {
+const PlacementAdditionForm = (props: Props) => {
+  const [error, setError] = useState(null);
+  const [uploadSuccess, setUploadSuccess] = useState(false);
   const [companyDetails, setCompanyDetails] = useState({
-    id: props.companyDetails.id,
-    name: props.companyDetails.name || '',
-    email: props.companyDetails.email || '',
-    phone: props.companyDetails.phone || '',
-    locationId: props.companyDetails.location_id,
-    postalAddress: props.companyDetails.postal_address || '',
-    requestLetterUrl: props.companyDetails.request_letter_url || ''
+    id: props.companyDetails.companyId,
+    name: props.companyDetails.companyName,
+    placementLetterUrl: props.companyDetails.placementLetterUrl,
+    locationId: props.companyDetails.locationId
   });
 
   const [companyLocationDetails, setCompanyLocationDetails] = useState({});
-  const [error, setError] = useState(null);
-  const [uploadSuccess, setUploadSuccess] = useState(false);
+
+  const [placementLetter, setPlacementLetter] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const uploadObserver = useRef(null);
 
@@ -50,44 +52,31 @@ const CompanyAdditionForm = (props: Props) => {
     };
   }, []);
 
-  const [requestLetter, setRequestLetter] = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  const onRequestLetterChange = event => {
-    const file = event.target.files[0];
-    if (file) {
-      setRequestLetter(file);
-    }
-  };
-
-  const onLocationSelectChange = location => {
-    setCompanyLocationDetails(location.locationDetails);
-  };
-
   const uploadData = async () => {
     setLoading(true);
     const resp = !isEmpty(companyLocationDetails)
-      ? await uploadCompanyDataWithLocation(
+      ? await uploadCompanyPlacementDataWithLocation(
           companyDetails,
           companyLocationDetails
         )
-      : await uploadCompanyData(companyDetails);
+      : await uploadCompanyPlacementData(companyDetails);
     if (resp.error) {
       return handleErrors(resp.error);
     }
     return setUploadSuccess(true);
   };
 
-  useDidUpdateEffect(uploadData, [companyDetails.requestLetterUrl]);
+  useDidUpdateEffect(uploadData, [companyDetails.placementLetterUrl]);
 
-  const onChange = (e: any, { name, value }): void => {
-    if (e) e.preventDefault();
-    setCompanyDetails({ ...companyDetails, [name]: value });
+  const onPlacementLetterChange = event => {
+    const file = event.target.files[0];
+    if (file) {
+      setPlacementLetter(file);
+    }
   };
 
-  const onSaveClick = async () => {
-    setLoading(true);
-    handleFileUpload();
+  const onLocationSelectChange = location => {
+    setCompanyLocationDetails(location.locationDetails);
   };
 
   const uploadFileListenerSuccess = snapshot => {
@@ -102,20 +91,31 @@ const CompanyAdditionForm = (props: Props) => {
   const handleFileUploadSuccess = () => {
     firebase
       .storage()
-      .ref('placement-request-letters')
-      .child(`${companyDetails.name} request letter`)
+      .ref('company-placement-letters')
+      .child(`${companyDetails.name} placement letter`)
       .getDownloadURL()
       .then(url => {
-        setCompanyDetails({ ...companyDetails, requestLetterUrl: url });
+        setCompanyDetails({ ...companyDetails, placementLetterUrl: url });
       });
   };
 
+  const onReload = () => {
+    setError(null);
+  };
+
+  const onSaveClick = async () => {
+    setLoading(true);
+    handleFileUpload();
+  };
+
   const handleFileUpload = () => {
-    if (!companyDetails.requestLetterUrl && requestLetter) {
+    if (!companyDetails.placementLetterUrl && placementLetter) {
       const uploadTask = firebase
         .storage()
-        .ref(`placement-request-letters/${companyDetails.name} request letter`)
-        .put(requestLetter);
+        .ref(
+          `company-placement-letters/${companyDetails.name} placement letter`
+        )
+        .put(placementLetter);
       uploadObserver.current = uploadTask.on(
         'state_changed',
         uploadFileListenerSuccess,
@@ -168,93 +168,8 @@ const CompanyAdditionForm = (props: Props) => {
     return setLoading(false);
   }
 
-  const onReload = () => {
-    setError(null);
-  };
-
-  function renderPageData() {
-    const {
-      name,
-      email,
-      phone,
-      postalAddress,
-      requestLetterUrl
-    } = companyDetails;
-    return (
-      <>
-        <Form.Input
-          label="Enter Company Name"
-          fluid
-          placeholder="Company Name"
-          name="name"
-          className="stud-reg__input"
-          value={name}
-          onChange={onChange}
-        />
-
-        <Form.Input
-          label="Enter Postal Address"
-          fluid
-          placeholder="Postal Address"
-          name="postalAddress"
-          className="stud-reg__input"
-          value={postalAddress}
-          onChange={onChange}
-        />
-
-        <Form.Input
-          label="Enter Phone Number"
-          fluid
-          placeholder="Phone Number"
-          name="phone"
-          className="stud-reg__input"
-          value={phone}
-          onChange={onChange}
-        />
-
-        <Form.Input
-          label="Enter Email Address"
-          fluid
-          placeholder="Email Address"
-          name="email"
-          className="stud-reg__input"
-          value={email}
-          onChange={onChange}
-        />
-
-        <Form.Input
-          size="large"
-          label={
-            requestLetter || requestLetterUrl
-              ? 'File Uploaded. Click to change'
-              : 'No File Uploaded. Upload request letter Now (PDF)'
-          }
-          type="file"
-          name="requestLetter"
-          placeholder="Request Letter"
-          width={16}
-          className="stud-reg__input file-input"
-          onChange={onRequestLetterChange}
-          accept="application/pdf"
-        />
-
-        <LocationWrapper
-          locationName={
-            companyLocationDetails.address
-              ? companyLocationDetails.address
-              : props.companyDetails.location_address
-          }
-          onLocationSelectChange={onLocationSelectChange}
-          initialRegion={{
-            lat: parseFloat(props.companyDetails.latitude),
-            lng: parseFloat(props.companyDetails.longitude)
-          }}
-        />
-      </>
-    );
-  }
-
   function renderContent() {
+    const { placementLetterUrl } = companyDetails;
     if (error && !loading) {
       return (
         <CenterPage>
@@ -286,7 +201,36 @@ const CompanyAdditionForm = (props: Props) => {
     return (
       <div className="details-addition">
         <div className="details-addition__form">
-          <Form>{renderPageData()}</Form>
+          <Form>
+            <Form.Input
+              size="large"
+              label={
+                placementLetter || placementLetterUrl
+                  ? 'File Uploaded. Click to change'
+                  : 'No File Uploaded. Upload request letter Now (PDF)'
+              }
+              type="file"
+              name="requestLetter"
+              placeholder="Request Letter"
+              width={16}
+              className="stud-reg__input file-input"
+              onChange={onPlacementLetterChange}
+              accept="application/pdf"
+            />
+
+            <LocationWrapper
+              locationName={
+                companyLocationDetails.address
+                  ? companyLocationDetails.address
+                  : props.companyDetails.location
+              }
+              onLocationSelectChange={onLocationSelectChange}
+              initialRegion={{
+                lat: parseFloat(props.companyDetails.lat),
+                lng: parseFloat(props.companyDetails.lng)
+              }}
+            />
+          </Form>
 
           <div className="button-container">
             <div className="button">
@@ -297,7 +241,9 @@ const CompanyAdditionForm = (props: Props) => {
                 size="massive"
                 onClick={onSaveClick}
                 loading={loading}
-                disabled={!companyDetails.name}
+                disabled={
+                  !(placementLetter || !isEmpty(companyLocationDetails))
+                }
               />
             </div>
 
@@ -315,8 +261,7 @@ const CompanyAdditionForm = (props: Props) => {
       </div>
     );
   }
-
   return <div>{renderContent()}</div>;
 };
 
-export default CompanyAdditionForm;
+export default PlacementAdditionForm;

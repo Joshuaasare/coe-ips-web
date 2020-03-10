@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-01-26 17:57:43
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-01 22:09:10
+ * @Last Modified time: 2020-03-03 13:33:20
  */
 
 import React, { Component } from 'react';
@@ -12,7 +12,10 @@ import { deleteFromCompanyArchive, sendPlacementRequests } from './_helpers';
 import { AnimatedModal, EmptyState } from '../../_shared/components';
 import { constants } from '../../_shared/constants';
 import { arrayHasData, isEmpty } from '../../_shared/services';
-import { GeneralPlacementRequest } from '../../_shared/letters';
+import {
+  GeneralPlacementRequest,
+  SpecialRequestLetter
+} from '../../_shared/letters';
 
 type Props = {
   dataToShow: Array<{}>,
@@ -169,7 +172,7 @@ class CompanyList extends Component<Props> {
   renderLetter() {
     return (
       <div className="letter-hidden">
-        <GeneralPlacementRequest ref={this.generalLetterRef} />
+        <SpecialRequestLetter ref={this.generalLetterRef} />
       </div>
     );
   }

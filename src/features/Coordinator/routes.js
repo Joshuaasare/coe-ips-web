@@ -28,15 +28,15 @@ export default () => {
       showInMenu: true,
       component: Students,
       path: '/coordinator/students'
+    },
+    {
+      title: 'Placement',
+      icon: '',
+      isExact: true,
+      showInMenu: true,
+      component: Placement,
+      path: '/coordinator/placement'
     }
-    // {
-    //   title: 'Placement',
-    //   icon: '',
-    //   isExact: true,
-    //   showInMenu: true,
-    //   component: Placement,
-    //   path: '/coordinator/placement'
-    // }
   ];
   return routes;
 };

@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-10 10:52:03
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-02-14 10:38:26
+ * @Last Modified time: 2020-03-10 02:47:02
  */
 import React, { useState, useEffect } from 'react';
 import { Form } from 'semantic-ui-react';
@@ -69,7 +69,7 @@ const LocationWrapper = (props: Props) => {
             }
             size="large"
             search
-            className="stud-reg__select"
+            className="stud-reg__select location-select"
             onSearchChange={onSearchChange}
             placeholder="Search Location"
             options={places}
