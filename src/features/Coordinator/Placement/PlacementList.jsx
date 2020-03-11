@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-22 16:28:26
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-11 06:45:56
+ * @Last Modified time: 2020-03-11 09:56:39
  *
  * This component list out the companies with slots in the current page of the hoc
  * It also handles the placement logic
@@ -26,6 +26,7 @@ class PlacementList extends Component<Props> {
   state = {
     placementData: [],
     studentOptions: [],
+    combinedStudentOptions: [],
     loading: false,
     itemsSelected: [],
     confirmPlacement: false,
@@ -193,6 +194,15 @@ class PlacementList extends Component<Props> {
   };
 
   initPageData() {
+    let allPlacedStudents = [];
+    this.props.dataToShow.map(company => {
+      const placedStudents = company.students.map(student => {
+        return student.user_id;
+      });
+      allPlacedStudents = [...allPlacedStudents, ...placedStudents];
+      return null;
+    });
+
     const placementData = this.props.dataToShow.map(company => {
       const placedStudents = company.students.map(student => {
         return student.user_id;
@@ -210,8 +220,14 @@ class PlacementList extends Component<Props> {
         };
       });
 
-      const filteredOptions = fullOptions.filter(
+      const initialOptions = fullOptions.filter(
         student => !student.companyId || placedStudents.includes(student.value)
+      );
+
+      const filteredOptions = fullOptions.filter(
+        student =>
+          (student.companyId && allPlacedStudents.includes(student.value)) ||
+          !student.companyId
       );
 
       return {
@@ -230,15 +246,15 @@ class PlacementList extends Component<Props> {
         lat: company.lat,
         lng: company.lng,
         students: placedStudents,
-        studentOptions: filteredOptions,
-        fullOptions
+        studentOptions: initialOptions,
+        filteredOptions
       };
     });
 
     this.setState({
       placementData,
       studentOptions: placementData.map(company => {
-        return company.fullOptions;
+        return company.filteredOptions;
       }),
       loading: false
     });
@@ -260,6 +276,7 @@ class PlacementList extends Component<Props> {
   handleStudentPlaced = (students, companyIndex, callback) => {
     const { placementData, studentOptions } = this.state;
     let studs = [...students];
+
     const newPlacementData = placementData.map((company, index) => {
       if (
         index !== companyIndex &&
