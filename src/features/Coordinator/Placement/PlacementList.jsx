@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-22 16:28:26
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-10 13:04:06
+ * @Last Modified time: 2020-03-11 05:34:35
  *
  * This component list out the companies with slots in the current page of the hoc
  * It also handles the placement logic
@@ -139,7 +139,7 @@ class PlacementList extends Component<Props> {
       let slotIndex = 0;
 
       const candidateStudents = company.studentOptions.filter(
-        student => student.distance < 6
+        student => student.distance < 6 && !student.companyId
       );
 
       while (slots !== 0 && candidateStudents[slotIndex]) {
@@ -205,7 +205,8 @@ class PlacementList extends Component<Props> {
           distance: student.distance,
           text: `${student.surname.toUpperCase()},  ${changeCase.capitalCase(
             student.other_names
-          )} - ${student.address} - ${parseInt(student.distance, 10)}km`
+          )} - ${student.address} - ${parseInt(student.distance, 10)}km`,
+          companyId: student.company_id
         };
       });
 
