@@ -6,12 +6,12 @@
  */
 
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
+// import { reducer as formReducer } from 'redux-form';
 import UserReducer from './user_reducer';
 import RefReducer from './ref_reducer';
 
 export default combineReducers({
   user: UserReducer,
-  refs: RefReducer,
-  form: formReducer,
+  refs: RefReducer
+  // form: formReducer,
 });

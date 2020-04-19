@@ -1,3 +1,9 @@
+/*
+ * @Author: Joshua Asare
+ * @Date: 2019-07-19 09:59:00
+ * @Last Modified by:   Joshua Asare
+ * @Last Modified time: 2020-04-19 09:59:00
+ */
 import { getSecureAxiosInstance } from '.';
 import { constants } from '../constants';
 import { processErrorResponse } from './errorService';
@@ -33,7 +39,6 @@ export async function apiGet(
     const response = await axiosSecure.get(url);
     return { data: response.data.data };
   } catch (err) {
-    console.log('err', err);
     return processErrorResponse(err, description);
   }
 }

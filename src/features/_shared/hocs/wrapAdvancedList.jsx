@@ -1,3 +1,11 @@
+/*
+ * @Author: Joshua Asare
+ * @Date: 2020-01-19 10:00:05
+ * @Last Modified by: Joshua Asare
+ * @Last Modified time: 2020-04-19 10:00:54
+ *
+ * Higher Order Component to wrap list of students, companies and placements
+ */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from 'react';
 import { Input } from 'semantic-ui-react';

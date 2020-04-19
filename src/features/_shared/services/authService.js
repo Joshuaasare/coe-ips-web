@@ -1,3 +1,9 @@
+/*
+ * @Author: Joshua Asare
+ * @Date: 2019-08-19 09:58:46
+ * @Last Modified by: Joshua Asare
+ * @Last Modified time: 2020-04-19 15:51:43
+ */
 import axios from 'axios';
 import sjcl from 'sjcl';
 import { constants } from '../constants';
@@ -5,8 +11,8 @@ import { readFromWebStorage, saveToWebStorage, deleteFromWebStorage } from '.';
 import { processErrorResponse } from './errorService';
 import { apiGet } from './apiService';
 
-export async function getSecureAxiosInstance(service) {
-  function instance(token) {
+export async function getSecureAxiosInstance(service: string) {
+  function instance(token: string) {
     return axios.create({
       baseURL: service,
       headers: { Authorization: `Bearer ${token}` }

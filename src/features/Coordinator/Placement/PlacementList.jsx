@@ -2,7 +2,7 @@
  * @Author: Joshua Asare
  * @Date: 2020-02-22 16:28:26
  * @Last Modified by: Joshua Asare
- * @Last Modified time: 2020-03-11 10:49:16
+ * @Last Modified time: 2020-04-19 10:03:53
  *
  * This component list out the companies with slots in the current page of the hoc
  * It also handles the placement logic
@@ -26,7 +26,6 @@ class PlacementList extends Component<Props> {
   state = {
     placementData: [],
     studentOptions: [],
-    combinedStudentOptions: [],
     loading: false,
     itemsSelected: [],
     confirmPlacement: false,

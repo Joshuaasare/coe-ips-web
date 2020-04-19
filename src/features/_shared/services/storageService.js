@@ -1,3 +1,9 @@
+/*
+ * @Author: Joshua Asare
+ * @Date: 2019-04-19 09:57:49
+ * @Last Modified by: Joshua Asare
+ * @Last Modified time: 2020-04-19 09:58:10
+ */
 /**
  * .................................... WEBSTORAGE ........................................
  */
@@ -18,7 +24,7 @@ export function readFromWebStorage(key: string) {
  */
 export function multiReadFromWebStorage(
   array: Array<Object>,
-  returnAsObject?: boolean = false,
+  returnAsObject?: boolean = false
 ) {
   const values = [];
   const keyValue = {};

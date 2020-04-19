@@ -1,5 +1,3 @@
-import { getRandomInt } from './services/utilities';
-
 export const selectionOptions = {
   DEPARTMENTS: [
     { text: 'No filter', value: 0 },

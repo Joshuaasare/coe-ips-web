@@ -4,5 +4,5 @@ export type routeType = {
   component: ?any,
   path: string,
   subcomponents: ?Array<Object<routeType>>,
-  privileges: ?Array<string>,
+  privileges: ?Array<string>
 };
