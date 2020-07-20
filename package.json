@@ -9,7 +9,7 @@
     "firebase": "^7.14.1",
     "flow-bin": "^0.112.0",
     "history": "^4.10.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-css-transition-replace": "^4.0.2",
